@@ -10,11 +10,21 @@ async def addRole(payload, guild, rolename):
     member = discord.utils.find(lambda m: m.id == payload.user_id, guild.members)
     await member.add_roles(role)
 
+
 @client.event
 async def on_ready():
     print(f'{client.user} has connected to Discord!')
-    # channel = client.get_channel(726554620377169950)
-    # await channel.send('hello, les regles, blabla') # mettre le message des regles
+    channel = client.get_channel(726554620377169950)
+    msg = await channel.fetch_message(726611125252128768)
+    await msg.edit(content="hello, les regles, blabla \n"
+                           "Voici les rôles : \n"
+                           ":man_teacher: : Prof \n"
+                           ":mortar_board: : Diplômés \n"
+                           ":three: : 3TC \n"
+                           ":four: : 4TC \n"
+                           ":five: : 5TC \n"
+                           ":regional_indicator_a: : TCA \n"
+                   )  # mettre le message des regles
 
 
 @client.event
@@ -22,6 +32,7 @@ async def on_message(message):
     if not message.author.bot:
         if message.content == "ping":
             await message.channel.send("pong")
+
 
 @client.event
 async def on_raw_reaction_add(payload):
