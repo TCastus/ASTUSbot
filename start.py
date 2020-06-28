@@ -24,6 +24,7 @@ async def on_ready():
                            ":four: : 4TC \n"
                            ":five: : 5TC \n"
                            ":regional_indicator_a: : TCA \n"
+                           ":new: : Futur TC"
                    )  # mettre le message des regles
 
 
@@ -44,12 +45,15 @@ async def on_raw_reaction_add(payload):
         if payload.emoji.name == '3️⃣':
             # print("3TC")
             await addRole(payload, guild, "3 TC")
+            await addRole(payload, guild, "Student")
         elif payload.emoji.name == '4️⃣':
             # print("4TC")
             await addRole(payload, guild, "4 TC")
+            await addRole(payload, guild, "Student")
         elif payload.emoji.name == '5️⃣':
             # print("5TC")
             await addRole(payload, guild, "5 TC")
+            await addRole(payload, guild, "Student")
         elif payload.emoji.name == '🇦':
             # print("TCA")
             await addRole(payload, guild, "TCA")
@@ -59,6 +63,11 @@ async def on_raw_reaction_add(payload):
         elif payload.emoji.name == '🎓':
             # print("Diplomes")
             await addRole(payload, guild, "Diplômés")
+        elif payload.emoji.name == '🆕':
+            # print("Futur TC")
+            await addRole(payload, guild, "Futur TC")
+            await addRole(payload, guild, "Student")
+
 
 
 client.run(TOKEN)
