@@ -1,7 +1,7 @@
 import discord
-import re
+import os
 
-TOKEN = "NzI2NTM0MDUxNjkwOTcxMjE3.XvertQ.LbwYba7ekYRedD0A2nChGGkrH3Y"
+TOKEN = os.getenv("BOT_TOKEN")
 client = discord.Client()
 
 
@@ -12,7 +12,8 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if re.match("test", message.content) and not message.author.bot:
-        await message.channel.send("Bonsoir")
+    if not message.author.bot:
+        if message.content == "ping":
+            await message.channel.send("pong")
 
 client.run(TOKEN)
