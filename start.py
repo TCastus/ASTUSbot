@@ -1,8 +1,11 @@
 import discord
 import os
+import time
 
 TOKEN = os.getenv("BOT_TOKEN")
 client = discord.Client()
+
+PREFIX = "@"
 
 
 async def addRole(payload, guild, rolename):
@@ -33,6 +36,37 @@ async def on_message(message):
     if not message.author.bot:
         if message.content == "ping":
             await message.channel.send("pong")
+
+        if message.content == PREFIX + "newyear":
+
+            student = discord.utils.get(message.guild.roles, name="Student")
+            new3TC = discord.utils.get(message.guild.roles, name="Futur TC")
+            troisTC = discord.utils.get(message.guild.roles, name="3 TC")
+            quatreTC = discord.utils.get(message.guild.roles, name="4 TC")
+            cinqTC = discord.utils.get(message.guild.roles, name="5 TC")
+            diplomes = discord.utils.get(message.guild.roles, name="Diplômés")
+
+            for member in message.guild.members:
+                if new3TC in member.roles:
+                    await member.remove_roles(new3TC)
+                    await member.add_roles(troisTC)
+                elif troisTC in member.roles:
+                    await member.remove_roles(troisTC)
+                    await member.add_roles(quatreTC)
+                elif quatreTC in member.roles:
+                    await member.remove_roles(quatreTC)
+                    await member.add_roles(cinqTC)
+                elif cinqTC in member.roles:
+                    await member.remove_roles(cinqTC, student)
+                    await member.add_roles(diplomes)
+
+            await message.channel.send("Changement des rôles :) : \n "
+                                       " - les Futur sont maintenant des 3TC \n"
+                                       " - les 3TC sont maintenant des 4TC \n"
+                                       " - les 4TC sont maintenant des 5TC \n"
+                                       " - les 5TC sont maintenant des Diplômés \n"
+                                       )
+
 
 
 @client.event
@@ -67,7 +101,6 @@ async def on_raw_reaction_add(payload):
             # print("Futur TC")
             await addRole(payload, guild, "Futur TC")
             await addRole(payload, guild, "Student")
-
 
 
 client.run(TOKEN)
