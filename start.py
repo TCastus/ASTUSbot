@@ -34,17 +34,19 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if not message.author.bot:
+
+        student = discord.utils.get(message.guild.roles, name="Student")
+        new3TC = discord.utils.get(message.guild.roles, name="Futur TC")
+        troisTC = discord.utils.get(message.guild.roles, name="3 TC")
+        quatreTC = discord.utils.get(message.guild.roles, name="4 TC")
+        cinqTC = discord.utils.get(message.guild.roles, name="5 TC")
+        diplomes = discord.utils.get(message.guild.roles, name="Diplômés")
+        g4 = discord.utils.get(message.guild.roles, name="G4")
+
         if message.content == "ping":
             await message.channel.send("pong")
 
-        if message.content == PREFIX + "newyear":
-
-            student = discord.utils.get(message.guild.roles, name="Student")
-            new3TC = discord.utils.get(message.guild.roles, name="Futur TC")
-            troisTC = discord.utils.get(message.guild.roles, name="3 TC")
-            quatreTC = discord.utils.get(message.guild.roles, name="4 TC")
-            cinqTC = discord.utils.get(message.guild.roles, name="5 TC")
-            diplomes = discord.utils.get(message.guild.roles, name="Diplômés")
+        if message.content == PREFIX + "newyear" and g4 in message.author.roles:
 
             for member in message.guild.members:
                 if new3TC in member.roles:
@@ -66,6 +68,9 @@ async def on_message(message):
                                        " - les 4TC sont maintenant des 5TC \n"
                                        " - les 5TC sont maintenant des Diplômés \n"
                                        )
+
+        else:
+            await message.channel.send("Tu n'as pas le droit d'exécuter cette commande")
 
 
 
