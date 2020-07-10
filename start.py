@@ -230,9 +230,25 @@ async def on_message(message):
 
                     elif subject == "rdp":
                         await message.channel.send("Le RDP : \n"
-                                                   "Voici de l'aide sur TChelp :"
+                                                   "Voici de l'aide sur TChelp : \n"
                                                    "https://github.com/TCastus/TChelp/blob/master/guides/4"
                                                    "-ConnexionDistanceBureauVirtuel.md")
+
+                    elif subject == "vpn":
+                        await message.channel.send("Le vpn : \n"
+                                                   "Voici de l'aide sur TChelp : \n"
+                                                   "https://github.com/TCastus/TChelp/blob/master/guides/2-VPN.md")
+
+                    elif subject == "terminal":
+                        await message.channel.send("Le terminal : \n"
+                                                   "Voici de l'aide sur TChelp : \n"
+                                                   "https://github.com/TCastus/TChelp/blob/master/guides/1-Terminal.md")
+
+                    elif subject in ["git", "github"]:
+                        await message.channel.send("Git / GitHub : \n"
+                                                   "Voici de l'aide sur TChelp : \n"
+                                                   "https://github.com/TCastus/TChelp/blob/master/Git_GitHub"
+                                                   "/Presentation.md")
 
                     elif subject == "tsa":
                         await message.channel.send("TSA... :sweat_smile: \n"
@@ -250,6 +266,8 @@ async def on_message(message):
                                                   " - SSH \n"
                                                   " - RDP \n"
                                                   " - VPN \n"
+                                                  " - terminal \n"
+                                                  " - git ou GitHub \n"
                                             )
 
                         await message.channel.send(embed=helpEmbed)
