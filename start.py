@@ -2,6 +2,7 @@ import discord
 import os
 import datetime
 import embed
+import perms
 
 TOKEN = os.getenv("BOT_TOKEN")
 client = discord.Client()
@@ -107,42 +108,9 @@ if __name__ == '__main__':
                     g4Txt = discord.utils.get(message.guild.channels, id=726554977753104464)
                     g4Vocal = discord.utils.get(message.guild.channels, id=726555448739758151)
 
-                    # permissions
-                    g4TxtPerms = discord.PermissionOverwrite(
-                        create_instant_invite=False,
-                        read_messages=True,
-                        send_messages=True,
-                        manage_channels=True,
-                        add_reactions=True,
-                        send_tts_messages=False,
-                        manage_messages=True,
-                        embed_links=True,
-                        attach_files=True,
-                        read_message_history=True,
-                        mention_everyone=True,
-                        external_emojis=True,
-                        manage_roles=False,
-                        manage_webhooks=False
-                    )
-
-                    g4VocalPerms = discord.PermissionOverwrite(
-                        create_instant_invite=False,
-                        manage_roles=False,
-                        manage_webhooks=False,
-                        manage_channels=True,
-                        priority_speaker=False,
-                        stream=True,
-                        view_channel=True,
-                        connect=True,
-                        speak=True,
-                        mute_members=True,
-                        use_voice_activation=True
-                    )
-                    g4VocalPerms.stream = True
-
                     # attribution des roles aux channels
-                    await g4Txt.set_permissions(newG4, overwrite=g4TxtPerms)
-                    await g4Vocal.set_permissions(newG4, overwrite=g4VocalPerms)
+                    await g4Txt.set_permissions(newG4, overwrite=perms.g4TxtPerms)
+                    await g4Vocal.set_permissions(newG4, overwrite=perms.g4VocalPerms)
 
                     for member in message.guild.members:
                         if g4 in member.roles:
@@ -169,6 +137,7 @@ if __name__ == '__main__':
 
                 elif message.content[1:].lower() == "pasation" and g4 in message.author.roles:
                     await message.channel.send("Essaie plutot ``" + PREFIX + "passation``")
+
                 elif message.content[1:].lower() == "new year" and g4 in message.author.roles:
                     await message.channel.send("Essaie plutot ``" + PREFIX + "newyear``")
 
