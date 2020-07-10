@@ -61,6 +61,12 @@ async def on_message(message):
         if message.content.lower() == "ping":
             await message.channel.send("pong")
 
+        if message.content.lower().replace(" ", "") == "astusbot":
+            await message.channel.send("Le bot de l'astus pour te servir, tu as besoin de savoir ce que tu peux "
+                                       "me demander ? tape ``" + PREFIX + "help `` pour avoir une liste de ce que"
+                                       "je sais faire. \n Sinon ``" + PREFIX + "help [SSH|RDP|...]`` te permet"
+                                       "d'avoir de l'aide sur un sujet en particulier :wink:")
+
         if message.content[0] == PREFIX:
             if message.content[1:].lower() == "newyear" and g4 in message.author.roles:
 
@@ -163,12 +169,28 @@ async def on_message(message):
             elif message.content[1:].lower() == "new year" and g4 in message.author.roles:
                 await message.channel.send("Essaie plutot ``" + PREFIX + "newyear``")
 
-            elif message.content[1:].lower() == "help":
-                if g4 in message.author.roles:
+            elif message.content.split(" ")[0].lower()[1:] == "help":
+                try:
+                    subject = message.content.split(" ")[1].lower()
+                except IndexError:
+                    subject = None
+
+                if g4 in message.author.roles and not subject:
                     await message.channel.send(
                         "Je ne sais pas encore de donner de l'aide. Mais j'apprends au plus vite")
                 else:
-                    await message.channel.send("Je pourrais bientot te donner de l'aide")
+                    if subject == "ssh":
+                        await message.channel.send("Le SSH ! \n"
+                                                   "Voici de l'aide sur le repo TChelp : "
+                                                   "https://github.com/TCastus/TChelp/blob/master/guides/3"
+                                                   "-ConnexionDistanteSSH.md")
+                    elif subject == "rdp":
+                        await message.channel.send("Le RDP : \n"
+                                                   "Voici de l'aide sur TChelp :"
+                                                   "https://github.com/TCastus/TChelp/blob/master/guides/4"
+                                                   "-ConnexionDistanceBureauVirtuel.md")
+                    else:
+                        await message.channel.send("Désolé, je ne sais pas te donner de l'aide sur ce sujet...")
 
             else:
                 await message.channel.send("Je ne commprend pas cette commande... \n"
