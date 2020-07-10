@@ -3,6 +3,10 @@ import start
 
 PREFIX = start.PREFIX
 
+###############
+# G4 Help     #
+###############
+
 g4helpEmbed = discord.Embed(title="Commande du G4",
                             color=0x2e86c1,
                             description="Tu fait parti du G4 et tu as de grande responsabilitées"
@@ -23,6 +27,10 @@ g4helpEmbed.add_field(name=PREFIX + "help nog4help",
                       value="Affiche l'help standard",
                       inline=False)
 
+
+###############
+# Help SSH    #
+###############
 
 sshEmbed = discord.Embed(title="SSH",
                          color=0xEE8700,
@@ -49,6 +57,9 @@ sshEmbed.add_field(name="Tuto",
                    inline=False
                    )
 
+###############
+# Help        #
+###############
 
 helpEmbed = discord.Embed(title="Help",
                           color=0x2e86c1,

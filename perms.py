@@ -26,6 +26,5 @@ g4VocalPerms = discord.PermissionOverwrite(create_instant_invite=False,
                                            connect=True,
                                            speak=True,
                                            mute_members=True,
-                                           use_voice_activation=True,
-                                           steam=True
+                                           use_voice_activation=True
                                            )
