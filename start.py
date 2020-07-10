@@ -5,7 +5,7 @@ import datetime
 TOKEN = os.getenv("BOT_TOKEN")
 client = discord.Client()
 
-PREFIX = "@"
+PREFIX = "&"
 
 
 async def addRole(payload, guild, rolename):
@@ -19,7 +19,14 @@ async def on_ready():
     print(f'{client.user} has connected to Discord!')
     channel = client.get_channel(726554620377169950)
     msg = await channel.fetch_message(726611125252128768)
-    await msg.edit(content="hello, les regles, blabla \n"
+    await msg.edit(content="Bonjour à toi, \n \n"
+                           "Bienvenue sur le serveur de l'ASTUS, endroit d'échange pour tous les TC. Nous "
+                           "comptons sur toi pour le plus grand respect de chacun et la bienveillance de tous \n"
+                           "Nous retrouvons des profs, les TC actuels, les diplômés et les nouveaux \n \n"
+                           "Des rôles sont mis en place pour identifier tout le monde. Tu peux choisir le tien en "
+                           "cliquant sur la bonne réaction. :warning: Petite particularité pour les TCA, il faut "
+                           "d'abord choisir TCA puis le niveau qui vous correspond, sinon tu n'auras pas le rôle "
+                           "TCA :warning:\n \n"
                            "Voici les rôles : \n"
                            ":man_teacher: : Prof \n"
                            ":mortar_board: : Diplômés \n"
