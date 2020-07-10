@@ -64,7 +64,8 @@ async def on_message(message):
         if message.content.lower().replace(" ", "") == "astusbot":
             await message.channel.send("Le bot de l'astus pour te servir, tu as besoin de savoir ce que tu peux "
                                        "me demander ? tape ``" + PREFIX + "help `` pour avoir une liste de ce que"
-                                       "je sais faire. \n Sinon ``" + PREFIX + "help [SSH|RDP|...]`` te permet"
+                                       "je sais faire. \n"
+                                       "Sinon ``" + PREFIX + "help [SSH|RDP|...]`` te permet"
                                        "d'avoir de l'aide sur un sujet en particulier :wink:")
 
         if message.content[0] == PREFIX:
@@ -176,21 +177,86 @@ async def on_message(message):
                     subject = None
 
                 if g4 in message.author.roles and not subject:
-                    await message.channel.send(
-                        "Je ne sais pas encore de donner de l'aide. Mais j'apprends au plus vite")
+                    g4Embed = discord.Embed(title="Commande du G4",
+                                            color=0x2e86c1,
+                                            description="Tu fait parti du G4 et tu as de grande responsabilitées"
+                                            )
+
+                    g4Embed.add_field(name=PREFIX + "newyear",
+                                      value="Cette commande est à utiliser quand l'année debute, elle te permet de "
+                                            "passer les rôles des FuturTC à 3TC, 3TC -> 4TC, etc.",
+                                      inline=False)
+
+                    g4Embed.add_field(name=PREFIX + "passation",
+                                      value="Ici, tu supprimer tous les rôles des membres de l'ASTUS."
+                                            "Tu créé un nouveau rôle pour l'ancien G4 afin qu'il soit toujours "
+                                            "en relation avec l'ASTUS et aider la nouvelle ASTUS au mieux",
+                                      inline=False)
+
+                    g4Embed.add_field(name=PREFIX + "help nog4help",
+                                      value="Affiche l'help standard",
+                                      inline=False)
+
+                    await message.channel.send(embed=g4Embed)
+
                 else:
                     if subject == "ssh":
-                        await message.channel.send("Le SSH ! \n"
-                                                   "Voici de l'aide sur le repo TChelp : "
-                                                   "https://github.com/TCastus/TChelp/blob/master/guides/3"
-                                                   "-ConnexionDistanteSSH.md")
+                        sshEmbed = discord.Embed(title="SSH",
+                                                 color=0xEE8700,
+                                                 description="C'est pas très compliqué, la commande à taper dans ton "
+                                                             "terminal est la même indépendamment des OS (Unix, OSX, "
+                                                             "Windows) \n "
+                                                             "Tu peux même utiliser le ssh sur "
+                                                             "[Android](https://play.google.com/store/apps/details?id"
+                                                             "=com.server.auditor.ssh.client&hl=fr) "
+                                                             "et [IOS](https://apps.apple.com/us/app/termius-ssh"
+                                                             "-client/id549039908), "
+                                                             "notament avec Terminus",
+                                                 )
+
+                        sshEmbed.add_field(name="Command",
+                                           value="``ssh [username]@[machine]``",
+                                           inline=False
+                                           )
+
+                        sshEmbed.add_field(name="Tuto",
+                                           value="[Lien vers un tuto du repo TChelp]("
+                                                 "https://github.com/TCastus/TChelp/blob/master/guides/3"
+                                                 "-ConnexionDistanteSSH.md) ",
+                                           inline=False
+                                           )
+
+                        await message.channel.send(embed=sshEmbed)
+
                     elif subject == "rdp":
                         await message.channel.send("Le RDP : \n"
                                                    "Voici de l'aide sur TChelp :"
                                                    "https://github.com/TCastus/TChelp/blob/master/guides/4"
                                                    "-ConnexionDistanceBureauVirtuel.md")
+
+                    elif subject == "tsa":
+                        await message.channel.send("TSA... :sweat_smile: \n"
+                                                   "Je suis vraiment désolé mais je suis dans l'incapacité de te "
+                                                   "donner de l'aide sur ce sujet :no_mouth:")
+
+                    elif not subject or g4 in message.author.roles and subject == "nog4help":
+                        helpEmbed = discord.Embed(title="Help",
+                                                  color=0x2e86c1,
+                                                  description="Message d'aide pour l'utilisation du bot de l'ASTUS")
+
+                        helpEmbed.add_field(name=PREFIX + "help [sujet]",
+                                            value="Affiche ce message \n "
+                                                  "Les sujets peuvent être diverse, en voici une liste : \n"
+                                                  " - SSH \n"
+                                                  " - RDP \n"
+                                                  " - VPN \n"
+                                            )
+
+                        await message.channel.send(embed=helpEmbed)
                     else:
-                        await message.channel.send("Désolé, je ne sais pas te donner de l'aide sur ce sujet...")
+                        await message.channel.send("Désolé, je ne sais pas te donner de l'aide sur ce sujet... \n "
+                                                   "Peut-être que tu trouvera un réponse sur le repo "
+                                                   "[TChelp](https://github.com/TCastus/TChelp) :wink: ")
 
             else:
                 await message.channel.send("Je ne commprend pas cette commande... \n"
