@@ -58,11 +58,11 @@ async def on_message(message):
         ancienRespSite = discord.utils.get(message.guild.roles, name="Ancien Resp Site International")
         respComm = discord.utils.get(message.guild.roles, name="Resp Comm")
 
-        if message.content == "ping":
+        if message.content.lower() == "ping":
             await message.channel.send("pong")
 
-        if message.content[0] == PREFIX and g4 in message.author.roles:
-            if message.content[1:] == "newyear":
+        if message.content[0] == PREFIX:
+            if message.content[1:].lower() == "newyear" and g4 in message.author.roles:
 
                 for member in message.guild.members:
                     if new3TC in member.roles:
@@ -85,7 +85,7 @@ async def on_message(message):
                                            " - les 5TC sont maintenant des Diplômés \n"
                                            )
 
-            elif message.content[1:] == "passation" and g4 in message.author.roles:
+            elif message.content[1:].lower() == "passation" and g4 in message.author.roles:
 
                 # Creation du role
                 newG4 = await message.guild.create_role(
@@ -158,8 +158,21 @@ async def on_message(message):
 
                 await message.channel.send("Passation faite")
 
-        else:
-            await message.channel.send("Tu n'as pas le droit d'exécuter cette commande")
+            elif message.content[1:].lower() == "pasation" and g4 in message.author.roles:
+                await message.channel.send("Essaie plutot ``" + PREFIX + "passation``")
+            elif message.content[1:].lower() == "new year" and g4 in message.author.roles:
+                await message.channel.send("Essaie plutot ``" + PREFIX + "newyear``")
+
+            elif message.content[1:].lower() == "help":
+                if g4 in message.author.roles:
+                    await message.channel.send(
+                        "Je ne sais pas encore de donner de l'aide. Mais j'apprends au plus vite")
+                else:
+                    await message.channel.send("Je pourrais bientot te donner de l'aide")
+
+            else:
+                await message.channel.send("Je ne commprend pas cette commande... \n"
+                                           "Un `` " + PREFIX + "help `` peut t'aider")
 
 
 @client.event
