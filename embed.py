@@ -143,3 +143,32 @@ rdpEmbed.add_field(name="Tuto",
                          "https://github.com/TCastus/TChelp/blob/master/guides/4-ConnexionDistanceBureauVirtuel.md)",
                    inline=False
                    )
+
+#################
+# Help Terminal #
+#################
+
+terminalEmbed = discord.Embed(title="Terminal",
+                      color=0xd68910,
+                      description="",
+                      )
+
+terminalEmbed.add_field(name="Quèsaco ?",
+                value="C'est une interface sans éléments graphique qui permet d'interagir avec la machine."
+                      "L'interaction ce fait à l'aide de ligne de commande pour executer different logiciels, "
+                      "parcouris des dossiers... \n \n"
+                      "Pour plus d'info, un tour sur "
+                      "[wikipedia](https://fr.wikipedia.org/wiki/Interface_en_ligne_de_commande)",
+                inline=False
+                )
+
+terminalEmbed.add_field(name="Commande",
+                value="{description de la commande}",
+                inline=False
+                )
+
+terminalEmbed.add_field(name="Tuto",
+                value="[Lien vers un tuto du repo TChelp]("
+                      "https://github.com/TCastus/TChelp/blob/master/guides/1-Terminal.md)",
+                inline=False
+                )

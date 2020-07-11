@@ -160,11 +160,8 @@ if __name__ == '__main__':
                         elif subject == "vpn":
                             await message.channel.send(embed=embed.vpnEmbed)
 
-                        elif subject == "terminal":
-                            await message.channel.send("Le terminal : \n"
-                                                       "Voici de l'aide sur TChelp : \n"
-                                                       "https://github.com/TCastus/TChelp/blob/master/guides/1"
-                                                       "-Terminal.md")
+                        elif subject in ["terminal", "cli", "ilc"]:
+                            await message.channel.send(embed=embed.terminalEmbed)
 
                         elif subject in ["git", "github"]:
                             await message.channel.send("Git / GitHub : \n"
