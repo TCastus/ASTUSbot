@@ -287,10 +287,12 @@ if __name__ == '__main__':
                                 "channel, je t'explique tout ca rapidement :wink:")
 
             if new_role.name == "G4":
-                await chan.send("Un grand pouvoir inplique de grande responsabilitées")
+                await chan.send("Un grand pouvoir inplique de grande responsabilitées. C'est grave a toi que l'astus "
+                                "peut tourner. Tu as acces a quelque commande de gestion du serveur (plus d'info "
+                                "avec ``" + PREFIX + "help`` sur le serveur")
 
             if new_role.name == "Team Event":
-                await chan.send("C'est toi qui va nous regaler avec tous pleins d'Event")
+                await chan.send("C'est toi qui va nous régaler avec tous pleins d'Event")
 
             if new_role.name == "Resp Team Event":
                 await chan.send("Resp de la team Event  ! ")
@@ -302,9 +304,13 @@ if __name__ == '__main__':
                 await chan.send("Resp de la team Entreprise  ! ")
 
             if new_role.name == "Resp Site International":
-                await chan.send("Resp du site  ! ")
+                await chan.send("Resp du site ! \n"
+                                "C'est grace a toi que le site peut evoluer, demande a ce qu'on t'ajoute au"
+                                "repo GitHub :wink:")
 
             if new_role.name == "Resp Comm":
-                await chan.send("Resp comm !")
+                await chan.send("Resp comm ! \n"
+                                "L'ASTUS compte sur toi pour un max de communication. Tu geres la page FB de l'astus."
+                                "Tu fais les annonces et les affiches pour tous les events ")
 
     client.run(TOKEN)
