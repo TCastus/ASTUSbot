@@ -155,10 +155,7 @@ if __name__ == '__main__':
                             await message.channel.send(embed=embed.sshEmbed)
 
                         elif subject == "rdp":
-                            await message.channel.send("Le RDP : \n"
-                                                       "Voici de l'aide sur TChelp : \n"
-                                                       "https://github.com/TCastus/TChelp/blob/master/guides/4"
-                                                       "-ConnexionDistanceBureauVirtuel.md")
+                            await message.channel.send(embed=embed.rdpEmbed)
 
                         elif subject == "vpn":
                             await message.channel.send(embed=embed.vpnEmbed)

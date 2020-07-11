@@ -115,3 +115,31 @@ vpnEmbed.add_field(name="Tuto",
                          "https://github.com/TCastus/TChelp/blob/master/guides/2-VPN.md) ",
                    inline=False
                    )
+
+###############
+# Help RDP #
+###############
+
+rdpEmbed = discord.Embed(title="RDP",
+                         color=0xe74c3c,
+                         description="",
+                         )
+
+rdpEmbed.add_field(name="Quèsaco ?",
+                   value="RDP = Remote Desktop Protocol \n"
+                         "C'est un protocol qui permet de se connecter à un ordinateurs / serveurs à distance avec "
+                         "un environement graphique. \n \n"
+                         "Plus d'info sur [wikipedia](https://fr.wikipedia.org/wiki/Remote_Desktop_Protocol)",
+                   inline=False
+                   )
+
+rdpEmbed.add_field(name="Commande",
+                   value="{description de la commande}",
+                   inline=False
+                   )
+
+rdpEmbed.add_field(name="Tuto",
+                   value="[Lien vers un tuto du repo TChelp]("
+                         "https://github.com/TCastus/TChelp/blob/master/guides/4-ConnexionDistanceBureauVirtuel.md)",
+                   inline=False
+                   )
