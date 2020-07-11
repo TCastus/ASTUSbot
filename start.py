@@ -226,5 +226,13 @@ if __name__ == '__main__':
                 await addRole(payload, guild, "Futur TC")
                 await addRole(payload, guild, "Student")
 
+    @client.event
+    async def on_member_update(before, after):
+        if len(before.roles) < len(after.roles):
+            new_role = next(role for role in after.roles if role not in before.roles)
+            chan = await after.create_dm()
+            if new_role.name == "3 TC":
+                await chan.send("test")
+
 
     client.run(TOKEN)
