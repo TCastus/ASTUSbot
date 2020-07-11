@@ -161,9 +161,7 @@ if __name__ == '__main__':
                                                        "-ConnexionDistanceBureauVirtuel.md")
 
                         elif subject == "vpn":
-                            await message.channel.send("Le vpn : \n"
-                                                       "Voici de l'aide sur TChelp : \n"
-                                                       "https://github.com/TCastus/TChelp/blob/master/guides/2-VPN.md")
+                            await message.channel.send(embed=embed.vpnEmbed)
 
                         elif subject == "terminal":
                             await message.channel.send("Le terminal : \n"

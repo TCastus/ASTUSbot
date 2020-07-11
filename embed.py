@@ -27,7 +27,6 @@ g4helpEmbed.add_field(name=PREFIX + "help nog4help",
                       value="Affiche l'help standard",
                       inline=False)
 
-
 ###############
 # Help SSH    #
 ###############
@@ -47,17 +46,17 @@ sshEmbed.add_field(name="Quèsaco ?",
                    inline=False
                    )
 
-sshEmbed.add_field(name="Command",
+sshEmbed.add_field(name="Commande",
                    value="C'est pas très compliqué, la commande à taper dans ton "
-                          "terminal est la même indépendamment des OS (Unix, OSX, "
-                          "Windows) \n "
-                          "Tu peux même utiliser le ssh sur "
-                          "[Android](https://play.google.com/store/apps/details?id"
-                          "=com.server.auditor.ssh.client&hl=fr) "
-                          "et [IOS](https://apps.apple.com/us/app/termius-ssh"
-                          "-client/id549039908), "
-                          "notament avec Terminus \n \n"
-                          "``ssh [username]@[machine]``",
+                         "terminal est la même indépendamment des OS (Unix, OSX, "
+                         "Windows) \n "
+                         "Tu peux même utiliser le ssh sur "
+                         "[Android](https://play.google.com/store/apps/details?id"
+                         "=com.server.auditor.ssh.client&hl=fr) "
+                         "et [IOS](https://apps.apple.com/us/app/termius-ssh"
+                         "-client/id549039908), "
+                         "notament avec Terminus \n \n"
+                         "``ssh [username]@[machine]``",
                    inline=False
                    )
 
@@ -85,3 +84,34 @@ helpEmbed.add_field(name=PREFIX + "help [sujet]",
                           " - terminal \n"
                           " - git ou GitHub \n"
                     )
+
+###############
+# Help VPN    #
+###############
+
+vpnEmbed = discord.Embed(title="VPN",
+                         color=0x2ecc71,
+                         description="",
+                         )
+
+vpnEmbed.add_field(name="Quèsaco ?",
+                   value="VPN = Virtual Private Network (Réseau virtuel privé) \n"
+                         "Un VPN est un lien direct entre deux ou plusieurs ordinateurs / serveurs distants.\n"
+                         "Son interet est de simuler une connexion locale entre deux machines afin d'acceder "
+                         "aux services, resources distantes. \n \n"
+                         "Pour plus d'info, "
+                         "[wikipedia](https://fr.wikipedia.org/wiki/R%C3%A9seau_priv%C3%A9_virtuel) "
+                         "est ton ami :wink:",
+                   inline=False
+                   )
+
+vpnEmbed.add_field(name="Commande",
+                   value="{description de la commande}",
+                   inline=False
+                   )
+
+vpnEmbed.add_field(name="Tuto",
+                   value="[Lien vers un tuto du repo TChelp]("
+                         "https://github.com/TCastus/TChelp/blob/master/guides/2-VPN.md) ",
+                   inline=False
+                   )

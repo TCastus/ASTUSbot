@@ -1,3 +1,8 @@
+
+###############
+# Help {name} #
+###############
+
 Embed = discord.Embed(title="{name}",
                       color=0xEE8700,
                       description="",
