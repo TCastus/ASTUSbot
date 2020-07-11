@@ -278,5 +278,33 @@ if __name__ == '__main__':
                                 "au mieux"
                                 )
 
+            if new_role.name == "ASTUS":
+                await chan.send("He ba bienvenue a l'ASTUS ! \n"
+                                "Tout d'abord, felicitation a toi pour avoir integrer l'ASTUS :wink: \n"
+                                "Tu as maintenant acces à la categorie ASTUS, tu retrouvera un channel general pour"
+                                "parler avec tout tes p'tits potes de l'ASTUS. Et un channel passation pour parler avec"
+                                "l'ancien G4 de la gestion de l'ASTUS. En fonction de ton rôle, tu ne vois pas certains"
+                                "channel, je t'explique tout ca rapidement :wink:")
+
+            if new_role.name == "G4":
+                await chan.send("Un grand pouvoir inplique de grande responsabilitées")
+
+            if new_role.name == "Team Event":
+                await chan.send("C'est toi qui va nous regaler avec tous pleins d'Event")
+
+            if new_role.name == "Resp Team Event":
+                await chan.send("Resp de la team Event  ! ")
+
+            if new_role.name == "Team Entreprise":
+                await chan.send("C'est toi qui va nous regaler avec tous pleins de rencontre avec des ETS")
+
+            if new_role.name == "Resp Team Entreprise":
+                await chan.send("Resp de la team Entreprise  ! ")
+
+            if new_role.name == "Resp Site International":
+                await chan.send("Resp du site  ! ")
+
+            if new_role.name == "Resp Comm":
+                await chan.send("Resp comm !")
 
     client.run(TOKEN)
