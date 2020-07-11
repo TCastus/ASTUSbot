@@ -168,7 +168,8 @@ if __name__ == '__main__':
                         elif subject == "terminal":
                             await message.channel.send("Le terminal : \n"
                                                        "Voici de l'aide sur TChelp : \n"
-                                                       "https://github.com/TCastus/TChelp/blob/master/guides/1-Terminal.md")
+                                                       "https://github.com/TCastus/TChelp/blob/master/guides/1"
+                                                       "-Terminal.md")
 
                         elif subject in ["git", "github"]:
                             await message.channel.send("Git / GitHub : \n"
@@ -241,7 +242,7 @@ if __name__ == '__main__':
 
             if new_role.name == "5 TC":
                 await chan.send("Salut, tu as le rôle 5TC sur le serveur de l'astus, ce role te permet de voir la"
-                                "catégorie 3TC et de discuter avec tes camarades")
+                                "catégorie 5TC et de discuter avec tes camarades")
 
             if new_role.name == "Futur TC":
                 await chan.send("Salut, et bienvenue à toi Futur TC. Tu as acces à la categorie Integration du serveur."

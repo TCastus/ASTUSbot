@@ -34,19 +34,30 @@ g4helpEmbed.add_field(name=PREFIX + "help nog4help",
 
 sshEmbed = discord.Embed(title="SSH",
                          color=0xEE8700,
-                         description="C'est pas très compliqué, la commande à taper dans ton "
-                                     "terminal est la même indépendamment des OS (Unix, OSX, "
-                                     "Windows) \n "
-                                     "Tu peux même utiliser le ssh sur "
-                                     "[Android](https://play.google.com/store/apps/details?id"
-                                     "=com.server.auditor.ssh.client&hl=fr) "
-                                     "et [IOS](https://apps.apple.com/us/app/termius-ssh"
-                                     "-client/id549039908), "
-                                     "notament avec Terminus",
+                         description="",
                          )
 
+sshEmbed.add_field(name="Quèsaco ?",
+                   value="SSH = Secure Shell \n"
+                         "C'est un protocole de communication sécurisé qui permet d'avoir un shell sur une machine "
+                         "distante. Des clés de chiffrement sont échanger en début de connexion. \n"
+                         "Le SSH à été créé pour remplacer des protocoles non sécurisé comme "
+                         "[telnet](https://fr.wikipedia.org/wiki/Telnet) \n \n"
+                         "Pour plus d'info, va sur [wikipedia](https://fr.wikipedia.org/wiki/Secure_Shell)",
+                   inline=False
+                   )
+
 sshEmbed.add_field(name="Command",
-                   value="``ssh [username]@[machine]``",
+                   value="C'est pas très compliqué, la commande à taper dans ton "
+                          "terminal est la même indépendamment des OS (Unix, OSX, "
+                          "Windows) \n "
+                          "Tu peux même utiliser le ssh sur "
+                          "[Android](https://play.google.com/store/apps/details?id"
+                          "=com.server.auditor.ssh.client&hl=fr) "
+                          "et [IOS](https://apps.apple.com/us/app/termius-ssh"
+                          "-client/id549039908), "
+                          "notament avec Terminus \n \n"
+                          "``ssh [username]@[machine]``",
                    inline=False
                    )
 
