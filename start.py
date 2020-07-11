@@ -151,7 +151,7 @@ if __name__ == '__main__':
                             await member.remove_roles(teamEvent)
                         if teamEts in member.roles:
                             await member.remove_roles(teamEts)
-                    await message.channel.send("Les anciens membres de l'astus n'en fon plus parti")
+                    await message.channel.send("Les anciens membres de l'ASTUS ne font plus parti de l'ASTUS")
                     passationStatus += 1
                     await message.channel.send("Qui sont les nouveau membres du G4 ? ")
 
@@ -169,6 +169,9 @@ if __name__ == '__main__':
 
                     if g4 in message.author.roles and not subject:
                         await message.channel.send(embed=embed.g4helpEmbed)
+
+                    elif not subject or (g4 in message.author.roles and subject == "nog4help"):
+                        await message.channel.send(embed=embed.helpEmbed)
 
                     else:
                         if subject == "ssh":
@@ -201,8 +204,6 @@ if __name__ == '__main__':
                                                        "Je suis vraiment désolé mais je suis dans l'incapacité de te "
                                                        "donner de l'aide sur ce sujet :no_mouth:")
 
-                        elif not subject or g4 in message.author.roles and subject == "nog4help":
-                            await message.channel.send(embed=embed.helpEmbed)
                         else:
                             await message.channel.send("Désolé, je ne sais pas te donner de l'aide sur ce sujet... \n "
                                                        "Peut-être que tu trouvera un réponse sur le repo "
