@@ -20,7 +20,8 @@ g4helpEmbed.add_field(name=PREFIX + "newyear",
 g4helpEmbed.add_field(name=PREFIX + "passation",
                       value="Ici, tu supprimer tous les rôles des membres de l'ASTUS."
                             "Tu créé un nouveau rôle pour l'ancien G4 afin qu'il soit toujours "
-                            "en relation avec l'ASTUS et aider la nouvelle ASTUS au mieux",
+                            "en relation avec l'ASTUS et aider la nouvelle ASTUS au mieux \n"
+                            "Tu seras ensuite invité a mentionner les nouveaux membres en fonction de leurs rôles",
                       inline=False)
 
 g4helpEmbed.add_field(name=PREFIX + "help nog4help",
