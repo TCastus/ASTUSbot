@@ -155,20 +155,16 @@ if __name__ == '__main__':
                             await message.channel.send(embed=embed.sshEmbed)
 
                         elif subject == "rdp":
-                            await message.channel.send("Le RDP : \n"
-                                                       "Voici de l'aide sur TChelp : \n"
-                                                       "https://github.com/TCastus/TChelp/blob/master/guides/4"
-                                                       "-ConnexionDistanceBureauVirtuel.md")
+                            await message.channel.send(embed=embed.rdpEmbed)
 
                         elif subject == "vpn":
-                            await message.channel.send("Le vpn : \n"
-                                                       "Voici de l'aide sur TChelp : \n"
-                                                       "https://github.com/TCastus/TChelp/blob/master/guides/2-VPN.md")
+                            await message.channel.send(embed=embed.vpnEmbed)
 
                         elif subject == "terminal":
                             await message.channel.send("Le terminal : \n"
                                                        "Voici de l'aide sur TChelp : \n"
-                                                       "https://github.com/TCastus/TChelp/blob/master/guides/1-Terminal.md")
+                                                       "https://github.com/TCastus/TChelp/blob/master/guides/1"
+                                                       "-Terminal.md")
 
                         elif subject in ["git", "github"]:
                             await message.channel.send("Git / GitHub : \n"
@@ -224,7 +220,87 @@ if __name__ == '__main__':
             elif payload.emoji.name == '🆕':
                 # print("Futur TC")
                 await addRole(payload, guild, "Futur TC")
-                await addRole(payload, guild, "Student")
+                # await addRole(payload, guild, "Student")
 
+    @client.event
+    async def on_member_update(before, after):
+        if len(before.roles) < len(after.roles):
+            new_role = next(role for role in after.roles if role not in before.roles)
+            chan = await after.create_dm()
+            if new_role.name == "3 TC":
+                await chan.send("Salut, tu as le rôle 3TC sur le serveur de l'astus, ce role te permet de voir la"
+                                "catégorie 3TC et de discuter avec tes camarades")
+
+            if new_role.name == "4 TC":
+                await chan.send("Salut, tu as le rôle 4TC sur le serveur de l'astus, ce role te permet de voir la"
+                                "catégorie 4TC et de discuter avec tes camarades")
+
+            if new_role.name == "5 TC":
+                await chan.send("Salut, tu as le rôle 5TC sur le serveur de l'astus, ce role te permet de voir la"
+                                "catégorie 5TC et de discuter avec tes camarades")
+
+            if new_role.name == "Futur TC":
+                await chan.send("Salut, et bienvenue à toi Futur TC. Tu as acces à la categorie Integration du serveur."
+                                "Elle te permet de discuter avec tes futurs camarades et avec les TC actuels")
+
+            if new_role.name == "Student":
+                await chan.send("Bienvenue sur le serveur de l'ASTUS, tu trouveras plusieurs categorie sur le "
+                                "serveur. \n \n"
+                                " - General, ici des annonces de l'ASTUS seront faites, vous pouvez voir un channel "
+                                "``gestion-music`` qui permet d'utiliser l'enceinte de l'ASTUS \n"
+                                " - Un Boulot / Satge, permet de mettre en relation des dipômés avec les TC actuels "
+                                "afinde trouver un stage ou un emploi pour les 5TC qui vont avoir leur diplôme \n"
+                                " - Garder le contact, permet de discuter avec des diplômés de leur parcour \n"
+                                " - L'ASTUS, ici tu peux t'exprimer librement sans prof et faire toute l'humour que "
+                                "tu veux \n"
+                                " - Integration, soit respectueux avec les nouveaux et aide les a vivre au mieux sa "
+                                "nouvelle vie au depart :wink:"
+                                )
+
+            if new_role.name in ["Prof", "Diplômés"]:
+                await chan.send("Madame, Monsieur, \n"
+                                "Bienvenue sur le serveur de l'ASTUS, vous trouverez plusieurs categorie sur le "
+                                "serveur. \n \n"
+                                " - General, ici des annonces de l'ASTUS seront faites, vous pouvez voir un channel "
+                                "``gestion-music`` qui permet d'utiliser l'enceinte de l'ASTUS \n"
+                                " - Un Boulot / Satge, permet de mettre en relation des dipômés avec les TC actuels "
+                                "afinde trouver un stage ou un emploi pour les 5TC qui vont avoir leur diplôme \n"
+                                " - Garder le contact, permet de discuter avec des diplômés de leur parcour"
+                                )
+
+            if new_role.name == "Admin Groupe de Travail":
+                await chan.send("Tu es un admin des groupes de travail mis en place par l'ASTUS, tu peut creer, "
+                                "supprimer des channels dans la categorie groupe de travail afin de les annimer "
+                                "au mieux"
+                                )
+
+            if new_role.name == "ASTUS":
+                await chan.send("He ba bienvenue a l'ASTUS ! \n"
+                                "Tout d'abord, felicitation a toi pour avoir integrer l'ASTUS :wink: \n"
+                                "Tu as maintenant acces à la categorie ASTUS, tu retrouvera un channel general pour"
+                                "parler avec tout tes p'tits potes de l'ASTUS. Et un channel passation pour parler avec"
+                                "l'ancien G4 de la gestion de l'ASTUS. En fonction de ton rôle, tu ne vois pas certains"
+                                "channel, je t'explique tout ca rapidement :wink:")
+
+            if new_role.name == "G4":
+                await chan.send("Un grand pouvoir inplique de grande responsabilitées")
+
+            if new_role.name == "Team Event":
+                await chan.send("C'est toi qui va nous regaler avec tous pleins d'Event")
+
+            if new_role.name == "Resp Team Event":
+                await chan.send("Resp de la team Event  ! ")
+
+            if new_role.name == "Team Entreprise":
+                await chan.send("C'est toi qui va nous regaler avec tous pleins de rencontre avec des ETS")
+
+            if new_role.name == "Resp Team Entreprise":
+                await chan.send("Resp de la team Entreprise  ! ")
+
+            if new_role.name == "Resp Site International":
+                await chan.send("Resp du site  ! ")
+
+            if new_role.name == "Resp Comm":
+                await chan.send("Resp comm !")
 
     client.run(TOKEN)
