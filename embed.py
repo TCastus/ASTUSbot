@@ -90,42 +90,48 @@ videoDiplomesEmbed.set_thumbnail(url="https://img.icons8.com/fluent/48/000000/yo
 videoDiplomesEmbed.add_field(name="Assia MERMOURI - promo TC2017",
                              value="[Ingénieur réseau et sécurité chez SFR]("
                                    "https://www.youtube.com/watch?v=lQEbnvmJ9uw&list=PL"
-                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=2&t=0s) ",
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=2&t=0s) \n"
+                                   "[Profile LinkedIn](https://www.linkedin.com/in/assiamermouri/)",
                              inline=False
                              )
 
 videoDiplomesEmbed.add_field(name="Mamoun DRISSI KACEMI - promo TC2016",
                              value="[Solutions Architect chez Dropbox]("
                                    "https://www.youtube.com/watch?v=GjBI-ldy2hk&list=PL"
-                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=3&t=0s) ",
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=3&t=0s) \n"
+                                   "[Profile LinkedIn](https://www.linkedin.com/in/mamoun-drissi-kacemi-6a84a241/)",
                              inline=False
                              )
 
 videoDiplomesEmbed.add_field(name="Hilda EDIMO - promo TC2017",
                              value="[Ingénieure avant-vente chez VMWare]("
                                    "https://www.youtube.com/watch?v=AWnMfzzkm9M&list=PL"
-                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=4&t=0s) ",
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=4&t=0s) \n"
+                                   "[Profile LinkedIn](https://www.linkedin.com/in/hilda-edimo-925ab5b0/)",
                              inline=False
                              )
 
 videoDiplomesEmbed.add_field(name="Tianni LI - promo TC2016",
                              value="[Ingénieur qualité chez Dataiku]("
                                    "https://www.youtube.com/watch?v=cQYjcijMrPI&list=PL"
-                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=5&t=0s) ",
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=5&t=0s) \n"
+                                   "[Profile LinkedIn](https://www.linkedin.com/in/tianni-li-324504a4/)",
                              inline=False
                              )
 
 videoDiplomesEmbed.add_field(name="Julien BONVALOT - promo TC2005",
                              value="[Manager RF Optimisation chez Network Solutions Factory]("
                                    "https://www.youtube.com/watch?v=D9veUkDoQF4&list=PL"
-                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=6&t=0s) ",
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=6&t=0s) \n"
+                                   "[Profile LinkedIn](https://www.linkedin.com/in/julien-bonvalot-b80b26b/)",
                              inline=False
                              )
 
 videoDiplomesEmbed.add_field(name="Samia Bouchareb - Promo TC2015",
                              value="[DevOps Team Manager chez Orange business services]("
                                    "https://www.youtube.com/watch?v=VIzlzUZ6nbM&list=PL"
-                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=7&t=0s) ",
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=7&t=0s) \n"
+                                   "[Profile LinkedIn](https://www.linkedin.com/in/samia-bouchareb/)",
                              inline=False
                              )
 
@@ -139,7 +145,8 @@ videoDiplomesEmbed.add_field(name="Guilhem TESSEYRE - Promo TC2008",
 videoDiplomesEmbed.add_field(name="Andra DRAGOMIR -promo TC2014",
                              value="[Head of technical development chez NTT]("
                                    "https://www.youtube.com/watch?v=0RSbsSyngJ0&list=PL"
-                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=9&t=0s) ",
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=9&t=0s) \n"
+                                   "[Profile LinkedIn](https://www.linkedin.com/in/andraehlert/)",
                              inline=False
                              )
 
