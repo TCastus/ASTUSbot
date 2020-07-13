@@ -87,3 +87,79 @@ videoDiplomesEmbed = discord.Embed(title="Playlist des vidéos faites pas les di
                                    )
 
 videoDiplomesEmbed.set_thumbnail(url="https://img.icons8.com/fluent/48/000000/youtube-play.png")
+videoDiplomesEmbed.add_field(name="Assia MERMOURI - promo TC2017",
+                             value="[Ingénieur réseau et sécurité chez SFR]("
+                                   "https://www.youtube.com/watch?v=lQEbnvmJ9uw&list=PL"
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=2&t=0s) ",
+                             inline=False
+                             )
+
+videoDiplomesEmbed.add_field(name="Mamoun DRISSI KACEMI - promo TC2016",
+                             value="[Solutions Architect chez Dropbox]("
+                                   "https://www.youtube.com/watch?v=GjBI-ldy2hk&list=PL"
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=3&t=0s) ",
+                             inline=False
+                             )
+
+videoDiplomesEmbed.add_field(name="Hilda EDIMO - promo TC2017",
+                             value="[Ingénieure avant-vente chez VMWare]("
+                                   "https://www.youtube.com/watch?v=AWnMfzzkm9M&list=PL"
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=4&t=0s) ",
+                             inline=False
+                             )
+
+videoDiplomesEmbed.add_field(name="Tianni LI - promo TC2016",
+                             value="[Ingénieur qualité chez Dataiku]("
+                                   "https://www.youtube.com/watch?v=cQYjcijMrPI&list=PL"
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=5&t=0s) ",
+                             inline=False
+                             )
+
+videoDiplomesEmbed.add_field(name="Julien BONVALOT - promo TC2005",
+                             value="[Manager RF Optimisation chez Network Solutions Factory]("
+                                   "https://www.youtube.com/watch?v=D9veUkDoQF4&list=PL"
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=6&t=0s) ",
+                             inline=False
+                             )
+
+videoDiplomesEmbed.add_field(name="Samia Bouchareb - Promo TC2015",
+                             value="[DevOps Team Manager chez Orange business services]("
+                                   "https://www.youtube.com/watch?v=VIzlzUZ6nbM&list=PL"
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=7&t=0s) ",
+                             inline=False
+                             )
+
+videoDiplomesEmbed.add_field(name="Guilhem TESSEYRE - Promo TC2008",
+                             value="[Head of Customer Engineering for Digital Natives @ Google Cloud]("
+                                   "https://www.youtube.com/watch?v=R1Vj_uQhLiE&list=PL"
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=8&t=0s) ",
+                             inline=False
+                             )
+
+videoDiplomesEmbed.add_field(name="Andra DRAGOMIR -promo TC2014",
+                             value="[Head of technical development chez NTT]("
+                                   "https://www.youtube.com/watch?v=0RSbsSyngJ0&list=PL"
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=9&t=0s) ",
+                             inline=False
+                             )
+
+videoDiplomesEmbed.add_field(name="Tommy GAIDDON - promo TC2017",
+                             value="[Consultant IT chez Solutec]("
+                                   "https://www.youtube.com/watch?v=ZI1JEwSE52s&list=PL"
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=10&t=0s) ",
+                             inline=False
+                             )
+
+videoDiplomesEmbed.add_field(name="Guillaume ZEKIAN - promo TC2006",
+                             value="[Head of Network, Security and Datacenters for Switzerland - Société Générale]("
+                                   "https://www.youtube.com/watch?v=I7MsXhcsQg8&list=PL"
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=11&t=0s) ",
+                             inline=False
+                             )
+
+videoDiplomesEmbed.add_field(name="Florence MICOL - promo TC2006",
+                             value="[CH Salesforce business group lead chez Accenture]("
+                                   "https://www.youtube.com/watch?v=4Q8OyWCX5KY&list=PL"
+                                   "-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx&index=12&t=0s) ",
+                             inline=False
+                             )
