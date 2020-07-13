@@ -188,6 +188,9 @@ if __name__ == '__main__':
                                                        "Peut-être que tu trouvera un réponse sur le repo "
                                                        "[TChelp](https://github.com/TCastus/TChelp) :wink: ")
 
+                elif message.content[1:].lower() in ["futur", "metier"]:
+                    await message.channel.send(embed=embed.videoDiplomesEmbed)
+
                 else:
                     await message.channel.send("Je ne commprend pas cette commande... \n"
                                                "Un `` " + PREFIX + "help `` peut t'aider")

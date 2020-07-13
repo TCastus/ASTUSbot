@@ -74,3 +74,16 @@ helpEmbed.add_field(name=PREFIX + "help [sujet]",
                           " - terminal \n"
                           " - git ou GitHub \n"
                     )
+
+###########################
+# playlist video diplomes #
+###########################
+
+videoDiplomesEmbed = discord.Embed(title="Playlist des vidéos faites pas les dipômés",
+                                   color=0x5e3dc8,
+                                   description="Tu trouveras sur cette playlist des vidéos faites pas les diplômes"
+                                               "de TC afin d'expliquer leur parcours et leurs métiers",
+                                   url="https://www.youtube.com/playlist?list=PL-wHxgCMty1Zn6IOc65cSudv_ZqdteTKx",
+                                   )
+
+videoDiplomesEmbed.set_thumbnail(url="https://img.icons8.com/fluent/48/000000/youtube-play.png")
