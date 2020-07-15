@@ -8,6 +8,7 @@ TOKEN = os.getenv("BOT_TOKEN")
 client = discord.Client()
 
 PREFIX = "&"
+passationStatus = 0
 
 if __name__ == '__main__':
 
@@ -15,6 +16,17 @@ if __name__ == '__main__':
         role = discord.utils.get(guild.roles, name=rolename)
         member = discord.utils.find(lambda m: m.id == payload.user_id, guild.members)
         await member.add_roles(role)
+
+    async def newAstus(members, message, nextRole, role1, role2):
+        global passationStatus
+        for memberStr in members:
+            memberID = memberStr[2:-1] if memberStr[2:-1][0] != "!" else memberStr[2:-1][1:]
+            member = message.guild.get_member(user_id=int(memberID))
+            await member.add_roles(role1, role2)
+
+        passationStatus += 1
+        if nextRole != "":
+            await message.channel.send(nextRole)
 
 
     @client.event
@@ -43,6 +55,7 @@ if __name__ == '__main__':
 
     @client.event
     async def on_message(message):
+        global passationStatus
         if not message.author.bot:
 
             student = discord.utils.get(message.guild.roles, name="Student")
@@ -60,6 +73,9 @@ if __name__ == '__main__':
             respSite = discord.utils.get(message.guild.roles, name="Resp Site International")
             ancienRespSite = discord.utils.get(message.guild.roles, name="Ancien Resp Site International")
             respComm = discord.utils.get(message.guild.roles, name="Resp Comm")
+            newG4 = discord.utils.get(message.guild.roles, name=f"G4 "
+                                                                f"{datetime.datetime.now().year - 1}-"
+                                                                f"{datetime.datetime.now().year}")
 
             if message.content.lower() == "ping":
                 await message.channel.send("pong")
@@ -95,7 +111,9 @@ if __name__ == '__main__':
                                                " - les 5TC sont maintenant des Diplômés \n"
                                                )
 
-                elif message.content[1:].lower() == "passation" and g4 in message.author.roles:
+                elif message.content[1:].lower() == "passation" \
+                        and g4 in message.author.roles \
+                        and passationStatus == 0:
 
                     # Creation du role
                     newG4 = await message.guild.create_role(
@@ -122,6 +140,7 @@ if __name__ == '__main__':
                             await member.remove_roles(respComm)
                         if respSite in member.roles:
                             await member.remove_roles(respSite)
+                            await member.add_roles(ancienRespSite)
                         if respTeamEts in member.roles:
                             await member.remove_roles(respTeamEts)
                         if respTeamEvent in member.roles:
@@ -132,8 +151,9 @@ if __name__ == '__main__':
                             await member.remove_roles(teamEvent)
                         if teamEts in member.roles:
                             await member.remove_roles(teamEts)
-
-                    await message.channel.send("Passation faite")
+                    await message.channel.send("Les anciens membres de l'ASTUS ne font plus parti de l'ASTUS")
+                    passationStatus += 1
+                    await message.channel.send("Qui sont les nouveau membres du G4 ? ")
 
                 elif message.content[1:].lower() == "pasation" and g4 in message.author.roles:
                     await message.channel.send("Essaie plutot ``" + PREFIX + "passation``")
@@ -149,6 +169,9 @@ if __name__ == '__main__':
 
                     if g4 in message.author.roles and not subject:
                         await message.channel.send(embed=embed.g4helpEmbed)
+
+                    elif not subject or (g4 in message.author.roles and subject == "nog4help"):
+                        await message.channel.send(embed=embed.helpEmbed)
 
                     else:
                         if subject == "ssh":
@@ -177,8 +200,6 @@ if __name__ == '__main__':
                                                        "Je suis vraiment désolé mais je suis dans l'incapacité de te "
                                                        "donner de l'aide sur ce sujet :no_mouth:")
 
-                        elif not subject or g4 in message.author.roles and subject == "nog4help":
-                            await message.channel.send(embed=embed.helpEmbed)
                         else:
                             await message.channel.send("Désolé, je ne sais pas te donner de l'aide sur ce sujet... \n "
                                                        "Peut-être que tu trouvera un réponse sur le repo "
@@ -187,6 +208,90 @@ if __name__ == '__main__':
                 else:
                     await message.channel.send("Je ne commprend pas cette commande... \n"
                                                "Un `` " + PREFIX + "help `` peut t'aider")
+            elif passationStatus == 1 and newG4 in message.author.roles:
+                members = message.content.split(" ")
+                if len(members) != 4:
+                    await message.channel.send("Le G4 doit être composer de 4 membres")
+                else:
+                    await newAstus(members,
+                                   message,
+                                   "Qui sont les membres de la team Event ?",
+                                   g4,
+                                   astus)
+
+            elif passationStatus == 2 and newG4 in message.author.roles:
+                members = message.content.split(" ")
+                if len(members) != 3:
+                    await message.channel.send("La team event doit être composer de 3 membres \n"
+                                               "Le responsable te sera demander juste apres")
+                else:
+                    await newAstus(members,
+                                   message,
+                                   "Qui est le resp de la team Event ?",
+                                   teamEvent,
+                                   astus)
+
+            elif passationStatus == 3 and newG4 in message.author.roles:
+                members = message.content.split(" ")
+                if len(members) != 1:
+                    await message.channel.send("Il n'y a qu'un responsable de la team event")
+                else:
+                    await newAstus(members,
+                                   message,
+                                   "Qui sont les membres de la team Entreprise ?",
+                                   respTeamEvent,
+                                   astus)
+
+            elif passationStatus == 4 and newG4 in message.author.roles:
+                members = message.content.split(" ")
+                if len(members) != 3:
+                    await message.channel.send("La team Entreprise doit être composer de 3 membres \n"
+                                               "Le responsable te sera demander juste apres")
+                else:
+                    await newAstus(members,
+                                   message,
+                                   "Qui est le resp de la team Entreprise ?",
+                                   teamEts,
+                                   astus)
+
+            elif passationStatus == 5 and newG4 in message.author.roles:
+                members = message.content.split(" ")
+                if len(members) != 1:
+                    await message.channel.send("Il n'y a qu'un responsable de la team Entreprise")
+                else:
+                    await newAstus(members,
+                                   message,
+                                   "Qui est le resp site international ?",
+                                   respTeamEts,
+                                   astus)
+
+            elif passationStatus == 6 and newG4 in message.author.roles:
+                members = message.content.split(" ")
+                if len(members) != 1:
+                    await message.channel.send("Il n'y a qu'un responsable du site")
+                else:
+                    await newAstus(members,
+                                   message,
+                                   "Qui est le resp comm ?",
+                                   respSite,
+                                   astus)
+
+            elif passationStatus == 7 and newG4 in message.author.roles:
+                members = message.content.split(" ")
+                if len(members) != 1:
+                    await message.channel.send("Il n'y a qu'un responsable comm ")
+                else:
+                    await newAstus(members,
+                                   message,
+                                   "Tape end pour finir",
+                                   respComm,
+                                   astus)
+
+            elif passationStatus == 8 \
+                    and message.content == "end"\
+                    and newG4 in message.author.roles:
+                passationStatus = 0
+                await message.channel.send("Passation finie !")
 
 
     @client.event
