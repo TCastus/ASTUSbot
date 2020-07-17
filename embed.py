@@ -4,6 +4,24 @@ import main
 PREFIX = main.PREFIX
 
 ###############
+# Help        #
+###############
+
+helpEmbed = discord.Embed(title="Help",
+                          color=0x2e86c1,
+                          description="Message d'aide pour l'utilisation du bot de l'ASTUS")
+
+helpEmbed.add_field(name=PREFIX + "help [sujet]",
+                    value="Affiche ce message \n "
+                          "Les sujets peuvent être diverse, en voici une liste : \n"
+                          " - SSH \n"
+                          " - RDP \n"
+                          " - VPN \n"
+                          " - terminal \n"
+                          " - git ou GitHub \n"
+                    )
+
+###############
 # G4 Help     #
 ###############
 
@@ -12,7 +30,7 @@ g4helpEmbed = discord.Embed(title="Commande du G4",
                             description="Tu fait parti du G4 et tu as de grande responsabilitées"
                             )
 
-g4helpEmbed.add_field(name=PREFIX + "newyear",
+g4helpEmbed.add_field(name=PREFIX + "newyear ``alias : ny``",
                       value="Cette commande est à utiliser quand l'année debute, elle te permet de "
                             "passer les rôles des FuturTC à 3TC, 3TC -> 4TC, etc.",
                       inline=False)
@@ -20,7 +38,8 @@ g4helpEmbed.add_field(name=PREFIX + "newyear",
 g4helpEmbed.add_field(name=PREFIX + "passation",
                       value="Ici, tu supprimer tous les rôles des membres de l'ASTUS."
                             "Tu créé un nouveau rôle pour l'ancien G4 afin qu'il soit toujours "
-                            "en relation avec l'ASTUS et aider la nouvelle ASTUS au mieux",
+                            "en relation avec l'ASTUS et aider la nouvelle ASTUS au mieux \n"
+                            "Tu seras invité à mentionner le nouveau Bureau",
                       inline=False)
 
 g4helpEmbed.add_field(name=PREFIX + "help nog4help",
@@ -66,24 +85,6 @@ sshEmbed.add_field(name="Tuto",
                          "-ConnexionDistanteSSH.md) ",
                    inline=False
                    )
-
-###############
-# Help        #
-###############
-
-helpEmbed = discord.Embed(title="Help",
-                          color=0x2e86c1,
-                          description="Message d'aide pour l'utilisation du bot de l'ASTUS")
-
-helpEmbed.add_field(name=PREFIX + "help [sujet]",
-                    value="Affiche ce message \n "
-                          "Les sujets peuvent être diverse, en voici une liste : \n"
-                          " - SSH \n"
-                          " - RDP \n"
-                          " - VPN \n"
-                          " - terminal \n"
-                          " - git ou GitHub \n"
-                    )
 
 ###########################
 # playlist video diplomes #

@@ -172,6 +172,7 @@ if __name__ == '__main__':
     import cogs.newyear
     import cogs.passation
     import cogs.help
+    import cogs.videoDiplomes
 
     # Remove default help command
     bot.remove_command("help")
@@ -180,5 +181,6 @@ if __name__ == '__main__':
     bot.add_cog(cogs.passation.CogPassation(bot))
     bot.add_cog(cogs.newyear.CogNewyear(bot))
     bot.add_cog(cogs.help.CogNewyear(bot))
+    bot.add_cog(cogs.videoDiplomes.CogVideoDiplomes(bot))
 
     bot.run(TOKEN)
