@@ -2,12 +2,19 @@ import discord
 from discord.ext import commands
 import os
 
-import roles
+from myutils import MyUtils
+import cogs.newyear
+import cogs.passation
+
 
 TOKEN = os.getenv("BOT_TOKEN")
 PREFIX = "&"
 
 bot = commands.Bot(command_prefix=PREFIX, description="Bot de l'ASTUS")
+
+# cogs
+bot.add_cog(cogs.passation.CogPassation(bot))
+bot.add_cog(cogs.newyear.CogNewyear(bot))
 
 
 @bot.event
@@ -39,7 +46,7 @@ async def on_command_error(ctx, error):
         await ctx.send("Il manque un argument.")
     if isinstance(error, commands.CheckFailure) or isinstance(error, commands.MissingPermissions):
         await ctx.send("Oups tu ne peux pas utiliser cette commande.")
-    if isinstance(error.original, discord.Forbidden):
+    if isinstance(error, discord.Forbidden):
         await ctx.send("Oups, je n'ai pas les permissions nécéssaires pour faire cette commmande")
 
 
@@ -52,33 +59,33 @@ async def on_raw_reaction_add(payload):
 
         if payload.emoji.name == '3️⃣':
             # print("3TC")
-            await payload.member.add_roles(roles.Roles(guild).troisTC,
-                                           roles.Roles(guild).student)
+            await payload.member.add_roles(MyUtils(guild).get3TCRole(),
+                                           MyUtils(guild).getStudentRole())
 
         elif payload.emoji.name == '4️⃣':
             # print("4TC")
-            await payload.member.add_roles(roles.Roles(guild).quatreTC,
-                                           roles.Roles(guild).student)
+            await payload.member.add_roles(MyUtils(guild).get4TCRole(),
+                                           MyUtils(guild).getStudentRole())
 
         elif payload.emoji.name == '5️⃣':
             # print("5TC")
-            await payload.member.add_roles(roles.Roles(guild).cinqTC,
-                                           roles.Roles(guild).student)
+            await payload.member.add_roles(MyUtils(guild).get5TCRole(),
+                                           MyUtils(guild).getStudentRole())
         elif payload.emoji.name == '🇦':
             # print("TCA")
-            await payload.member.add_roles(roles.Roles(guild).TCA)
+            await payload.member.add_roles(MyUtils(guild).getTCARole())
 
         elif payload.emoji.name == '👨‍🏫':
             # print("Prof")
-            await payload.member.add_roles(roles.Roles(guild).prof)
+            await payload.member.add_roles(MyUtils(guild).getProfRole())
 
         elif payload.emoji.name == '🎓':
             # print("Diplomes")
-            await payload.member.add_roles(roles.Roles(guild).diplomes)
+            await payload.member.add_roles(MyUtils(guild).getDiplomesRole())
 
         elif payload.emoji.name == '🆕':
             # print("Futur TC")
-            await payload.member.add_roles(roles.Roles(guild).new3TC)
+            await payload.member.add_roles(MyUtils(guild).getFuturTCRole())
 
 
 @bot.event
