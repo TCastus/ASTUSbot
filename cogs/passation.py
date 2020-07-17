@@ -6,8 +6,9 @@ import perms
 
 
 class CogPassation(commands.Cog):
-    def __init__(self, bot):
+    def __init__(self, bot, prefix):
         self.bot = bot
+        self.PREFIX = prefix
         self.passationStatus = 0
 
     async def cog_check(self, ctx):
@@ -161,6 +162,10 @@ class CogPassation(commands.Cog):
                 await ctx.send("Une erreur est survenue...")
 
         await ctx.send("Content d'avoir été a tes côtés pendant ton mendat :wink:")
+
+    @commands.command()
+    async def pasation(self, ctx):
+        await ctx.send("Essaie plutot ``" + self.PREFIX + "passation``")
 
     @passation.error
     async def passationError(self, ctx, error):

@@ -178,7 +178,7 @@ if __name__ == '__main__':
     bot.remove_command("help")
 
     # cogs
-    bot.add_cog(cogs.passation.CogPassation(bot))
+    bot.add_cog(cogs.passation.CogPassation(bot, PREFIX))
     bot.add_cog(cogs.newyear.CogNewyear(bot))
     bot.add_cog(cogs.help.CogNewyear(bot))
     bot.add_cog(cogs.videoDiplomes.CogVideoDiplomes(bot))
