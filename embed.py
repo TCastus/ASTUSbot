@@ -21,6 +21,10 @@ helpEmbed.add_field(name=PREFIX + "help [sujet]",
                           " - git ou GitHub \n"
                     )
 
+helpEmbed.add_field(name=PREFIX + "futur ``alias : metier``",
+                    value="Donne un lien vers un playlist youtube de videos faites par des diplômés"
+                          "expliquant leurs parcours")
+
 ###############
 # G4 Help     #
 ###############
