@@ -3,18 +3,11 @@ from discord.ext import commands
 import os
 
 from myutils import MyUtils
-import cogs.newyear
-import cogs.passation
-
 
 TOKEN = os.getenv("BOT_TOKEN")
 PREFIX = "&"
 
 bot = commands.Bot(command_prefix=PREFIX, description="Bot de l'ASTUS")
-
-# cogs
-bot.add_cog(cogs.passation.CogPassation(bot))
-bot.add_cog(cogs.newyear.CogNewyear(bot))
 
 
 @bot.event
@@ -176,4 +169,16 @@ async def on_member_update(before, after):
                             "Tu fais les annonces et les affiches pour tous les events ")
 
 if __name__ == '__main__':
+    import cogs.newyear
+    import cogs.passation
+    import cogs.help
+
+    # Remove default help command
+    bot.remove_command("help")
+
+    # cogs
+    bot.add_cog(cogs.passation.CogPassation(bot))
+    bot.add_cog(cogs.newyear.CogNewyear(bot))
+    bot.add_cog(cogs.help.CogNewyear(bot))
+
     bot.run(TOKEN)

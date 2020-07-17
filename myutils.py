@@ -68,3 +68,6 @@ class MyUtils:
             member = self.guild.get_member(user_id=int(memberID))
             for role in roles:
                 await member.add_roles(role)
+
+    def G4check(self, ctx):
+        return self.getG4Role() in ctx.message.author.roles
