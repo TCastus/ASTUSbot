@@ -13,17 +13,23 @@ helpEmbed = discord.Embed(title="Help",
 
 helpEmbed.add_field(name=PREFIX + "help [sujet]",
                     value="Affiche ce message \n "
-                          "Les sujets peuvent être diverse, en voici une liste : \n"
+                          "Les sujets peuvent être divers, en voici une liste : \n"
                           " - SSH \n"
                           " - RDP \n"
                           " - VPN \n"
                           " - terminal \n"
-                          " - git ou GitHub \n"
+                          " - git ou GitHub \n",
+                    inline=False
                     )
 
 helpEmbed.add_field(name=PREFIX + "futur ``alias : metier``",
-                    value="Donne un lien vers un playlist youtube de videos faites par des diplômés"
-                          "expliquant leurs parcours")
+                    value="Donne un lien vers un playlist youtube de vidéos faites par des diplômés"
+                          "expliquant leurs parcours",
+                    inline=False)
+
+helpEmbed.add_field(name=PREFIX + "invitation ``alias : lien``",
+                    value="Cette commande te permet d'obtenir le lien du serveur",
+                    inline=False)
 
 ###############
 # G4 Help     #
@@ -31,20 +37,20 @@ helpEmbed.add_field(name=PREFIX + "futur ``alias : metier``",
 
 g4helpEmbed = discord.Embed(title="Commande du G4",
                             color=0x2e86c1,
-                            description="Tu fait parti du G4 et tu as de grande responsabilitées"
+                            description="Tu fais parti du G4 et tu as de grandes responsabilités"
                             )
 
 g4helpEmbed.add_field(name=PREFIX + "newyear ``alias : ny``",
-                      value="Cette commande est à utiliser quand l'année debute, elle te permet de "
-                            "passer les rôles des FuturTC à 3TC, 3TC -> 4TC, etc.",
+                      value="Cette commande est à utiliser quand l'année débute, elle te permet de "
+                            "passer les rôles des Futurs TC à 3TC, 3TC -> 4TC, etc.",
                       inline=False)
 
 g4helpEmbed.add_field(name=PREFIX + "passation",
-                      value="Ici, tu supprimer tous les rôles des membres de l'ASTUS."
-                            "Tu créé un nouveau rôle pour l'ancien G4 afin qu'il soit toujours "
+                      value="Ici, tu supprimes tous les rôles des membres de l'ASTUS."
+                            "Tu crées un nouveau rôle pour l'ancien G4 afin qu'il soit toujours "
                             "en relation avec l'ASTUS et aider la nouvelle ASTUS au mieux \n"
-                            "Tu seras ensuite invité a mentionner les nouveaux membres en fonction de leurs rôles, "
-                            "a la fin n'oublie pas de taper ``end`` pour finir la passation",
+                            "Tu seras ensuite invité à mentionner les nouveaux membres en fonction de leurs rôles, "
+                            "à la fin n'oublie pas de taper ``end`` pour finir la passation",
                       inline=False)
 
 g4helpEmbed.add_field(name=PREFIX + "help nog4help",
@@ -63,7 +69,7 @@ sshEmbed = discord.Embed(title="SSH",
 sshEmbed.add_field(name="Quèsaco ?",
                    value="SSH = Secure Shell \n"
                          "C'est un protocole de communication sécurisé qui permet d'avoir un shell sur une machine "
-                         "distante. Des clés de chiffrement sont échanger en début de connexion. \n"
+                         "distante. Des clés de chiffrement sont échangées en début de connexion. \n"
                          "Le SSH à été créé pour remplacer des protocoles non sécurisé comme "
                          "[telnet](https://fr.wikipedia.org/wiki/Telnet) \n \n"
                          "Pour plus d'info, va sur [wikipedia](https://fr.wikipedia.org/wiki/Secure_Shell)",
@@ -71,7 +77,7 @@ sshEmbed.add_field(name="Quèsaco ?",
                    )
 
 sshEmbed.add_field(name="Commande",
-                   value="C'est pas très compliqué, la commande à taper dans ton "
+                   value="Ce n'est pas très compliqué, la commande à taper dans ton "
                          "terminal est la même indépendamment des OS (Unix, OSX, "
                          "Windows) \n "
                          "Tu peux même utiliser le ssh sur "
@@ -199,8 +205,8 @@ vpnEmbed = discord.Embed(title="VPN",
 vpnEmbed.add_field(name="Quèsaco ?",
                    value="VPN = Virtual Private Network (Réseau virtuel privé) \n"
                          "Un VPN est un lien direct entre deux ou plusieurs ordinateurs / serveurs distants.\n"
-                         "Son interet est de simuler une connexion locale entre deux machines afin d'acceder "
-                         "aux services, resources distantes. \n \n"
+                         "Son intérêt est de simuler une connexion locale entre deux machines afin d'accéder "
+                         "aux services, ressources distantes. \n \n"
                          "Pour plus d'info, "
                          "[wikipedia](https://fr.wikipedia.org/wiki/R%C3%A9seau_priv%C3%A9_virtuel) "
                          "est ton ami :wink:",
@@ -229,8 +235,8 @@ rdpEmbed = discord.Embed(title="RDP",
 
 rdpEmbed.add_field(name="Quèsaco ?",
                    value="RDP = Remote Desktop Protocol \n"
-                         "C'est un protocol qui permet de se connecter à un ordinateurs / serveurs à distance avec "
-                         "un environement graphique. \n \n"
+                         "C'est un protocol qui permet de se connecter à un ordinateur / serveur à distance avec "
+                         "un environnement graphique. \n \n"
                          "Plus d'info sur [wikipedia](https://fr.wikipedia.org/wiki/Remote_Desktop_Protocol)",
                    inline=False
                    )
@@ -256,9 +262,9 @@ terminalEmbed = discord.Embed(title="Terminal",
                               )
 
 terminalEmbed.add_field(name="Quèsaco ?",
-                        value="C'est une interface sans éléments graphique qui permet d'interagir avec la machine."
-                              "L'interaction ce fait à l'aide de ligne de commande pour executer different logiciels, "
-                              "parcouris des dossiers... \n \n"
+                        value="C'est une interface sans élément graphique qui permet d'interagir avec la machine."
+                              "L'interaction se fait à l'aide de ligne de commande pour éxécuter differents logiciels, "
+                              "parcourir des dossiers... \n \n"
                               "Pour plus d'info, un tour sur "
                               "[wikipedia](https://fr.wikipedia.org/wiki/Interface_en_ligne_de_commande)",
                         inline=False

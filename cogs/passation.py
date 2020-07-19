@@ -18,7 +18,7 @@ class CogPassation(commands.Cog):
     async def passation(self, ctx):
 
         if self.passationStatus > 0:
-            await ctx.send("Passation deja en cours ... ")
+            await ctx.send("Passation déjà en cours ... ")
             return
 
         # Creation du role
@@ -33,7 +33,7 @@ class CogPassation(commands.Cog):
         await MyUtils(ctx.guild).getG4TxtChannel().set_permissions(oldG4, overwrite=perms.g4TxtPerms)
         await MyUtils(ctx.guild).getG4VocalChannel().set_permissions(oldG4, overwrite=perms.g4VocalPerms)
 
-        await ctx.send("Je cherche les anciens memebres de l'ASTUS, patiente un moment...")
+        await ctx.send("Je cherche les anciens membres de l'ASTUS, patiente un moment...")
         for member in ctx.guild.members:
             if MyUtils(ctx.guild).getG4Role() in member.roles:
                 await member.remove_roles(MyUtils(ctx.guild).getG4Role())
@@ -57,8 +57,8 @@ class CogPassation(commands.Cog):
                 await member.remove_roles(MyUtils(ctx.guild).getTeamEntrepriseRole())
 
         self.passationStatus += 1
-        await ctx.send("Les anciens membres de l'ASTUS ne font plus parti de l'ASTUS")
-        await ctx.send("Qui sont les nouveau membres du G4 ? ")
+        await ctx.send("Les anciens membres de l'ASTUS ne font plus partis de l'ASTUS")
+        await ctx.send("Qui sont les nouveaux membres du G4 ? ")
 
         def checkMessage(message):
             return message.author == ctx.message.author and ctx.message.channel == message.channel
@@ -69,7 +69,7 @@ class CogPassation(commands.Cog):
                     newG4 = await self.bot.wait_for("message", check=checkMessage)
                     members = newG4.content.split(" ")
                     if len(members) != 4:
-                        await ctx.send("Le G4 doit être composer de 4 membres")
+                        await ctx.send("Le G4 doit être composé de 4 membres")
                     else:
                         await MyUtils(ctx.guild).newAstus(members,
                                                           MyUtils(ctx.guild).getASTUSRole(),
@@ -81,8 +81,8 @@ class CogPassation(commands.Cog):
                     newTeamEvent = await self.bot.wait_for("message", check=checkMessage)
                     members = newTeamEvent.content.split(" ")
                     if len(members) != 3:
-                        await ctx.send("La team event doit être composer de 3 membres \n"
-                                       "Le responsable te sera demander juste apres")
+                        await ctx.send("La team event doit être composée de 3 membres \n"
+                                       "Le responsable te sera demandé juste aprés")
                     else:
                         await MyUtils(ctx.guild).newAstus(members,
                                                           MyUtils(ctx.guild).getASTUSRole(),
@@ -106,8 +106,8 @@ class CogPassation(commands.Cog):
                     newTeamEntreprise = await self.bot.wait_for("message", check=checkMessage)
                     members = newTeamEntreprise.content.split(" ")
                     if len(members) != 3:
-                        await ctx.send("La team Entreprise doit être composer de 3 membres \n"
-                                       "Le responsable te sera demander juste apres")
+                        await ctx.send("La team Entreprise doit être composée de 3 membres \n"
+                                       "Le responsable te sera demandé juste apres")
                     else:
                         await MyUtils(ctx.guild).newAstus(members,
                                                           MyUtils(ctx.guild).getASTUSRole(),
@@ -161,7 +161,7 @@ class CogPassation(commands.Cog):
             except Exception:
                 await ctx.send("Une erreur est survenue...")
 
-        await ctx.send("Content d'avoir été a tes côtés pendant ton mendat :wink:")
+        await ctx.send("Content d'avoir été à tes côtés pendant ton mandat :wink:")
 
     @commands.command()
     async def pasation(self, ctx):

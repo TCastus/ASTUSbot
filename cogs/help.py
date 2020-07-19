@@ -45,6 +45,6 @@ class CogNewyear(commands.Cog):
                                            "donner de l'aide sur ce sujet :no_mouth:")
             else:
                 await ctx.send("Désolé, je ne sais pas te donner de l'aide sur ce sujet... \n "
-                                           "Peut-être que tu trouvera un réponse sur le repo "
+                                           "Peut-être que tu trouveras une réponse sur le repo "
                                            "[TChelp](https://github.com/TCastus/TChelp) :wink: ")
 
