@@ -4,7 +4,14 @@ from myutils import MyUtils
 import embed
 
 
-class CogNewyear(commands.Cog):
+async def HelpCommand(ctx, embedMessage):
+    if MyUtils(ctx.guild).G4check(ctx):
+        await ctx.send(embed=embedMessage)
+    else:
+        await ctx.send("Je ne peux pas te donner de l'aide sur cette commande, tu ne peux pas l'utiliser")
+
+
+class CogHelp(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -35,16 +42,26 @@ class CogNewyear(commands.Cog):
 
             elif subject in ["git", "github"]:
                 await ctx.send("Git / GitHub : \n"
-                                           "Voici de l'aide sur TChelp : \n"
-                                           "https://github.com/TCastus/TChelp/blob/master/Git_GitHub"
-                                           "/Presentation.md")
+                               "Voici de l'aide sur TChelp : \n"
+                               "https://github.com/TCastus/TChelp/blob/master/Git_GitHub"
+                               "/Presentation.md")
 
             elif subject == "tsa":
                 await ctx.send("TSA... :sweat_smile: \n"
-                                           "Je suis vraiment désolé mais je suis dans l'incapacité de te "
-                                           "donner de l'aide sur ce sujet :no_mouth:")
+                               "Je suis vraiment désolé mais je suis dans l'incapacité de te "
+                               "donner de l'aide sur ce sujet :no_mouth:")
+
+            elif subject == "passation":
+                await HelpCommand(ctx, embed.helpPassationEmbed)
+            elif subject == "newyear":
+                await HelpCommand(ctx, embed.helpNewyearEmbed)
+            elif subject in ["invitation", "lien"]:
+                await ctx.send(embed=embed.helpInvitationEmbed)
+            elif subject in ["video", "metier", "futur"]:
+                await ctx.send(embed=embed.helpvideoEmbed)
+
             else:
                 await ctx.send("Désolé, je ne sais pas te donner de l'aide sur ce sujet... \n "
-                                           "Peut-être que tu trouveras une réponse sur le repo "
-                                           "[TChelp](https://github.com/TCastus/TChelp) :wink: ")
+                               "Peut-être que tu trouveras une réponse sur le repo "
+                               "[TChelp](https://github.com/TCastus/TChelp) :wink: ")
 

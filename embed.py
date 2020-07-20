@@ -57,6 +57,48 @@ g4helpEmbed.add_field(name=PREFIX + "help nog4help",
                       value="Affiche l'help standard",
                       inline=False)
 
+##########################
+# Help passation command #
+##########################
+
+helpPassationEmbed = discord.Embed(title=PREFIX + "passation",
+                                   color=0x2874a6,
+                                   description="Cette commande te permet d'effectuer la passation de l'astus."
+                                               "tu supprimes tous les anciens membres de l'astus et je t'invite"
+                                               "à mentionner les nouveaux membres. Tu crées un noueau rôle pour "
+                                               "l'ancien G4 \n"
+                                               "N'oublie pas de taper `end` à la fin",
+                                   )
+
+########################
+# Help newyear command #
+########################
+
+helpNewyearEmbed = discord.Embed(title=PREFIX + "newyear",
+                                 color=0x2874a6,
+                                 description="Cette commande te permet de passer à l'année suivante. Tu fais "
+                                             "passer les 3TC en 4TC etc.",
+                                 )
+
+###########################
+# Help invitation command #
+###########################
+
+helpInvitationEmbed = discord.Embed(title=PREFIX + "invitation `alias : lien`",
+                                    color=0x2874a6,
+                                    description="Cette commande te permet d'obtenir le lien d'invitation du serveur",
+                                    )
+
+######################
+# Help video command #
+######################
+
+helpvideoEmbed = discord.Embed(title=PREFIX + "video `alias : metier, futur`",
+                               color=0x2874a6,
+                               description="Cette commande te permet d'obtenir la playlist des videos faites "
+                                           "par des diplômés'",
+                               )
+
 ###############
 # Help SSH    #
 ###############
