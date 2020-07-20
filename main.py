@@ -183,7 +183,7 @@ if __name__ == '__main__':
     # cogs
     bot.add_cog(cogs.passation.CogPassation(bot, PREFIX))
     bot.add_cog(cogs.newyear.CogNewyear(bot))
-    bot.add_cog(cogs.help.CogNewyear(bot))
+    bot.add_cog(cogs.help.CogHelp(bot))
     bot.add_cog(cogs.videoDiplomes.CogVideoDiplomes(bot))
     bot.add_cog(cogs.invitation.CogInvitation(bot))
 
