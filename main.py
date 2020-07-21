@@ -119,7 +119,7 @@ async def on_member_update(before, after):
                             " :arrow_forward:  Point intégration : La rentrée est initialement prévue le 14 septembre 2020, mais une rumeur de Covid complique les choses. Donc pour le moment on se base dessus, et on prévoie de vous organiser une inté à partir du  jeudi 10 au soir. \n"
                             " :arrow_forward:  Si ce n'est pas déjà le cas, on t'invite à rejoindre le groupe Facebook de la promo, où des informations tourneront aussi par rapport aux activités en journée www.facebook.com/groups/tc2023/  \n "
                             " :arrow_forward:  Questions réponses : Bienvenue ! Ce chanel est dédié à répondre à toutes vos questions sur l'intégration, que ce soit d'un point de vue logistique ou même sur l'organisation globale de celle- ci. N'hésite pas, nous serons nombreux à pouvoir te répondre ! \n"
-"
+
                             )
 
         if new_role.name in ["Prof", "Diplômés"]:
