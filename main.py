@@ -87,15 +87,15 @@ async def on_member_update(before, after):
         new_role = next(role for role in after.roles if role not in before.roles)
         chan = await after.create_dm()
         if new_role.name == "3 TC":
-            await chan.send("\nSalut, tu as le rôle 3TC sur le serveur de l'astus, ce rôle te permet de voir la"
+            await chan.send("\nSalut, tu as le rôle 3TC sur le serveur de l'astus, ce rôle te permet de voir la "
                             "catégorie 3TC et de discuter avec tes camarades")
 
         if new_role.name == "4 TC":
-            await chan.send("\nSalut, tu as le rôle 4TC sur le serveur de l'astus, ce rôle te permet de voir la"
+            await chan.send("\nSalut, tu as le rôle 4TC sur le serveur de l'astus, ce rôle te permet de voir la "
                             "catégorie 4TC et de discuter avec tes camarades")
 
         if new_role.name == "5 TC":
-            await chan.send("\nSalut, tu as le rôle 5TC sur le serveur de l'astus, ce rôle te permet de voir la"
+            await chan.send("\nSalut, tu as le rôle 5TC sur le serveur de l'astus, ce rôle te permet de voir la "
                             "catégorie 5TC et de discuter avec tes camarades")
 
         if new_role.name == "Futur TC":
@@ -108,13 +108,13 @@ async def on_member_update(before, after):
         if new_role.name == "Student":
             await chan.send("\n:wave: Bienvenue sur le serveur de l'ASTUS, tu trouveras plusieurs categories sur le "
                             "serveur. \n \n"
-                            "`` Général``  ici des annonces de l'ASTUS seront faites. Vous pouvez voir un channel \n"
+                            "``Général`` ici des annonces de l'ASTUS seront faites. Vous pouvez voir un channel \n"
                             "``gestion-music`` qui permet d'utiliser l'enceinte de l'ASTUS \n"
-                            "`` Que deviens- tu ? `` Tu as envie de parler de ton expérience à l'issu de ton parcours TC? Des conseils à donner aux futurs diplômés?  Cet espace est fait pour toi !  :man_technologist: \n"
+                            "``Que deviens- tu ? `` Tu as envie de parler de ton expérience à l'issu de ton parcours TC? Des conseils à donner aux futurs diplômés?  Cet espace est fait pour toi !  :man_technologist: \n"
                             "Au contraire, tu es un étudiant concerné par ce que deviennent les anciens diplômés, c'est aussi ici que tu peux t'exprimer ! \n"
-                            "`` Section Astus `` ( Accès attribués aux étudiants ): "
+                            "``Section Astus `` ( Accès attribués aux étudiants ): "
                             "Alors là, vous faites ce que vous voulez, quand vous voulez. Le chanel modélise le local de l'asso, donc on modère uniquement en cas de propos haineux, racistes, ou toute la liste qui suit. C'est votre espace détente donc lâchez vous, ça compte aussi pour les futurs 3TC ! \n"
-                            "`` Section intégration `` Le bureau de l'Astus est prêt à t'accueillir et à te faire passer une intégration que tu n'oublieras pas , crois nous ! ( tout dans le respect des gestes barrières :man_pouting:  :left_right_arrow: :deaf_person:  , le gel hydroalcoolique sera notre meilleur ami ). \n "
+                            "``Section intégration `` Le bureau de l'Astus est prêt à t'accueillir et à te faire passer une intégration que tu n'oublieras pas , crois nous ! ( tout dans le respect des gestes barrières :man_pouting:  :left_right_arrow: :deaf_person:  , le gel hydroalcoolique sera notre meilleur ami ). \n "
                             ":arrow_forward:  Point intégration : La rentrée est initialement prévue le 14 septembre 2020, mais une rumeur de Covid complique les choses. Donc pour le moment on se base dessus, et on prévoie de vous organiser une inté à partir du  jeudi 10 au soir. \n"
                             ":arrow_forward:  Si ce n'est pas déjà le cas, on t'invite à rejoindre le groupe Facebook de la promo, où des informations tourneront aussi par rapport aux activités en journée www.facebook.com/groups/tc2023/  \n "
                             ":arrow_forward:  Questions réponses : Ce chanel est dédié à répondre à toutes vos questions sur l'intégration, que ce soit d'un point de vue logistique ou même sur l'organisation globale de celle- ci. N'hésite pas, nous serons nombreux à pouvoir te répondre ! \n"
@@ -141,39 +141,39 @@ async def on_member_update(before, after):
         if new_role.name == "ASTUS":
             await chan.send("\nBienvenue à l'ASTUS ! \n"
                             "Tout d'abord, félicitation à toi pour avoir intégré l'ASTUS :wink: \n"
-                            "Tu as maintenant accés à la categorie ASTUS, tu retrouveras un channel général pour"
-                            "parler avec tous tes p'tits potes de l'ASTUS. Il y a aussi channel passation pour parler avec"
+                            "Tu as maintenant accés à la categorie ASTUS, tu retrouveras un channel général pour "
+                            "parler avec tous tes p'tits potes de l'ASTUS. Il y a aussi channel passation pour parler avec "
                             "l'ancien G4 de la gestion de l'ASTUS quand la fameuse heure viendra. En fonction de ton rôle, tu ne vois pas certains"
-                            "channel, je t'explique tout cela rapidement :wink:")
+                            "channel, je t'explique tout cela rapidement :wink:\n")
 
         if new_role.name == "G4":
-            await chan.send("Un grand pouvoir inplique de grandes responsabilités. C'est grâce à toi que l'astus "
+            await chan.send("\nUn grand pouvoir inplique de grandes responsabilités. C'est grâce à toi que l'astus "
                             "peut tourner. Tu as accès à quelques commandes de gestion du serveur (plus d'info "
-                            "avec ``" + PREFIX + "help`` sur le serveur")
+                            "avec ``" + PREFIX + "help`` sur le serveur\n")
 
         if new_role.name == "Team Event":
-            await chan.send("C'est toi qui va nous régaler avec tout pleins d'Event. Un channel dans la catégorie "
-                            "ASTUS t'es réservé")
+            await chan.send("\nC'est toi qui va nous régaler avec tout pleins d'Event. Un channel dans la catégorie "
+                            "ASTUS t'es réservé\n")
 
         if new_role.name == "Resp Team Event":
-            await chan.send("Tu gères la Team Event, pour cela tu as accès à un channel dédié avec ta team")
+            await chan.send("\nTu gères la Team Event, pour cela tu as accès à un channel dédié avec ta team\n")
 
         if new_role.name == "Team Entreprise":
-            await chan.send("C'est toi qui va nous régaler avec tout pleins de rencontre avec des entreprises."
-                            "Un channel dans la catégorie ASTUS t'es réservé")
+            await chan.send("\nC'est toi qui va nous régaler avec tout pleins de rencontre avec des entreprises."
+                            "Un channel dans la catégorie ASTUS t'es réservé\n")
 
         if new_role.name == "Resp Team Entreprise":
-            await chan.send("Tu gères la Team Entreprise, pour cela tu as accès à un channel dédié avec ta team")
+            await chan.send("\nTu gères la Team Entreprise, pour cela tu as accès à un channel dédié avec ta team\n")
 
         if new_role.name == "Resp Site International":
-            await chan.send("Resp du site ! \n"
-                            "C'est grâce à toi que le site peut évoluer, demande à ce qu'on t'ajoute au"
-                            "repo GitHub :wink:")
+            await chan.send("\nResp du site ! \n"
+                            "C'est grâce à toi que le site peut évoluer, demande à ce qu'on t'ajoute au "
+                            "repo GitHub :wink:\n")
 
         if new_role.name == "Resp Comm":
-            await chan.send("Resp comm ! \n"
-                            "L'ASTUS compte sur toi pour un max de communication. Tu géres la page FB de l'astus."
-                            "Tu fais les annonces et les affiches pour tous les events ")
+            await chan.send("\nResp comm ! \n"
+                            "L'ASTUS compte sur toi pour un max de communication. Tu géres la page FB de l'astus. "
+                            "Tu fais les annonces et les affiches pour tous les events\n ")
 
 if __name__ == '__main__':
     import cogs.newyear
