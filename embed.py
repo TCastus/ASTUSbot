@@ -134,8 +134,8 @@ sshEmbed.add_field(name="Commande",
 
 sshEmbed.add_field(name="Tuto",
                    value="[Lien vers un tuto du repo TChelp]("
-                         "https://github.com/TCastus/TChelp/blob/master/guides/3"
-                         "-ConnexionDistanteSSH.md) ",
+                         "https://github.com/TCastus/TChelp/blob/master/Travailler_a_distance/"
+                         "3-ConnexionDistanteSSH.md)",
                    inline=False
                    )
 
@@ -262,7 +262,7 @@ vpnEmbed.add_field(name="Commande",
 
 vpnEmbed.add_field(name="Tuto",
                    value="[Lien vers un tuto du repo TChelp]("
-                         "https://github.com/TCastus/TChelp/blob/master/guides/2-VPN.md) ",
+                         "https://github.com/TCastus/TChelp/blob/master/Travailler_a_distance/2-VPN.md) ",
                    inline=False
                    )
 
@@ -290,7 +290,8 @@ rdpEmbed.add_field(name="Commande",
 
 rdpEmbed.add_field(name="Tuto",
                    value="[Lien vers un tuto du repo TChelp]("
-                         "https://github.com/TCastus/TChelp/blob/master/guides/4-ConnexionDistanceBureauVirtuel.md)",
+                         "https://github.com/TCastus/TChelp/blob/master/Travailler_a_distance/"
+                         "4-ConnexionDistanceBureauVirtuel.md)",
                    inline=False
                    )
 
@@ -319,6 +320,6 @@ terminalEmbed.add_field(name="Commande",
 
 terminalEmbed.add_field(name="Tuto",
                         value="[Lien vers un tuto du repo TChelp]("
-                              "https://github.com/TCastus/TChelp/blob/master/guides/1-Terminal.md)",
+                              "https://github.com/TCastus/TChelp/blob/master/Travailler_a_distance/1-Terminal.md)",
                         inline=False
                         )
