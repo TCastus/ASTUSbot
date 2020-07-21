@@ -99,51 +99,57 @@ async def on_member_update(before, after):
                             "catégorie 5TC et de discuter avec tes camarades")
 
         if new_role.name == "Futur TC":
-            await chan.send("Salut, et bienvenue à toi Futur TC. Tu as accès à la categorie Integration du serveur."
-                            "Elle te permet de discuter avec tes futurs camarades et avec les TC actuels")
+            await chan.send("Salut, et bienvenue à toi Futur TC. Tu as accès à la categorie Integration du serveur :wave: \n\n "
+                            "Le bureau de l'Astus est prêt à t'accueillir et à te faire passer une intégration que tu n'oublieras pas , crois nous ! ( tout dans le respect des gestes barrières :man_pouting:  :left_right_arrow: :deaf_person:  , le gel hydroalcoolique sera notre meilleur ami ). \n"
+                            " :arrow_forward: Point intégration : La rentrée est initialement prévue le 14 septembre 2020, mais une rumeur de Covid complique les choses. Donc pour le moment on se base dessus, et on prévoie de vous organiser une inté à partir du  jeudi 10 au soir. \n"
+                            " :arrow_forward: Si ce n'est pas déjà le cas, on t'invite à rejoindre le groupe Facebook de la promo, où des informations tourneront aussi par rapport aux activités en journée www.facebook.com/groups/tc2023/ \n "
+                            " :arrow_forward: Questions réponses : Ce chanel est dédié à répondre à toutes vos questions sur l'intégration, que ce soit d'un point de vue logistique ou même sur l'organisation globale de celle- ci. N'hésite pas, nous serons nombreux à pouvoir te répondre ! \n")
 
         if new_role.name == "Student":
-            await chan.send("Bienvenue sur le serveur de l'ASTUS, tu trouveras plusieurs categories sur le "
+            await chan.send(" :wave: Bienvenue sur le serveur de l'ASTUS, tu trouveras plusieurs categories sur le "
                             "serveur. \n \n"
-                            " - Général, ici des annonces de l'ASTUS seront faites. Vous pouvez voir un channel "
-                            "``gestion-music`` qui permet d'utiliser l'enceinte de l'ASTUS \n"
-                            " - Un Boulot / Stage, permet de mettre en relation des dipômés avec les TC actuels "
-                            "afin de trouver un stage ou un emploi pour les 5TC qui vont avoir leur diplôme \n"
-                            " - Garder le contact, permet de discuter avec des diplômés de leur parcour \n"
-                            " - L'ASTUS, ici tu peux t'exprimer librement sans prof et faire tout l'humour que "
-                            "tu veux \n"
-                            " - Intégration, soit respectueux avec les nouveaux et aide les à vivre au mieux leur "
-                            "nouvelle vie au départ :wink:"
+                            " `` Général``  ici des annonces de l'ASTUS seront faites. Vous pouvez voir un channel \n"
+                            " ``gestion-music`` qui permet d'utiliser l'enceinte de l'ASTUS \n"
+                            " `` Que deviens- tu ? `` Tu as envie de parler de ton expérience à l'issu de ton parcours TC? Des conseils à donner aux futurs diplômés?  Cet espace est fait pour toi !  :man_technologist: \n"
+                            "Au contraire, tu es un étudiant concerné par ce que deviennent les anciens diplômés, c'est aussi ici que tu peux t'exprimer ! \n"
+                            " `` Section Astus `` ( Accès attribués aux étudiants ): "
+                            "Alors là, vous faites ce que vous voulez, quand vous voulez. Le chanel modélise le local de l'asso, donc on modère uniquement en cas de propos haineux, racistes, ou toute la liste qui suit. C'est votre espace détente donc lâchez vous, ça compte aussi pour les futurs 3TC ! \n"
+                            " `` Section intégration `` Informations : Salut à toi futur TC ! :wave: \n"
+                            " Le bureau de l'Astus est prêt à t'accueillir et à te faire passer une intégration que tu n'oublieras pas , crois nous ! ( tout dans le respect des gestes barrières :man_pouting:  :left_right_arrow: :deaf_person:  , le gel hydroalcoolique sera notre meilleur ami ). \n "
+                            " :arrow_forward:  Point intégration : La rentrée est initialement prévue le 14 septembre 2020, mais une rumeur de Covid complique les choses. Donc pour le moment on se base dessus, et on prévoie de vous organiser une inté à partir du  jeudi 10 au soir. \n"
+                            " :arrow_forward:  Si ce n'est pas déjà le cas, on t'invite à rejoindre le groupe Facebook de la promo, où des informations tourneront aussi par rapport aux activités en journée www.facebook.com/groups/tc2023/  \n "
+                            " :arrow_forward:  Questions réponses : Bienvenue ! Ce chanel est dédié à répondre à toutes vos questions sur l'intégration, que ce soit d'un point de vue logistique ou même sur l'organisation globale de celle- ci. N'hésite pas, nous serons nombreux à pouvoir te répondre ! \n"
+"
                             )
 
         if new_role.name in ["Prof", "Diplômés"]:
             await chan.send("Madame, Monsieur, \n"
                             "Bienvenue sur le serveur de l'ASTUS, vous trouverez plusieurs categories sur le "
-                            "serveur. \n \n"
-                            " - Général, ici des annonces de l'ASTUS seront faites. Vous pouvez voir un channel "
-                            "``gestion-music`` qui permet d'utiliser l'enceinte de l'ASTUS \n"
-                            " - Un Boulot / Stage, permet de mettre en relation des dipômés avec les TC actuels "
+                            "serveur. :speaking_head: \n \n"
+                            " :arrow_forward: ``Général`` ici des annonces de l'ASTUS seront faites. "
+                            " :arrow_forward: ``gestion-music`` qui permet d'utiliser l'enceinte de l'ASTUS \n"
+                            " :arrow_forward: ``Un Boulot / Stage`` , permet de mettre en relation des dipômés avec les TC actuels "
                             "afin de trouver un stage ou un emploi pour les 5TC qui vont avoir leur diplôme \n"
-                            " - Garder le contact, permet de discuter avec des diplômés de leur parcour"
+                            " :arrow_forward: Garder le contact, permet de discuter avec des diplômés de leur parcours\n "
                             )
 
         if new_role.name == "Admin Groupe de Travail":
             await chan.send("Tu es un admin des groupes de travail mis en place par l'ASTUS, tu peux créer, "
                             "supprimer des channels dans la categorie groupe de travail afin de les animer "
-                            "au mieux"
+                            "au mieux. May the force be with you ! :man_technologist:  "
                             )
 
         if new_role.name == "ASTUS":
-            await chan.send("He ba bienvenue à l'ASTUS ! \n"
+            await chan.send("Bienvenue à l'ASTUS ! \n"
                             "Tout d'abord, félicitation à toi pour avoir intégré l'ASTUS :wink: \n"
                             "Tu as maintenant accés à la categorie ASTUS, tu retrouveras un channel général pour"
-                            "parler avec tous tes p'tits potes de l'ASTUS. Et un channel passation pour parler avec"
-                            "l'ancien G4 de la gestion de l'ASTUS. En fonction de ton rôle, tu ne vois pas certains"
+                            "parler avec tous tes p'tits potes de l'ASTUS. Il y a aussi channel passation pour parler avec"
+                            "l'ancien G4 de la gestion de l'ASTUS quand la fameuse heure viendra. En fonction de ton rôle, tu ne vois pas certains"
                             "channel, je t'explique tout cela rapidement :wink:")
 
         if new_role.name == "G4":
             await chan.send("Un grand pouvoir inplique de grandes responsabilités. C'est grâce à toi que l'astus "
-                            "peut tourner. Tu as accés à quelques commandes de gestion du serveur (plus d'info "
+                            "peut tourner. Tu as accès à quelques commandes de gestion du serveur (plus d'info "
                             "avec ``" + PREFIX + "help`` sur le serveur")
 
         if new_role.name == "Team Event":
