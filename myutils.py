@@ -62,6 +62,12 @@ class MyUtils:
     def getG4VocalChannel(self):
         return discord.utils.get(self.guild.channels, id=726555448739758151)
 
+    def getPassationTxtChannel(self):
+        return discord.utils.get(self.guild.channels, id=726555017389277235)
+
+    def getPassationVocalChannel(self):
+        return discord.utils.get(self.guild.channels, id=726555473872027729)
+
     async def newAstus(self, members, *roles):
         for memberStr in members:
             memberID = memberStr[2:-1] if memberStr[2:-1][0] != "!" else memberStr[2:-1][1:]

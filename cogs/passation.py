@@ -32,6 +32,8 @@ class CogPassation(commands.Cog):
 
         await MyUtils(ctx.guild).getG4TxtChannel().set_permissions(oldG4, overwrite=perms.g4TxtPerms)
         await MyUtils(ctx.guild).getG4VocalChannel().set_permissions(oldG4, overwrite=perms.g4VocalPerms)
+        await MyUtils(ctx.guild).getPassationTxtChannel().set_permissions(oldG4, overwrite=perms.g4TxtPerms)
+        await MyUtils(ctx.guild).getPassationVocalChannel().set_permissions(oldG4, overwrite=perms.g4VocalPerms)
 
         await ctx.send("Je cherche les anciens membres de l'ASTUS, patiente un moment...")
         for member in ctx.guild.members:
