@@ -1,5 +1,5 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 import os
 
 from myutils import MyUtils
@@ -12,6 +12,8 @@ bot = commands.Bot(command_prefix=PREFIX, description="Bot de l'ASTUS")
 
 @bot.event
 async def on_ready():
+    await bot.change_presence(activity=discord.Game(name="Help"))
+
     print(f'{bot.user} has connected to Discord!')
 
 
@@ -21,11 +23,13 @@ async def on_message(message):
 
         if message.content.lower() == "ping":
             await message.channel.send("pong")
+            await bot.change_presence(activity=discord.Game(name="Ping-Pong"))
 
-        if message.content.lower().replace(" ", "") in ["astusbot", "botastus",]:
+        if message.content.lower().replace(" ", "") in ["astusbot", "botastus", ]:
             await message.channel.send("Le bot de l'astus pour te servir, tu as besoin de savoir ce que tu peux "
                                        "me demander ? tape ``" + PREFIX + "help `` pour avoir une liste de ce que"
-                                       "je sais faire. \n Sinon ``" + PREFIX + "help [sujet]`` te permet"
+                                                                          "je sais faire. \n Sinon ``" + PREFIX +
+                                       "help [sujet]`` te permet "
                                        "d'avoir de l'aide sur un sujet en particulier :wink:")
 
     await bot.process_commands(message)
@@ -47,6 +51,7 @@ async def on_command_error(ctx, error):
 async def on_raw_reaction_add(payload):
     messageID = payload.message_id
     if messageID == 726611125252128768:
+        await bot.change_presence(activity=discord.Game(name="Give some roles"))
         guildID = payload.guild_id
         guild = discord.utils.find(lambda g: g.id == guildID, bot.guilds)
 
@@ -99,11 +104,12 @@ async def on_member_update(before, after):
                             "catégorie 5TC et de discuter avec tes camarades")
 
         if new_role.name == "Futur TC":
-            await chan.send("\nSalut, et bienvenue à toi Futur TC. Tu as accès à la categorie Integration du serveur :wave: \n\n "
-                            "Le bureau de l'Astus est prêt à t'accueillir et à te faire passer une intégration que tu n'oublieras pas , crois nous ! ( tout dans le respect des gestes barrières :man_pouting:  :left_right_arrow: :deaf_person:  , le gel hydroalcoolique sera notre meilleur ami ). \n"
-                            ":arrow_forward: Point intégration : La rentrée est initialement prévue le 14 septembre 2020, mais une rumeur de Covid complique les choses. Donc pour le moment on se base dessus, et on prévoie de vous organiser une inté à partir du  jeudi 10 au soir. \n"
-                            ":arrow_forward: Si ce n'est pas déjà le cas, on t'invite à rejoindre le groupe Facebook de la promo, où des informations tourneront aussi par rapport aux activités en journée www.facebook.com/groups/tc2023/ \n "
-                            ":arrow_forward: Questions réponses : Ce chanel est dédié à répondre à toutes vos questions sur l'intégration, que ce soit d'un point de vue logistique ou même sur l'organisation globale de celle- ci. N'hésite pas, nous serons nombreux à pouvoir te répondre ! \n")
+            await chan.send(
+                "\nSalut, et bienvenue à toi Futur TC. Tu as accès à la categorie Integration du serveur :wave: \n\n "
+                "Le bureau de l'Astus est prêt à t'accueillir et à te faire passer une intégration que tu n'oublieras pas , crois nous ! ( tout dans le respect des gestes barrières :man_pouting:  :left_right_arrow: :deaf_person:  , le gel hydroalcoolique sera notre meilleur ami ). \n"
+                ":arrow_forward: Point intégration : La rentrée est initialement prévue le 14 septembre 2020, mais une rumeur de Covid complique les choses. Donc pour le moment on se base dessus, et on prévoie de vous organiser une inté à partir du  jeudi 10 au soir. \n"
+                ":arrow_forward: Si ce n'est pas déjà le cas, on t'invite à rejoindre le groupe Facebook de la promo, où des informations tourneront aussi par rapport aux activités en journée www.facebook.com/groups/tc2023/ \n "
+                ":arrow_forward: Questions réponses : Ce chanel est dédié à répondre à toutes vos questions sur l'intégration, que ce soit d'un point de vue logistique ou même sur l'organisation globale de celle- ci. N'hésite pas, nous serons nombreux à pouvoir te répondre ! \n")
 
         if new_role.name == "Student":
             await chan.send("\n:wave: Bienvenue sur le serveur de l'ASTUS, tu trouveras plusieurs categories sur le "
@@ -174,6 +180,7 @@ async def on_member_update(before, after):
             await chan.send("\nResp comm ! \n"
                             "L'ASTUS compte sur toi pour un max de communication. Tu géres la page FB de l'astus. "
                             "Tu fais les annonces et les affiches pour tous les events\n ")
+
 
 if __name__ == '__main__':
     import cogs.newyear

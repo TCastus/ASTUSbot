@@ -9,4 +9,6 @@ class CogVideoDiplomes(commands.Cog):
 
     @commands.command(aliases=["futur", "video"])
     async def metier(self, ctx):
+        await self.bot.change_presence(activity=discord.Activity(name="Videos des diplômés",
+                                                                 type=discord.ActivityType.watching))
         await ctx.send(embed=embed.videoDiplomesEmbed)

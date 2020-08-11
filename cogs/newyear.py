@@ -12,6 +12,7 @@ class CogNewyear(commands.Cog):
 
     @commands.command(aliases=["ny"])
     async def newyear(self, ctx):
+        await self.bot.change_presence(activity=discord.Game(name="Upgrade roles"))
         for member in ctx.guild.members:
             if MyUtils(ctx.guild).getFuturTCRole() in member.roles:
                 await member.remove_roles(MyUtils(ctx.guild).getFuturTCRole())

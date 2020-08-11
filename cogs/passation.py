@@ -17,6 +17,8 @@ class CogPassation(commands.Cog):
     @commands.command()
     async def passation(self, ctx):
 
+        await self.bot.change_presence(activity=discord.Game(name="Do passation"))
+
         if self.passationStatus > 0:
             await ctx.send("Passation déjà en cours ... ")
             return

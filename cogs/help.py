@@ -20,6 +20,8 @@ class CogHelp(commands.Cog):
 
         subject = subject.lower()
 
+        await self.bot.change_presence(activity=discord.Game(name="Help"))
+
         if MyUtils(ctx.guild).G4check(ctx) and subject == "":
             await ctx.send(embed=embed.g4helpEmbed)
 
