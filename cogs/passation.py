@@ -160,6 +160,12 @@ class CogPassation(commands.Cog):
                     if end.content == "end":
                         self.passationStatus = 0
                         await ctx.send("Passation finie !")
+                        await MyUtils.getG4TxtChannel().send("@here vous devez : \n"
+                                                             "- Mettre  jour le portail VA \n"
+                                                             "- Prendre RDV à la banque \n"
+                                                             "- Changer les membres de l'asso sur le portail du service"
+                                                             "public \n"
+                                                             "- demander les MDP a l'ancien bureau")
                     else:
                         await ctx.send("Tu dois taper ``end`` pour finir la passation")
             except Exception:
