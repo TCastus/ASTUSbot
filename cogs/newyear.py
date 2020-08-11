@@ -29,9 +29,8 @@ class CogNewyear(commands.Cog):
                 await member.add_roles(MyUtils(ctx.guild).getDiplomesRole())
 
         await ctx.send("Changement des rôles :) : \n "
-                                   " - les Futurs TC sont maintenant des 3TC \n"
-                                   " - les 3TC sont maintenant des 4TC \n"
-                                   " - les 4TC sont maintenant des 5TC \n"
-                                   " - les 5TC sont maintenant des Diplômés \n"
-                                   )
-
+                       " - les Futurs TC sont maintenant des 3TC \n"
+                       " - les 3TC sont maintenant des 4TC \n"
+                       " - les 4TC sont maintenant des 5TC \n"
+                       " - les 5TC sont maintenant des Diplômés \n"
+                       )

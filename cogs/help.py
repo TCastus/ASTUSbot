@@ -66,4 +66,3 @@ class CogHelp(commands.Cog):
                 await ctx.send("Désolé, je ne sais pas te donner de l'aide sur ce sujet... \n "
                                "Peut-être que tu trouveras une réponse sur le repo "
                                "[TChelp](https://github.com/TCastus/TChelp) :wink: ")
-

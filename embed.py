@@ -289,7 +289,8 @@ rdpEmbed.add_field(name="Commande",
 
 rdpEmbed.add_field(name="Tuto",
                    value="[Lien vers un tuto du repo TChelp]("
-                         "https://tcastus.github.io/TChelp/Travailler_a_distance/4-ConnexionDistanceBureauVirtuel.html)",
+                         "https://tcastus.github.io/TChelp/Travailler_a_distance/"
+                         "4-ConnexionDistanceBureauVirtuel.html)",
                    inline=False
                    )
 

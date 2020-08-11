@@ -1,5 +1,5 @@
 import discord
-from discord.ext import commands, tasks
+from discord.ext import commands
 import os
 
 from myutils import MyUtils
@@ -106,24 +106,48 @@ async def on_member_update(before, after):
         if new_role.name == "Futur TC":
             await chan.send(
                 "\nSalut, et bienvenue à toi Futur TC. Tu as accès à la categorie Integration du serveur :wave: \n\n "
-                "Le bureau de l'Astus est prêt à t'accueillir et à te faire passer une intégration que tu n'oublieras pas , crois nous ! ( tout dans le respect des gestes barrières :man_pouting:  :left_right_arrow: :deaf_person:  , le gel hydroalcoolique sera notre meilleur ami ). \n"
-                ":arrow_forward: Point intégration : La rentrée est initialement prévue le 14 septembre 2020, mais une rumeur de Covid complique les choses. Donc pour le moment on se base dessus, et on prévoie de vous organiser une inté à partir du  jeudi 10 au soir. \n"
-                ":arrow_forward: Si ce n'est pas déjà le cas, on t'invite à rejoindre le groupe Facebook de la promo, où des informations tourneront aussi par rapport aux activités en journée www.facebook.com/groups/tc2023/ \n "
-                ":arrow_forward: Questions réponses : Ce chanel est dédié à répondre à toutes vos questions sur l'intégration, que ce soit d'un point de vue logistique ou même sur l'organisation globale de celle- ci. N'hésite pas, nous serons nombreux à pouvoir te répondre ! \n")
+                "Le bureau de l'Astus est prêt à t'accueillir et à te faire passer une intégration que tu n'oublieras "
+                "pas , crois nous ! ( tout dans le respect des gestes barrières :man_pouting:  :left_right_arrow: "
+                ":deaf_person:  , le gel hydroalcoolique sera notre meilleur ami ). \n"
+                ":arrow_forward: Point intégration : La rentrée est initialement prévue le 14 septembre 2020, mais une "
+                "rumeur de Covid complique les choses. Donc pour le moment on se base dessus, et on prévoie de vous "
+                "organiser une inté à partir du  jeudi 10 au soir. \n"
+                ":arrow_forward: Si ce n'est pas déjà le cas, on t'invite à rejoindre le groupe Facebook de la promo, "
+                "où des informations tourneront aussi par rapport aux activités en journée"
+                " www.facebook.com/groups/tc2023/ \n "
+                ":arrow_forward: Questions réponses : Ce chanel est dédié à répondre à toutes vos questions sur"
+                " l'intégration, que ce soit d'un point de vue logistique ou même sur l'organisation globale de "
+                "celle- ci. N'hésite pas, nous serons nombreux à pouvoir te répondre ! \n")
 
         if new_role.name == "Student":
             await chan.send("\n:wave: Bienvenue sur le serveur de l'ASTUS, tu trouveras plusieurs categories sur le "
                             "serveur. \n \n"
                             "``Général`` ici des annonces de l'ASTUS seront faites. Vous pouvez voir un channel \n"
                             "``gestion-music`` qui permet d'utiliser l'enceinte de l'ASTUS \n"
-                            "``Que deviens- tu ? `` Tu as envie de parler de ton expérience à l'issu de ton parcours TC? Des conseils à donner aux futurs diplômés?  Cet espace est fait pour toi !  :man_technologist: \n"
-                            "Au contraire, tu es un étudiant concerné par ce que deviennent les anciens diplômés, c'est aussi ici que tu peux t'exprimer ! \n"
+                            "``Que deviens- tu ? `` Tu as envie de parler de ton expérience à l'issu de ton parcours "
+                            "TC? Des conseils à donner aux futurs diplômés?  Cet espace est fait pour toi ! "
+                            " :man_technologist: \n"
+                            "Au contraire, tu es un étudiant concerné par ce que deviennent les anciens diplômés,"
+                            " c'est aussi ici que tu peux t'exprimer ! \n"
                             "``Section Astus `` ( Accès attribués aux étudiants ): "
-                            "Alors là, vous faites ce que vous voulez, quand vous voulez. Le chanel modélise le local de l'asso, donc on modère uniquement en cas de propos haineux, racistes, ou toute la liste qui suit. C'est votre espace détente donc lâchez vous, ça compte aussi pour les futurs 3TC ! \n"
-                            "``Section intégration `` Le bureau de l'Astus est prêt à t'accueillir et à te faire passer une intégration que tu n'oublieras pas , crois nous ! ( tout dans le respect des gestes barrières :man_pouting:  :left_right_arrow: :deaf_person:  , le gel hydroalcoolique sera notre meilleur ami ). \n "
-                            ":arrow_forward:  Point intégration : La rentrée est initialement prévue le 14 septembre 2020, mais une rumeur de Covid complique les choses. Donc pour le moment on se base dessus, et on prévoie de vous organiser une inté à partir du  jeudi 10 au soir. \n"
-                            ":arrow_forward:  Si ce n'est pas déjà le cas, on t'invite à rejoindre le groupe Facebook de la promo, où des informations tourneront aussi par rapport aux activités en journée www.facebook.com/groups/tc2023/  \n "
-                            ":arrow_forward:  Questions réponses : Ce chanel est dédié à répondre à toutes vos questions sur l'intégration, que ce soit d'un point de vue logistique ou même sur l'organisation globale de celle- ci. N'hésite pas, nous serons nombreux à pouvoir te répondre ! \n"
+                            "Alors là, vous faites ce que vous voulez, quand vous voulez. Le chanel modélise le local "
+                            "de l'asso, donc on modère uniquement en cas de propos haineux, racistes, ou toute la liste"
+                            " qui suit. C'est votre espace détente donc lâchez vous, ça compte aussi pour les "
+                            "futurs 3TC ! \n"
+                            "``Section intégration `` Le bureau de l'Astus est prêt à t'accueillir et à te faire passer"
+                            " une intégration que tu n'oublieras pas , crois nous ! ( tout dans le respect des gestes "
+                            "barrières :man_pouting:  :left_right_arrow: :deaf_person:  , le gel hydroalcoolique sera "
+                            "notre meilleur ami ). \n "
+                            ":arrow_forward:  Point intégration : La rentrée est initialement prévue le 14 septembre"
+                            " 2020, mais une rumeur de Covid complique les choses. Donc pour le moment on se base "
+                            "dessus, et on prévoie de vous organiser une inté à partir du  jeudi 10 au soir. \n"
+                            ":arrow_forward:  Si ce n'est pas déjà le cas, on t'invite à rejoindre le groupe "
+                            "Facebook de la promo, où des informations tourneront aussi par rapport aux activités "
+                            "en journée www.facebook.com/groups/tc2023/  \n "
+                            ":arrow_forward:  Questions réponses : Ce chanel est dédié à répondre à toutes "
+                            "vos questions sur l'intégration, que ce soit d'un point de vue logistique ou même sur "
+                            "l'organisation globale de celle- ci. N'hésite pas, nous serons nombreux "
+                            "à pouvoir te répondre ! \n"
 
                             )
 
@@ -133,9 +157,11 @@ async def on_member_update(before, after):
                             "serveur. :speaking_head: \n \n"
                             ":arrow_forward: ``Général`` ici des annonces de l'ASTUS seront faites. \n"
                             ":arrow_forward: ``gestion-music`` qui permet d'utiliser l'enceinte de l'ASTUS \n"
-                            ":arrow_forward: ``Un Boulot / Stage`` , permet de mettre en relation des dipômés avec les TC actuels "
+                            ":arrow_forward: ``Un Boulot / Stage`` , permet de mettre en relation des dipômés avec "
+                            "les TC actuels "
                             "afin de trouver un stage ou un emploi pour les 5TC qui vont avoir leur diplôme \n"
-                            " :arrow_forward: Garder le contact, permet de discuter avec des diplômés de leur parcours\n "
+                            " :arrow_forward: Garder le contact, permet de discuter avec des diplômés de leur"
+                            " parcours\n "
                             )
 
         if new_role.name == "Admin Groupe de Travail":
@@ -148,8 +174,9 @@ async def on_member_update(before, after):
             await chan.send("\nBienvenue à l'ASTUS ! \n"
                             "Tout d'abord, félicitation à toi pour avoir intégré l'ASTUS :wink: \n"
                             "Tu as maintenant accés à la categorie ASTUS, tu retrouveras un channel général pour "
-                            "parler avec tous tes p'tits potes de l'ASTUS. Il y a aussi channel passation pour parler avec "
-                            "l'ancien G4 de la gestion de l'ASTUS quand la fameuse heure viendra. En fonction de ton rôle, tu ne vois pas certains"
+                            "parler avec tous tes p'tits potes de l'ASTUS. Il y a aussi channel passation pour "
+                            "parler avec l'ancien G4 de la gestion de l'ASTUS quand la fameuse heure viendra."
+                            " En fonction de ton rôle, tu ne vois pas certains"
                             "channel, je t'explique tout cela rapidement :wink:\n")
 
         if new_role.name == "G4":
