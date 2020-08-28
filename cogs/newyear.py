@@ -17,6 +17,7 @@ class CogNewyear(commands.Cog):
             if MyUtils(ctx.guild).getFuturTCRole() in member.roles:
                 await member.remove_roles(MyUtils(ctx.guild).getFuturTCRole())
                 await member.add_roles(MyUtils(ctx.guild).get3TCRole())
+                await member.add_roles(MyUtils(ctx.guild).getStudentRole())
             elif MyUtils(ctx.guild).get3TCRole() in member.roles:
                 await member.remove_roles(MyUtils(ctx.guild).get3TCRole())
                 await member.add_roles(MyUtils(ctx.guild).get4TCRole())
