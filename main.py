@@ -215,6 +215,7 @@ if __name__ == '__main__':
     import cogs.help
     import cogs.videoDiplomes
     import cogs.invitation
+    import cogs.infoFromIP
 
     # Remove default help command
     bot.remove_command("help")
@@ -225,5 +226,6 @@ if __name__ == '__main__':
     bot.add_cog(cogs.help.CogHelp(bot))
     bot.add_cog(cogs.videoDiplomes.CogVideoDiplomes(bot))
     bot.add_cog(cogs.invitation.CogInvitation(bot))
+    bot.add_cog(cogs.infoFromIP.CogIpInfo(bot))
 
     bot.run(TOKEN)
