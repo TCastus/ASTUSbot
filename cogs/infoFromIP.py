@@ -19,6 +19,9 @@ class CogIpInfo(commands.Cog):
 
     @commands.command(aliases=["ipi"])
     async def ipinfo(self, ctx, IpAddr):
+
+        await self.bot.change_presence(activity=discord.Game(name="IpInfo"))
+
         if not valid_ip(IpAddr):
             await ctx.send("L'adresse IP n'est pas valid")
         else:
@@ -26,9 +29,9 @@ class CogIpInfo(commands.Cog):
             handler = ipinfo.getHandler(access_token=IPINFO_TOKEN)
             details = handler.getDetails(IpAddr)
 
-            ipInfoEmbed = discord.Embed(title=f"Ip info : {IpAddr}",
+            ipInfoEmbed = discord.Embed(title="Ip info",
                                         color=0x78a5f9,
-                                        description="Résultat de la commande IpInfo")
+                                        description=f"Résultat de la commande IpInfo avec `{IpAddr}`")
 
             ipInfoEmbed.add_field(name="Hostname : ",
                                   value=details.hostname,

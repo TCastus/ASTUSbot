@@ -31,6 +31,18 @@ helpEmbed.add_field(name=PREFIX + "invitation ``alias : lien``",
                     value="Cette commande te permet d'obtenir le lien du serveur",
                     inline=False)
 
+helpEmbed.add_field(name=PREFIX + "ipinfo [IPv4 ou IPv6]``alias : ipi``",
+                    value="Permet d'obtenir des infos sur une adress IPv4 ou IPv6",
+                    inline=False)
+
+helpEmbed.add_field(name=PREFIX + "dns_lookup [Domain] `alias : nslookup`",
+                    value="Donne les champs DNS d'un domain",
+                    inline=False)
+
+helpEmbed.add_field(name=PREFIX + "soa_lookup [Domain]",
+                    value="Donne les champs SOA d'un domain",
+                    inline=False)
+
 ###############
 # G4 Help     #
 ###############
@@ -97,6 +109,34 @@ helpvideoEmbed = discord.Embed(title=PREFIX + "video `alias : metier, futur`",
                                color=0x2874a6,
                                description="Cette commande te permet d'obtenir la playlist des videos faites "
                                            "par des diplômés'",
+                               )
+
+#######################
+# Help ipinfo Command #
+#######################
+
+helpIpInfo = discord.Embed(title=PREFIX + "ipinfo [IPv4 ou IPv6] `alias : ipi`",
+                           color=0x78a5f9,
+                           description="Donne des infos sur une adresse IPv4 ou IPv6",
+                           )
+
+###############################
+# Help helpDns_lookup Command #
+###############################
+
+helpDns_lookup = discord.Embed(title=PREFIX + "dns_lookup [Domain] `alias : nslookup`",
+                               color=0x78a5f9,
+                               description="Donne les champs DNS d'un domain",
+                               )
+
+
+###############################
+# Help helpSoa_lookup Command #
+###############################
+
+helpSoa_lookup = discord.Embed(title=PREFIX + "soa_lookup [Domain]",
+                               color=0x78a5f9,
+                               description="Donne les champs SOA d'un domain",
                                )
 
 ###############

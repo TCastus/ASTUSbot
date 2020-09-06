@@ -61,6 +61,12 @@ class CogHelp(commands.Cog):
                 await ctx.send(embed=embed.helpInvitationEmbed)
             elif subject in ["video", "metier", "futur"]:
                 await ctx.send(embed=embed.helpvideoEmbed)
+            elif subject in ["ipinfo", "ipi"]:
+                await ctx.send(embed=embed.helpIpInfo)
+            elif subject in ["nslookup", "dns_lookup"]:
+                await ctx.send(embed=embed.helpDns_lookup)
+            elif subject == "soa_lookup":
+                await ctx.send(embed=embed.helpSoa_lookup)
 
             else:
                 await ctx.send("Désolé, je ne sais pas te donner de l'aide sur ce sujet... \n "
