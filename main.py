@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import os
+import cogs
 
 from myutils import MyUtils
 
@@ -210,24 +211,17 @@ async def on_member_update(before, after):
 
 
 if __name__ == '__main__':
-    import cogs.newyear
-    import cogs.passation
-    import cogs.help
-    import cogs.videoDiplomes
-    import cogs.invitation
-    import cogs.infoFromIP
-    import cogs.NSandSOALookup
 
     # Remove default help command
     bot.remove_command("help")
 
     # cogs
-    bot.add_cog(cogs.passation.CogPassation(bot, PREFIX))
-    bot.add_cog(cogs.newyear.CogNewyear(bot))
-    bot.add_cog(cogs.help.CogHelp(bot))
-    bot.add_cog(cogs.videoDiplomes.CogVideoDiplomes(bot))
-    bot.add_cog(cogs.invitation.CogInvitation(bot))
-    bot.add_cog(cogs.infoFromIP.CogIpInfo(bot))
-    bot.add_cog(cogs.NSandSOALookup.CogLookup(bot))
+    bot.add_cog(cogs.CogPassation(bot, PREFIX))
+    bot.add_cog(cogs.CogNewyear(bot))
+    bot.add_cog(cogs.CogHelp(bot))
+    bot.add_cog(cogs.CogVideoDiplomes(bot))
+    bot.add_cog(cogs.CogInvitation(bot))
+    bot.add_cog(cogs.CogIpInfo(bot))
+    bot.add_cog(cogs.CogLookup(bot))
 
     bot.run(TOKEN)
