@@ -6,7 +6,7 @@ class CogInvitation(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=["lien"])
+    @commands.command(aliases=["lien", "invit", "invite"])
     async def invitation(self, ctx):
         await self.bot.change_presence(activity=discord.Game(name="Give invitation"))
         await ctx.send("Tu veux inviter un TC ? un prof? \n"
