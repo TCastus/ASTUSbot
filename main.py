@@ -85,6 +85,8 @@ async def on_raw_reaction_add(payload):
         elif payload.emoji.name == '🆕':
             # print("Futur TC")
             await payload.member.add_roles(MyUtils(guild).getFuturTCRole())
+        elif payload.emoji.name == "💼":
+            await payload.member.add_roles(MyUtils(guild).getEntrepriseRole())
 
 
 @bot.event
@@ -208,6 +210,16 @@ async def on_member_update(before, after):
             await chan.send("\nResp comm ! \n"
                             "L'ASTUS compte sur toi pour un max de communication. Tu géres la page FB de l'astus. "
                             "Tu fais les annonces et les affiches pour tous les events\n ")
+
+        if new_role.name == "Entreprise":
+            await chan.send("\n:wave:Madame, Monsieur, \n"
+                            "Bienvenue sur le serveur de l'ASTUS, vous trouverez plusieurs categories sur le "
+                            "serveur. :speaking_head: \n \n"
+                            ":arrow_forward: ``Général`` ici tous le monde peut parler (profs, élèves, entreprises, "
+                            "diplômés). \n"
+                            ":arrow_forward: ``Un Boulot / Stage`` , permet de mettre en relation des étudiants avec "
+                            "des entrepries. \n"
+                            )
 
 
 if __name__ == '__main__':
