@@ -235,5 +235,6 @@ if __name__ == '__main__':
     bot.add_cog(cogs.CogInvitation(bot))
     bot.add_cog(cogs.CogIpInfo(bot))
     bot.add_cog(cogs.CogLookup(bot))
+    bot.add_cog(cogs.CogInternational(bot))
 
     bot.run(TOKEN)

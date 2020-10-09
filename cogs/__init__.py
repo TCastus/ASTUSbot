@@ -5,3 +5,4 @@ from .invitation import CogInvitation
 from .newyear import CogNewyear
 from .NSandSOALookup import CogLookup
 from .videoDiplomes import CogVideoDiplomes
+from .international import CogInternational
