@@ -10,6 +10,7 @@ class CogLookup(commands.Cog):
 
     @commands.command(aliases=["nslookup"])
     async def dns_lookup(self, ctx, Domain):
+        await self.bot.change_presence(activity=discord.Game(name="dns_lookup"))
         nsRecord = self.dns_query.dns_lookup(Domain)
         await self.bot.change_presence(activity=discord.Game(name="dns_lookup"))
         await ctx.send(f"DNS lookup for `{Domain}`\n"
@@ -17,6 +18,7 @@ class CogLookup(commands.Cog):
 
     @commands.command()
     async def soa_lookup(self, ctx, Domain):
+        await self.bot.change_presence(activity=discord.Game(name="soa_lookup"))
         soaRecord = self.dns_query.soa_lookup(Domain)
         await self.bot.change_presence(activity=discord.Game(name="soa_lookup"))
         await ctx.send(f"SOA lookup for `{Domain}` \n"
