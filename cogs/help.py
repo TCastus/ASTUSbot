@@ -57,6 +57,8 @@ class CogHelp(commands.Cog):
                 await HelpCommand(ctx, embed.helpPassationEmbed)
             elif subject == "newyear":
                 await HelpCommand(ctx, embed.helpNewyearEmbed)
+            elif subject == "vendredichill":
+                await HelpCommand(ctx, embed.helpVendrediChill)
             elif subject in ["invitation", "lien"]:
                 await ctx.send(embed=embed.helpInvitationEmbed)
             elif subject in ["video", "metier", "futur"]:

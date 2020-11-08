@@ -74,6 +74,9 @@ class MyUtils:
     def getPassationVocalChannel(self):
         return discord.utils.get(self.guild.channels, id=726555473872027729)
 
+    def getVendrediChillCategory(self):
+        return discord.utils.get(self.guild.categories, name="🎉Vendredi Chill🎉")
+
     async def newAstus(self, members, *roles):
         for memberStr in members:
             memberID = memberStr[2:-1] if memberStr[2:-1][0] != "!" else memberStr[2:-1][1:]
