@@ -43,3 +43,12 @@ class CogVendrediChill(commands.Cog):
                 await member.move_to(randomLobby)
                 if len(randomLobby.members) == 5:
                     lobbyChan.pop(lobbyChan.index(randomLobby))
+
+    @commands.command()
+    async def brownie(self, ctx):
+        await ctx.send("https://i.pinimg.com/originals/b5/d3/44/b5d3445904e0fa9ffc0452f4a09afc5c.jpg")
+
+    @commands.command(aliases=["biere"])
+    async def beer(self, ctx):
+        await ctx.send(":beers:")
+
