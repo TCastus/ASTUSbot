@@ -69,6 +69,37 @@ g4helpEmbed.add_field(name=PREFIX + "help nog4help",
                       value="Affiche l'help standard",
                       inline=False)
 
+g4helpEmbed.add_field(name="Vendredi Chill",
+                      value="Pour plus d'info utilise la commande : ``" + PREFIX + "help vendredichill``",
+                      inline=False)
+
+#########################
+# Help {Vendredi chill} #
+#########################
+
+helpVendrediChill = discord.Embed(title="Vendredi Chill",
+                                  color=0xEE8700,
+                                  description="Ce groupe de commande te permet de afficher / cacher une catégorie "
+                                              "nomé ``🎉 Vendredi Chill🎉``. Elle contient 15 channels vocaux pour "
+                                              "repartir tous le monde en petit groupe.",
+                                  )
+
+helpVendrediChill.add_field(name=PREFIX + "showChannel",
+                            value="Cette commande te permet d'afficher la categorie avec les 15 channels vocaux.",
+                            inline=False
+                            )
+
+helpVendrediChill.add_field(name=PREFIX + "hideChannel",
+                            value="Cette commande te permet de cacher la categorie avec les 15 channels vocaux.",
+                            inline=False
+                            )
+
+helpVendrediChill.add_field(name=PREFIX + "shufle",
+                            value="Cette commande te permet de repartir de manière aléatoire les personnes dans le"
+                                  " channel vocal `General` dnas les lobby en petit groupe de 5.",
+                            inline=False
+                            )
+
 ##########################
 # Help passation command #
 ##########################
@@ -128,7 +159,6 @@ helpDns_lookup = discord.Embed(title=PREFIX + "dns_lookup [Domain] `alias : nslo
                                color=0x78a5f9,
                                description="Donne les champs DNS d'un domain",
                                )
-
 
 ###############################
 # Help helpSoa_lookup Command #
