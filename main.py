@@ -237,5 +237,6 @@ if __name__ == '__main__':
     bot.add_cog(cogs.CogLookup(bot))
     bot.add_cog(cogs.CogInternational(bot))
     bot.add_cog(cogs.CogVendrediChill(bot))
+    bot.add_cog(cogs.CogCalendar(bot))
 
     bot.run(TOKEN)
