@@ -9,5 +9,6 @@ class CogCalendar(commands.Cog):
 
     @commands.command(aliases=["calendar", "cal", "calendrier"])
     async def calender(self, ctx):
+        await ctx.send(formatResponse("[BETA FEATURE]"))
         for course in getCourseByDate():
             await ctx.send(formatResponse(course))
