@@ -11,7 +11,7 @@ class CogCalendar(commands.Cog):
         self.bot = bot
 
     @commands.command(aliases=["calendar", "cal", "calendrier"])
-    async def calender(self, ctx, arg):
+    async def calender(self, ctx, arg="4TC2"):
         if re.match(r"(([34])(TC|tc|Tc|tC)([123Aa])|([5])(TC|tc|Tc|tC)([123]))", arg):
             year = arg[0]
             if arg[-1].isnumeric():
