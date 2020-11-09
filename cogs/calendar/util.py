@@ -1,7 +1,7 @@
 from icalendar import Calendar, Event
 from datetime import datetime, date, timedelta
 
-CALENDAR_PATH = "Assets/4TC-GR2.ical"
+CALENDAR_PATH = "cogs/calendar/Assets/4TC-GR2.ical"
 RESPONSE_TEMPLATE = """from {starting_time}:00 to {end_time}:00 :: {course} at  {location}       {details}"""
 time = datetime(2020, 11, 9, 8, 0, 2)
 day = timedelta(days=1)
