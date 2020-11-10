@@ -10,7 +10,7 @@ class CogCalendar(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=["calendar", "cal", "calendrier"])
+    @commands.command(aliases=["Calendar", "cal", "calendrier"])
     async def calender(self, ctx, arg="4TC2"):
         if re.match(r"(([34])(TC|tc|Tc|tC)([123Aa])|([5])(TC|tc|Tc|tC)([123]))", arg):
             year = arg[0]
@@ -29,8 +29,8 @@ class CogCalendar(commands.Cog):
         else:
             await ctx.send("please enter a valid input <year>TC<group>")
 
-    @commands.command(aliases=["tomorrow", "demain", "dem","tom"])
-    async def calender(self, ctx, arg="4TC2"):
+    @commands.command(aliases=["Tomorrow", "demain", "dem","tom"])
+    async def tomorrow(self, ctx, arg="4TC2"):
         if re.match(r"(([34])(TC|tc|Tc|tC)([123Aa])|([5])(TC|tc|Tc|tC)([123]))", arg):
             year = arg[0]
             if arg[-1].isnumeric():
