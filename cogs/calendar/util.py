@@ -4,7 +4,7 @@ from datetime import datetime, date, timedelta
 CALENDAR_PATH = "cogs/calendar/Assets/4TC2.ical"
 RESPONSE_TEMPLATE = """{starting_time}:00 ➡️ {end_time}:00 :: {course} at  {location}  |  {details}"""
 COURSE_COMMENT = {"GES1": "😭"}
-DETAILS_COMMENT = {"Image": "🏙"}
+DETAILS_COMMENT = {"Image": "🏙", "haskell": "😭"}
 time = datetime(2020, 11, 9, 8, 0, 2)
 day = timedelta(days=1)
 
@@ -96,3 +96,8 @@ def formatDetails(course):
             break
 
     return f"{description}{comment}"
+
+
+tomorrow = datetime.now() + timedelta(days=1)
+for c in getCourseByDate(tomorrow.date()):
+    print(formatResponse(c))
