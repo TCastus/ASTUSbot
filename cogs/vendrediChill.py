@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 from myutils import MyUtils
 import random
-import time
+import asyncio
 
 
 def setup(bot):
@@ -44,22 +44,20 @@ class CogVendrediChill(commands.Cog):
             category = MyUtils(ctx.guild).getVendrediChillCategory()
             lobbyChan = category.voice_channels
             lobbyChan.pop(0)
+            print(lobbyChan)
             random.shuffle(lobbyChan)
-            generalChan = discord.utils.get(category.voice_channels, name="General")
-            connectedMembers = generalChan.members
-            random.shuffle(connectedMembers)
-            print(connectedMembers)
-            for member in connectedMembers:
+            generalChanID = discord.utils.get(category.voice_channels, name="General").id
+            for memberID in [i for i in self.bot.get_channel(generalChanID).voice_states.keys()]:
+                member = await ctx.guild.fetch_member(memberID)
                 try:
                     while True:
                         randomLobby = lobbyChan[random.randint(0, len(lobbyChan) - 1)]
                         print(randomLobby)
                         if len(randomLobby.members) == number:
+                            print("pop")
                             lobbyChan.pop(lobbyChan.index(randomLobby))
                         else:
-                            print("break")
                             break
-                    print("move")
                     await member.move_to(randomLobby)
                 except ValueError:
                     await ctx.send("Woups... Quelque chose c'est mal passé")

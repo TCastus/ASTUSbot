@@ -5,11 +5,6 @@ import datetime
 import perms
 
 
-def setup(bot):
-    print("Passation load")
-    bot.add_cog(CogPassation(bot))
-
-
 class CogPassation(commands.Cog):
     def __init__(self, bot, prefix):
         self.bot = bot
