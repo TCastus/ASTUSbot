@@ -5,6 +5,11 @@ import ipaddress
 import os
 
 
+def setup(bot):
+    print("Ip info load")
+    bot.add_cog(CogIpInfo(bot))
+
+
 def valid_ip(address):
     try:
         print(ipaddress.ip_address(address))

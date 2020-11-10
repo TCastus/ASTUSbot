@@ -3,6 +3,11 @@ from discord.ext import commands
 from myutils import MyUtils
 
 
+def setup(bot):
+    print("New year load")
+    bot.add_cog(CogNewyear(bot))
+
+
 class CogNewyear(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

@@ -220,6 +220,16 @@ async def on_member_update(before, after):
                             ":arrow_forward: ``Un Boulot / Stage`` , permet de mettre en relation des étudiants avec "
                             "des entrepries. \n"
                             )
+@bot.command()
+async def load(ctx, name=None):
+    if name:
+        bot.load_extension(name)
+
+
+@bot.command()
+async def unload(ctx, name=None):
+    if name:
+        bot.unload_extension(name)
 
 
 if __name__ == '__main__':

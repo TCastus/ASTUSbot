@@ -5,19 +5,26 @@ import random
 import time
 
 
+def setup(bot):
+    print("Vendredi Chill load")
+    bot.add_cog(CogVendrediChill(bot))
+
+
 class CogVendrediChill(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     @commands.command()
-    async def showChannel(self, ctx):
+    async def showChannel(self, ctx, number=15):
         if MyUtils(ctx.guild).G4check(ctx):
             await self.bot.change_presence(activity=discord.Game(name="Prepare le vendredi chill"))
             category = await ctx.guild.create_category("🎉Vendredi Chill🎉")
             await ctx.guild.create_text_channel(f"General", category=category)
             await ctx.guild.create_voice_channel(f"General", category=category)
-            for i in range(15):
+            for i in range(number):
                 await ctx.guild.create_voice_channel(f"lobby-{i + 1}", category=category)
+        else:
+            raise discord.ext.commands.CheckFailure
 
     @commands.command()
     async def hideChannel(self, ctx):
@@ -27,26 +34,37 @@ class CogVendrediChill(commands.Cog):
             for channels in categoty.channels:
                 await channels.delete()
             await categoty.delete()
+        else:
+            raise discord.ext.commands.CheckFailure
 
     @commands.command()
-    async def shufle(self, ctx):
+    async def shufle(self, ctx, number=6):
         if MyUtils(ctx.guild).G4check(ctx):
             await self.bot.change_presence(activity=discord.Game(name="Attribu des lobby"))
             category = MyUtils(ctx.guild).getVendrediChillCategory()
-            generalChan = discord.utils.get(category.voice_channels, name="General")
             lobbyChan = category.voice_channels
             lobbyChan.pop(0)
-            print(lobbyChan)
             random.shuffle(lobbyChan)
-            conectedMenmbers = generalChan.members
-            random.shuffle(conectedMenmbers)
-            for member in conectedMenmbers:
-                print(member)
-                randomLobby = lobbyChan[random.randint(0, len(lobbyChan) - 1)]
-                print(randomLobby)
-                await member.move_to(randomLobby)
-                if len(randomLobby.members) == 5:
-                    lobbyChan.pop(lobbyChan.index(randomLobby))
+            generalChan = discord.utils.get(category.voice_channels, name="General")
+            connectedMembers = generalChan.members
+            random.shuffle(connectedMembers)
+            print(connectedMembers)
+            for member in connectedMembers:
+                try:
+                    while True:
+                        randomLobby = lobbyChan[random.randint(0, len(lobbyChan) - 1)]
+                        print(randomLobby)
+                        if len(randomLobby.members) == number:
+                            lobbyChan.pop(lobbyChan.index(randomLobby))
+                        else:
+                            print("break")
+                            break
+                    print("move")
+                    await member.move_to(randomLobby)
+                except ValueError:
+                    await ctx.send("Woups... Quelque chose c'est mal passé")
+        else:
+            raise discord.ext.commands.CheckFailure
 
     @commands.command()
     async def brownie(self, ctx):
@@ -87,20 +105,21 @@ class CogVendrediChill(commands.Cog):
         await ctx.send(cookies[random.randint(0, len(cookies) - 1)])
 
     @commands.command(aliases=["gateau"])
-    async def cake(self, ctx):
+    async def cake(self, ctx, number=3):
         await self.bot.change_presence(activity=discord.Game(name="Fête ses 22 ans"))
         count = 0
 
         def checkMessage(message):
             return message.channel == ctx.message.channel
 
-        msg = await ctx.send(":birthday:" * 3)
+        msg = await ctx.send(":birthday:" * number)
         try:
-            while count < 5:
+            print(number*1.5)
+            while count < number*1.5:
                 soufle = await self.bot.wait_for("message", timeout=15, check=checkMessage)
                 if soufle.content == "🌬️":
                     count += 1
-            await msg.edit(content=":moon_cake:" * 3)
+            await msg.edit(content=":moon_cake:" * number)
         except:
             if count == 0:
                 await ctx.send("Personne n'a souflé... \n "
@@ -108,5 +127,5 @@ class CogVendrediChill(commands.Cog):
             else:
                 await ctx.send("Vous n'avez pas assez souflé... \n "
                                "Le gateau a pris feu :fire:")
-            await msg.edit(content=":fire:" * 3)
+            await msg.edit(content=":fire:" * number)
             return

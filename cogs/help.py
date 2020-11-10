@@ -4,6 +4,11 @@ from myutils import MyUtils
 import embed
 
 
+def setup(bot):
+    print("Help command load")
+    bot.add_cog(CogHelp(bot))
+
+
 async def HelpCommand(ctx, embedMessage):
     if MyUtils(ctx.guild).G4check(ctx):
         await ctx.send(embed=embedMessage)

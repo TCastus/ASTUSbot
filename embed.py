@@ -84,7 +84,7 @@ helpVendrediChill = discord.Embed(title="Vendredi Chill",
                                               "repartir tous le monde en petit groupe.",
                                   )
 
-helpVendrediChill.add_field(name=PREFIX + "showChannel",
+helpVendrediChill.add_field(name=PREFIX + "showChannel [number of lobby]",
                             value="Cette commande te permet d'afficher la categorie avec les 15 channels vocaux.",
                             inline=False
                             )
@@ -94,7 +94,7 @@ helpVendrediChill.add_field(name=PREFIX + "hideChannel",
                             inline=False
                             )
 
-helpVendrediChill.add_field(name=PREFIX + "shufle",
+helpVendrediChill.add_field(name=PREFIX + "shufle [number per channel]",
                             value="Cette commande te permet de repartir de manière aléatoire les personnes dans le"
                                   " channel vocal `General` dnas les lobby en petit groupe de 5.",
                             inline=False

@@ -2,6 +2,11 @@ import discord
 from discord.ext import commands
 
 
+def setup(bot):
+    print("International load")
+    bot.add_cog(CogInternational(bot))
+
+
 class CogInternational(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
