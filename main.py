@@ -26,7 +26,8 @@ async def on_message(message):
             await message.channel.send("pong")
             await bot.change_presence(activity=discord.Game(name="Ping-Pong"))
 
-        if message.content.lower().replace(" ", "") in ["astusbot", "botastus", ]:
+        if message.content.lower().replace(" ", "") in ["astusbot", "botastus", ] or \
+                bot.user in message.mentions:
             await message.channel.send("Le bot de l'astus pour te servir, tu as besoin de savoir ce que tu peux "
                                        "me demander ? tape ``" + PREFIX + "help `` pour avoir une liste de ce que"
                                                                           "je sais faire. \n Sinon ``" + PREFIX +
@@ -260,7 +261,6 @@ async def reload(ctx, name=None):
 
 
 if __name__ == '__main__':
-
     # Remove default help command
     bot.remove_command("help")
 
