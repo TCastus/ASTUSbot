@@ -3,3 +3,4 @@ discord==1.0.1
 ipinfo==3.0.0
 nslookup==1.1.0
 requests
+prettytable==1.0.1

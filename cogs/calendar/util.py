@@ -3,6 +3,7 @@ import requests
 from icalendar import Calendar, Event
 from datetime import datetime, date, timedelta
 import time
+from prettytable import PrettyTable
 
 CALENDAR_PATH = "cogs/calendar/Assets/4TC2.ical"
 RESPONSE_TEMPLATE = """{starting_time}:00 ➡️ {end_time}:00 :: {course} at  {location}  |  {details}"""
@@ -122,3 +123,25 @@ def downloadCalendar():
                 f.write(r.content)
 
             time.sleep(1)  # to not overload tc-net servers
+
+
+def getWeekCalendar(calendarPath=CALENDAR_PATH):
+    CurrentWeekday = datetime.today().isoweekday()
+    WeekCalendar = {}
+    for DayIndex in range(0, CurrentWeekday):
+        Day = datetime.today() - timedelta(days=DayIndex)
+        WeekCalendar[CurrentWeekday - DayIndex] = list(map(formatCourse, getCourseByDate(date=Day.date(),calendarPath=calendarPath)))
+    for DayIndex in range(CurrentWeekday, 6):
+        Day = datetime.today() + timedelta(days=DayIndex + 1 - CurrentWeekday)
+        WeekCalendar[DayIndex + 1] = list(map(formatCourse, getCourseByDate(date=Day.date(),calendarPath=calendarPath)))
+    for DayIndex in range(1, 7):
+        if len(WeekCalendar[DayIndex]) < 4:
+            while len(WeekCalendar[DayIndex]) != 4:
+                WeekCalendar[DayIndex].append("🥳")
+
+    Calendar = PrettyTable()
+    Calendar.field_names = ["8:00", "10:00", "12:00", "14:00"]
+    for DayIndex in range(1, 7):
+        Calendar.add_row(WeekCalendar[DayIndex])
+
+    return Calendar
