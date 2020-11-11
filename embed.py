@@ -392,3 +392,24 @@ terminalEmbed.add_field(name="Tuto",
                               "https://tcastus.github.io/TChelp/Travailler_a_distance/1-Terminal.html)",
                         inline=False
                         )
+
+# Calendar embed
+helpCalendar = discord.Embed(title="Calendar 📅",
+                             color=0xd68910,
+                             description="",
+                             )
+
+helpCalendar.add_field(name="command",
+                       value=f"affiche l'emploi du temps de la journée. pour utiliser ecrivez {PREFIX}cal suivi du"
+                             f"nom de votre groupe "
+                             f"par exemple `{PREFIX}cal 4TC2`",
+                       inline=False
+                       )
+
+helpCalendar.add_field(name="command",
+                       value=f"pour avoir votre emploi du temps de demain, vous pouvez utilise la cmd demain ,"
+                             f"dem tomorrow , tom "
+                             f"puis suivi de du nom de votre groupe"
+                             f"example `{PREFIX}tomorrow 4TC2`",
+                       inline=False
+                       )
