@@ -2,6 +2,11 @@ import discord
 from discord.ext import commands
 
 
+def setup(bot):
+    print("Invitation load")
+    bot.add_cog(CogInvitation(bot))
+
+
 class CogInvitation(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

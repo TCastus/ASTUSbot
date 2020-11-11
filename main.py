@@ -222,6 +222,27 @@ async def on_member_update(before, after):
                             )
 
 
+@bot.command()
+async def load(ctx, name=None):
+    if name:
+        bot.load_extension(name)
+
+
+@bot.command()
+async def unload(ctx, name=None):
+    if name:
+        bot.unload_extension(name)
+
+
+@bot.command()
+async def reload(ctx, name=None):
+    if name:
+        try:
+            bot.reload_extension(name)
+        except:
+            bot.load_extension(name)
+
+
 if __name__ == '__main__':
 
     # Remove default help command
@@ -229,14 +250,14 @@ if __name__ == '__main__':
 
     # cogs
     bot.add_cog(cogs.CogPassation(bot, PREFIX))
-    bot.add_cog(cogs.CogNewyear(bot))
-    bot.add_cog(cogs.CogHelp(bot))
-    bot.add_cog(cogs.CogVideoDiplomes(bot))
-    bot.add_cog(cogs.CogInvitation(bot))
-    bot.add_cog(cogs.CogIpInfo(bot))
-    bot.add_cog(cogs.CogLookup(bot))
-    bot.add_cog(cogs.CogInternational(bot))
-    bot.add_cog(cogs.CogVendrediChill(bot))
-    bot.add_cog(cogs.CogCalendar(bot))
+    bot.load_extension("cogs.newyear")
+    bot.load_extension("cogs.help")
+    bot.load_extension("cogs.videoDiplomes")
+    bot.load_extension("cogs.invitation")
+    bot.load_extension("cogs.infoFromIP")
+    bot.load_extension("cogs.NSandSOALookup")
+    bot.load_extension("cogs.international")
+    bot.load_extension("cogs.vendrediChill")
+
 
     bot.run(TOKEN)

@@ -3,6 +3,11 @@ from discord.ext import commands
 import embed
 
 
+def setup(bot):
+    print("Video diplomes load")
+    bot.add_cog(CogVideoDiplomes(bot))
+
+
 class CogVideoDiplomes(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

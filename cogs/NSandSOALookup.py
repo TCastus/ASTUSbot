@@ -3,6 +3,11 @@ from discord.ext import commands
 import nslookup
 
 
+def setup(bot):
+    print("Lookup load")
+    bot.add_cog(CogLookup(bot))
+
+
 class CogLookup(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
