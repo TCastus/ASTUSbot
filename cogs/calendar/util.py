@@ -1,5 +1,8 @@
+import os
+import requests
 from icalendar import Calendar, Event
 from datetime import datetime, date, timedelta
+import time
 
 CALENDAR_PATH = "cogs/calendar/Assets/4TC2.ical"
 RESPONSE_TEMPLATE = """{starting_time}:00 ➡️ {end_time}:00 :: {course} at  {location}  |  {details}"""
@@ -98,6 +101,25 @@ def formatDetails(course):
     return f"{description}{comment}"
 
 
-tomorrow = datetime.now() + timedelta(days=1)
-for c in getCourseByDate(tomorrow.date()):
-    print(formatResponse(c))
+def downloadCalendar():
+    URL_TEMPLATE = "http://tc-net2.insa-lyon.fr/aff/AffichageEdtPalmGroupe.jsp?promo={year}&groupe={group}&dateDeb=1604856847608"
+    ASSETS_DIR = "cogs/calendar/Assets"
+    YEARS = ["3", "4", "3A", "4A", "5"]
+    GROUPS = range(1, 4)
+
+    for year in YEARS:
+        for group in GROUPS:
+            if "A" in year and group in [2, 3]:
+                continue
+            DownloadURL = URL_TEMPLATE.format(year=year, group=group)
+            formatedGrpName = group if not "A" in year else "A"
+            formatedYearName = year if not "A" in year else year[0]
+            fileName = f"{formatedYearName}TC{formatedGrpName}.ical"
+            filePath = os.path.join(ASSETS_DIR,fileName)
+            
+            r = requests.get(DownloadURL)
+
+            with open(filePath, "wb") as f:
+                f.write(r.content)
+
+            time.sleep(1)  # to not overload tc-net servers
