@@ -224,23 +224,39 @@ async def on_member_update(before, after):
 
 @bot.command()
 async def load(ctx, name=None):
-    if name:
-        bot.load_extension(name)
+    if name and MyUtils(ctx.guild).getAdminRole() in ctx.message.author.roles:
+        try:
+            bot.load_extension(name)
+            await ctx.send(name + "load")
+        except:
+            await ctx.send(name + " has has already up")
+    else:
+        raise discord.ext.commands.CheckFailure
 
 
 @bot.command()
 async def unload(ctx, name=None):
-    if name:
-        bot.unload_extension(name)
+    if name and MyUtils(ctx.guild).getAdminRole() in ctx.message.author.roles:
+        try:
+            bot.unload_extension(name)
+            await ctx.send(name + " unload")
+        except:
+            await ctx.send(name + " has has already down")
+    else:
+        raise discord.ext.commands.CheckFailure
 
 
 @bot.command()
 async def reload(ctx, name=None):
-    if name:
+    if name and MyUtils(ctx.guild).getAdminRole() in ctx.message.author.roles:
         try:
             bot.reload_extension(name)
+            await ctx.send(name + " reload")
         except:
             bot.load_extension(name)
+            await ctx.send(name + " load")
+    else:
+        raise discord.ext.commands.CheckFailure
 
 
 if __name__ == '__main__':
