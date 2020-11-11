@@ -6,6 +6,7 @@ import time
 from prettytable import PrettyTable
 
 CALENDAR_PATH = "cogs/calendar/Assets/4TC2.ical"
+WEEKDAYS = {1:"Lundi", 2:"Mardi", 3:"Mercredi", 4:"Jeudi", 5:"Vendredi"}
 RESPONSE_TEMPLATE = """{starting_time}:00 ➡️ {end_time}:00 :: {course} at  {location}  |  {details}"""
 COURSE_COMMENT = {"GES1": "😭"}
 DETAILS_COMMENT = {"Image": "🏙", "haskell": "😭"}
@@ -140,8 +141,7 @@ def getWeekCalendar(calendarPath=CALENDAR_PATH):
                 WeekCalendar[DayIndex].append("🥳")
 
     Calendar = PrettyTable()
-    Calendar.field_names = ["8:00", "10:00", "12:00", "14:00"]
-    for DayIndex in range(1, 7):
-        Calendar.add_row(WeekCalendar[DayIndex])
+    for DayIndex in range(1, 6):
+        Calendar.add_column(WEEKDAYS[DayIndex],WeekCalendar[DayIndex])
 
     return Calendar
