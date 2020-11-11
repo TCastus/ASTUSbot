@@ -258,6 +258,6 @@ if __name__ == '__main__':
     bot.load_extension("cogs.NSandSOALookup")
     bot.load_extension("cogs.international")
     bot.load_extension("cogs.vendrediChill")
-
+    bot.load_extension("cogs.calendar.cog")
 
     bot.run(TOKEN)

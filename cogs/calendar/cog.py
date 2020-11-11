@@ -6,6 +6,11 @@ from datetime import datetime, timedelta
 ROOT_CALENDAR = 'cogs/calendar/Assets'
 
 
+def setup(bot):
+    print("Help command load")
+    bot.add_cog(CogCalendar(bot))
+
+
 class CogCalendar(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
