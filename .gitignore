@@ -2,5 +2,5 @@
 __pycache__
 old
 test
-cogs/calendar/Assets/*
+*.ical
 !.gitkeep
