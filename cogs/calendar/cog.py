@@ -15,10 +15,10 @@ def setup(bot):
 class CogCalendar(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.deleteAssetsFile.start()
+        self.updateCalendars.start()
 
     def cog_unload(self):
-        self.deleteAssetsFile.cancel()
+        self.updateCalendars.cancel()
 
     @commands.command(aliases=["Calendar", "cal", "calendrier"])
     async def calender(self, ctx, arg="4TC2"):

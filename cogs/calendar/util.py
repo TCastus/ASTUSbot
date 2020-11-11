@@ -8,7 +8,6 @@ CALENDAR_PATH = "cogs/calendar/Assets/4TC2.ical"
 RESPONSE_TEMPLATE = """{starting_time}:00 ➡️ {end_time}:00 :: {course} at  {location}  |  {details}"""
 COURSE_COMMENT = {"GES1": "😭"}
 DETAILS_COMMENT = {"Image": "🏙", "haskell": "😭"}
-time = datetime(2020, 11, 9, 8, 0, 2)
 day = timedelta(days=1)
 
 
@@ -115,8 +114,8 @@ def downloadCalendar():
             formatedGrpName = group if not "A" in year else "A"
             formatedYearName = year if not "A" in year else year[0]
             fileName = f"{formatedYearName}TC{formatedGrpName}.ical"
-            filePath = os.path.join(ASSETS_DIR,fileName)
-            
+            filePath = os.path.join(ASSETS_DIR, fileName)
+
             r = requests.get(DownloadURL)
 
             with open(filePath, "wb") as f:
