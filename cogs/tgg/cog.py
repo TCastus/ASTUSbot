@@ -42,5 +42,5 @@ class CogTGG(commands.Cog):
                                   "826277117113_n.jpg?_nc_cat=106&ccb=2&_nc_sid=09cbfe&_nc_ohc=paR3XPGAbkAAX8z428c&_nc"
                                   "_ht=scontent-cdt1-1.xx&oh=65a4ad0a9234daf45247ca7d8139703c&oe=5FD1186B",
                          )
-        Embed.set_footer(text="*" + str(randomQuote) + "*")
+        Embed.set_footer(text=randomQuote)
         await ctx.send(embed=Embed)
