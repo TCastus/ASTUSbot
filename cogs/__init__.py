@@ -8,3 +8,4 @@ from .videoDiplomes import CogVideoDiplomes
 from .international import CogInternational
 from .vendrediChill import CogVendrediChill
 from .calendar import CogCalendar
+from .tgg import CogTGG
