@@ -1,12 +1,20 @@
 import discord
 from discord.ext import commands
-import os
 import random
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+import os
 import json
 
-ASSETS_DIR = "cogs/tgg/Assets"
-IMAGES_DIR = ASSETS_DIR + "/Images"
-QUOTES_FILE = ASSETS_DIR + "/Quote.json"
+
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/spreadsheets',
+         'https://www.googleapis.com/auth/drive'
+         ]
+
+service_account_info = json.loads(os.getenv('GOOGLE_APPLICATION_CREDENTIALS_JSON'))
+creds = ServiceAccountCredentials.from_json_keyfile_dict(service_account_info, scope)
+client = gspread.authorize(creds)
 
 
 def setup(bot):
@@ -17,27 +25,22 @@ def setup(bot):
 class CogTGG(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.sheet = client.open("ASTUSbotTGG_Database").sheet1
 
-    @commands.command(aliases=["tgg", "thomas","ginny"])
-    async def thomasGeorgeGeorge(self, ctx, *args):
-        if not args:
-            image = random.choice(os.listdir(path=IMAGES_DIR))
-            with open(QUOTES_FILE, "r") as file:
-                Quotes = json.loads(file.read())["quotes"]
-            Quote = random.choice(Quotes)
-            ImagePath = IMAGES_DIR + "/" + image
-            with open(ImagePath, "rb") as file:
-                ImageFile = discord.File(file)
-            await ctx.send(content="*"+Quote+"*", file=ImageFile)
-        if len(args) != 0:
-            if args[0] == "add":
-                newQuote = ""
-                for word in args[1:]:
-                    newQuote += word + " "
-                newQuote = newQuote[:-1]
-                with open(QUOTES_FILE, "r") as file:
-                    Quotes = json.loads(file.read())["quotes"]
-                Quotes.append(newQuote)
-                with open(QUOTES_FILE, "w") as file:
-                    file.write(json.dumps({"quotes": Quotes}))
-                await ctx.send(f"New Quote '{newQuote}' saved 🎉")
+    @commands.command(aliases=["tgg", "thomas", "ginny"])
+    async def thomasGeorgeGeorge(self, ctx):
+        randomQuote = random.choice(self.sheet.col_values(1))
+        randomPhoto = random.choice(self.sheet.col_values(2))
+        Embed = discord.Embed(title="",
+                              color=int(hex(random.randint(0, 16777215)), 16),
+                              description="",
+                              )
+        Embed.set_image(url=randomPhoto)
+        Embed.set_author(name="Thommas Georges Georges",
+                         url="https://www.facebook.com/thomas.georges292",
+                         icon_url="https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/118765992_2628383697424846_1304447"
+                                  "826277117113_n.jpg?_nc_cat=106&ccb=2&_nc_sid=09cbfe&_nc_ohc=paR3XPGAbkAAX8z428c&_nc"
+                                  "_ht=scontent-cdt1-1.xx&oh=65a4ad0a9234daf45247ca7d8139703c&oe=5FD1186B",
+                         )
+        Embed.set_footer(text=randomQuote)
+        await ctx.send(embed=Embed)
