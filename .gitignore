@@ -4,3 +4,4 @@ old
 test
 *.ical
 !.gitkeep
+venv
