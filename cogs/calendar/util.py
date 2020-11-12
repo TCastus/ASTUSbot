@@ -6,7 +6,7 @@ import time
 from prettytable import PrettyTable
 
 CALENDAR_PATH = "cogs/calendar/Assets/4TC2.ical"
-WEEKDAYS = {1:"Lundi", 2:"Mardi", 3:"Mercredi", 4:"Jeudi", 5:"Vendredi"}
+WEEKDAYS = {1: "Lundi", 2: "Mardi", 3: "Mercredi", 4: "Jeudi", 5: "Vendredi"}
 RESPONSE_TEMPLATE = """{starting_time}:00 ➡️ {end_time}:00 :: {course} at  {location}  |  {details}"""
 COURSE_COMMENT = {"GES1": "😭"}
 DETAILS_COMMENT = {"Image": "🏙", "haskell": "😭"}
@@ -131,17 +131,37 @@ def getWeekCalendar(calendarPath=CALENDAR_PATH):
     WeekCalendar = {}
     for DayIndex in range(0, CurrentWeekday):
         Day = datetime.today() - timedelta(days=DayIndex)
-        WeekCalendar[CurrentWeekday - DayIndex] = list(map(formatCourse, getCourseByDate(date=Day.date(),calendarPath=calendarPath)))
+        WeekCalendar[CurrentWeekday - DayIndex] = getCourseByDate(date=Day.date(), calendarPath=calendarPath)
     for DayIndex in range(CurrentWeekday, 6):
         Day = datetime.today() + timedelta(days=DayIndex + 1 - CurrentWeekday)
-        WeekCalendar[DayIndex + 1] = list(map(formatCourse, getCourseByDate(date=Day.date(),calendarPath=calendarPath)))
+        WeekCalendar[DayIndex + 1] = getCourseByDate(date=Day.date(), calendarPath=calendarPath)
+
     for DayIndex in range(1, 7):
-        if len(WeekCalendar[DayIndex]) < 4:
-            while len(WeekCalendar[DayIndex]) != 4:
-                WeekCalendar[DayIndex].append("🥳")
+        formattedCourses = []
+        is4HourCourse = False
+        for courseBeginingTime in [8, 10, 14, 16]:
+            if is4HourCourse:
+                is4HourCourse= False
+                continue
+            isChanged = False
+            for course in WeekCalendar[DayIndex]:
+                if course['DTSTART'].dt.hour == courseBeginingTime:
+                    if course['DTEND'].dt.hour - course['DTSTART'].dt.hour == 4:
+                        formattedCourses += [formatCourse(course)] * 2  # add 4 hour course twice
+                        is4HourCourse = True
+                    else:
+                        formattedCourses.append(formatCourse(course))
+                    isChanged = True
+                    break
+            if not isChanged:
+                formattedCourses.append("🥳")
+        WeekCalendar[DayIndex] = formattedCourses
+        # if len(WeekCalendar[DayIndex]) < 4:
+        #     while len(WeekCalendar[DayIndex]) != 4:
+        #         WeekCalendar[DayIndex].append("🥳")
 
     Calendar = PrettyTable()
     for DayIndex in range(1, 6):
-        Calendar.add_column(WEEKDAYS[DayIndex],WeekCalendar[DayIndex])
+        Calendar.add_column(WEEKDAYS[DayIndex], WeekCalendar[DayIndex])
 
     return Calendar
