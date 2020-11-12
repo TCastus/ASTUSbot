@@ -76,6 +76,8 @@ class CogHelp(commands.Cog):
                 await ctx.send(embed=embed.helpSoa_lookup)
             elif subject in ["calendar", "cal", "calendrier"] + ["tomorrow", "demain", "dem","tom"]:
                 await ctx.send(embed=embed.helpCalendar)
+            elif subject in ["tgg", "thomas","ginny"]:
+                await ctx.send(embed=embed.helpTgg)
 
             else:
                 await ctx.send("Désolé, je ne sais pas te donner de l'aide sur ce sujet... \n "

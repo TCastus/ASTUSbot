@@ -413,3 +413,22 @@ helpCalendar.add_field(name="command",
                              f"example `{PREFIX}tomorrow 4TC2`",
                        inline=False
                        )
+
+
+# Calendar embed
+helpTgg = discord.Embed(title="Ginny 💡",
+                             color=0xd68910,
+                             description="",
+                             )
+
+helpTgg.add_field(name="command",
+                       value=f"si jamais tu te sens mal tu peux ultiser "
+                             f"les commandes `ginny` `tgg` `Thomas` `ThomasGorgesGorges` montre une citation et une photo"
+                             f"du meilleur humain sur terre " ,
+                       inline=False
+                       )
+
+helpTgg.add_field(name="command",
+                       value=f"pour ajouter des citations tu peux utiliser la command `tgg add` suivi de la citation",
+                       inline=False
+                       )
