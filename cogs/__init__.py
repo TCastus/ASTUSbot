@@ -9,3 +9,4 @@ from .international import CogInternational
 from .vendrediChill import CogVendrediChill
 from .calendar import CogCalendar
 from .tgg import CogTGG
+from .bastos import CogBastosTwitch
