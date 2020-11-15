@@ -1,5 +1,7 @@
 import re
 import os
+from os import path
+
 import discord
 from discord.ext import commands, tasks
 from .util import formatResponse, getCourseByDate, downloadCalendar, getWeekCalendar, getOffset
@@ -79,6 +81,8 @@ class CogCalendar(commands.Cog):
     async def updateCalendars(self):
         print("Deleting calendar assets")
         assetsDir = "cogs/calendar/Assets"
+        if not path.exists(assetsDir):
+            os.makedirs(assetsDir)
         for file in os.listdir(assetsDir):
             os.remove(os.path.join(assetsDir, file))
 
