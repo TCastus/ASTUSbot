@@ -399,10 +399,12 @@ helpCalendar = discord.Embed(title="Calendar 📅",
                              description="",
                              )
 
-helpCalendar.add_field(name="command",
-                       value=f"affiche l'emploi du temps de la journée. pour utiliser ecrivez {PREFIX}cal suivi du"
-                             f"nom de votre groupe "
-                             f"par exemple `{PREFIX}cal 4TC2`",
+helpCalendar.add_field(name=f"command `{PREFIX}cal <year>TC<grp> +/-offset(optional)",
+                       value=f"affiche l'emploi du temps de la semaine. pour utiliser ecrivez {PREFIX}cal suivi du"
+                             f"l'annee puis TC puis le groupe"
+                             f"par exemple `{PREFIX}cal 4TC2`"
+                             f"optionel vous pouver ajouter +<num> a la fin pour avoir le calendier de la néme semaine"
+                             f"par exemple `{PREFIX}cal 4TC2 +1` affiche le calendrier de la semaine prochaine",
                        inline=False
                        )
 

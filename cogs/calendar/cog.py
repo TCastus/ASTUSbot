@@ -2,8 +2,9 @@ import re
 import os
 import discord
 from discord.ext import commands, tasks
-from .util import formatResponse, getCourseByDate, downloadCalendar, getWeekCalendar
+from .util import formatResponse, getCourseByDate, downloadCalendar, getWeekCalendar, getOffset
 from datetime import datetime, timedelta
+
 ROOT_CALENDAR = 'cogs/calendar/Assets'
 
 
@@ -21,15 +22,17 @@ class CogCalendar(commands.Cog):
         self.updateCalendars.cancel()
 
     @commands.command(aliases=["Calendar", "cal", "calendrier", "semaine", "week"])
-    async def calender(self, ctx, arg="4TC2"):
+    async def calender(self, ctx, arg="4TC2", offset="+0"):
         if re.match(r"(([34])(TC|tc|Tc|tC)([123Aa])|([5])(TC|tc|Tc|tC)([123]))", arg):
             year = arg[0]
             if arg[-1].isnumeric():
                 group = arg[-1]
             else:
                 group = "A"
-            calendar = getWeekCalendar(calendarPath=ROOT_CALENDAR + f"/{year}TC{group}.ical")
-            await ctx.send("```\n" +str(calendar) + "```\n")
+            CalendarPath = ROOT_CALENDAR + f"/{year}TC{group}.ical"
+            Offset = getOffset(offset)
+            calendar = getWeekCalendar(calendarPath=CalendarPath, offset=Offset)
+            await ctx.send("```\n" + str(calendar) + "```\n")
         else:
             await ctx.send("please enter a valid input <year>TC<group>")
 

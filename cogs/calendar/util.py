@@ -8,7 +8,7 @@ from prettytable import PrettyTable
 CALENDAR_PATH = "cogs/calendar/Assets/4TC2.ical"
 WEEKDAYS = {1: "Lundi", 2: "Mardi", 3: "Mercredi", 4: "Jeudi", 5: "Vendredi"}
 RESPONSE_TEMPLATE = """{starting_time}:00 ➡️ {end_time}:00 :: {course} at  {location}  |  {details}"""
-COURSE_COMMENT = {"GES1": "😭"}
+COURSE_COMMENT = {"GES1": "😭", "CNA": "😢"}
 DETAILS_COMMENT = {"Image": "🏙", "haskell": "😭"}
 day = timedelta(days=1)
 
@@ -126,14 +126,20 @@ def downloadCalendar():
             time.sleep(1)  # to not overload tc-net servers
 
 
-def getWeekCalendar(calendarPath=CALENDAR_PATH):
+def getWeekCalendar(calendarPath=CALENDAR_PATH, offset=0):
+    """ @HBA
+    compute the week calendar of a group
+    :param calendarPath: path to the calendar file of the group
+    :param offset: int to offset the calendar week
+    :return: Table Object that can be printed
+    """
     CurrentWeekday = datetime.today().isoweekday()
     WeekCalendar = {}
     for DayIndex in range(0, CurrentWeekday):
-        Day = datetime.today() - timedelta(days=DayIndex)
+        Day = datetime.today() - timedelta(days=DayIndex) + timedelta(days=offset * 7)
         WeekCalendar[CurrentWeekday - DayIndex] = getCourseByDate(date=Day.date(), calendarPath=calendarPath)
     for DayIndex in range(CurrentWeekday, 6):
-        Day = datetime.today() + timedelta(days=DayIndex + 1 - CurrentWeekday)
+        Day = datetime.today() + timedelta(days=DayIndex + 1 - CurrentWeekday) + timedelta(days=offset * 7)
         WeekCalendar[DayIndex + 1] = getCourseByDate(date=Day.date(), calendarPath=calendarPath)
 
     for DayIndex in range(1, 7):
@@ -141,7 +147,7 @@ def getWeekCalendar(calendarPath=CALENDAR_PATH):
         is4HourCourse = False
         for courseBeginingTime in [8, 10, 14, 16]:
             if is4HourCourse:
-                is4HourCourse= False
+                is4HourCourse = False
                 continue
             isChanged = False
             for course in WeekCalendar[DayIndex]:
@@ -165,3 +171,14 @@ def getWeekCalendar(calendarPath=CALENDAR_PATH):
         Calendar.add_column(WEEKDAYS[DayIndex], WeekCalendar[DayIndex])
 
     return Calendar
+
+
+def getOffset(InputOffset):
+    Offset = 0
+    if InputOffset[0] == "+":
+        Offset = int(InputOffset[1:])
+    if InputOffset[0] == "-":
+        Offset = - int(InputOffset[1:])
+    if InputOffset == "+0" and datetime.today().isoweekday() in [6, 7]:
+        Offset = 1
+    return Offset
