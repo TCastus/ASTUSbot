@@ -73,9 +73,9 @@ g4helpEmbed.add_field(name="Vendredi Chill",
                       value="Pour plus d'info utilise la commande : ``" + PREFIX + "help vendredichill``",
                       inline=False)
 
-#########################
-# Help {Vendredi chill} #
-#########################
+#######################
+# Help Vendredi chill #
+#######################
 
 helpVendrediChill = discord.Embed(title="Vendredi Chill",
                                   color=0xEE8700,
@@ -416,21 +416,60 @@ helpCalendar.add_field(name="command",
                        inline=False
                        )
 
-
 # Calendar embed
 helpTgg = discord.Embed(title="Ginny 💡",
-                             color=0xd68910,
+                        color=0xd68910,
+                        description="",
+                        )
+
+helpTgg.add_field(name="command",
+                  value=f"si jamais tu te sens mal tu peux ultiser "
+                        f"les commandes `ginny` `tgg` `Thomas` `ThomasGorgesGorges` montre une citation et une photo"
+                        f"du meilleur humain sur terre ",
+                  inline=False
+                  )
+
+helpTgg.add_field(name="command",
+                  value=f"pour ajouter des citations tu peux utiliser la command `tgg add` suivi de la citation",
+                  inline=False
+                  )
+
+#################
+# Help Starling #
+#################
+
+helpStarling = discord.Embed(title="Starling",
+                             color=0xEE8700,
                              description="",
                              )
 
-helpTgg.add_field(name="command",
-                       value=f"si jamais tu te sens mal tu peux ultiser "
-                             f"les commandes `ginny` `tgg` `Thomas` `ThomasGorgesGorges` montre une citation et une photo"
-                             f"du meilleur humain sur terre " ,
+helpStarling.add_field(name="Quèsaco ?",
+                       value="Starling est un outil utilisé pour les cours de TIP",
                        inline=False
                        )
 
-helpTgg.add_field(name="command",
-                       value=f"pour ajouter des citations tu peux utiliser la command `tgg add` suivi de la citation",
+helpStarling.add_field(name="Tuto",
+                       value="https://github.com/TCastus/TChelp/tree/master/Starling",
                        inline=False
                        )
+
+
+#############
+# Help GNS3 #
+#############
+
+Embed = discord.Embed(title="GNS3",
+                      color=0xEE8700,
+                      description="",
+                      )
+
+Embed.add_field(name="Quèsaco ?",
+                value="GNS3 est un simulateur de réseau, il sert à étudier différentes architectures réseau "
+                      "comme si nous les faisions en vrai.",
+                inline=False
+                )
+
+Embed.add_field(name="Tuto",
+                value="https://github.com/TCastus/TChelp/tree/master/GNS3",
+                inline=False
+                )
