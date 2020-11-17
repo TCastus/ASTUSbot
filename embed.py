@@ -453,23 +453,22 @@ helpStarling.add_field(name="Tuto",
                        inline=False
                        )
 
-
 #############
 # Help GNS3 #
 #############
 
-Embed = discord.Embed(title="GNS3",
-                      color=0xEE8700,
-                      description="",
-                      )
+helpGNS3 = discord.Embed(title="GNS3",
+                         color=0xEE8700,
+                         description="",
+                         )
 
-Embed.add_field(name="Quèsaco ?",
-                value="GNS3 est un simulateur de réseau, il sert à étudier différentes architectures réseau "
-                      "comme si nous les faisions en vrai.",
-                inline=False
-                )
+helpGNS3.add_field(name="Quèsaco ?",
+                   value="GNS3 est un simulateur de réseau, il sert à étudier différentes architectures réseau "
+                         "comme si nous les faisions en vrai.",
+                   inline=False
+                   )
 
-Embed.add_field(name="Tuto",
-                value="https://github.com/TCastus/TChelp/tree/master/GNS3",
-                inline=False
-                )
+helpGNS3.add_field(name="Tuto",
+                   value="https://github.com/TCastus/TChelp/tree/master/GNS3",
+                   inline=False
+                   )
