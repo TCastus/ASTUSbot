@@ -4,3 +4,4 @@ old
 test
 *.ical
 venv
+.env
