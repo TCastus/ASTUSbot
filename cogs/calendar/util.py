@@ -36,7 +36,7 @@ def getCurrentCourse(CalendarPath):
                 return component
 
 
-def getCourseByDate(date=datetime.today().date(), calendarPath=CALENDAR_PATH):
+def getCourseByDate(date=datetime.now().date(), calendarPath=CALENDAR_PATH):
     result = []
     with open(calendarPath, 'rb') as calendarFile:
         mCal = Calendar.from_ical(calendarFile.read())
