@@ -62,6 +62,9 @@ class MyUtils:
     def getAdminRole(self):
         return discord.utils.get(self.guild.roles, name="Admin")
 
+    def getFuturAstusRole(self):
+        return discord.utils.get(self.guild.roles, name="Futur ASTUS ?")
+
     def getG4TxtChannel(self):
         return discord.utils.get(self.guild.channels, id=726554977753104464)
 

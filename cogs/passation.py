@@ -59,6 +59,8 @@ class CogPassation(commands.Cog):
                 await member.remove_roles(MyUtils(ctx.guild).getTeamEventRole())
             if MyUtils(ctx.guild).getTeamEntrepriseRole() in member.roles:
                 await member.remove_roles(MyUtils(ctx.guild).getTeamEntrepriseRole())
+            if MyUtils(ctx.guild).getFuturAstusRole() in member.roles:
+                await member.remove_roles(MyUtils(ctx.guild).getFuturAstusRole())
 
         self.passationStatus += 1
         await ctx.send("Les anciens membres de l'ASTUS ne font plus partis de l'ASTUS")
@@ -102,7 +104,8 @@ class CogPassation(commands.Cog):
                     else:
                         await MyUtils(ctx.guild).newAstus(members,
                                                           MyUtils(ctx.guild).getASTUSRole(),
-                                                          MyUtils(ctx.guild).getRespTeamEventRole())
+                                                          MyUtils(ctx.guild).getRespTeamEventRole(),
+                                                          MyUtils(ctx.guild).getTeamEventRole())
                         await ctx.send("Qui sont les membres de la team Entreprise ?")
                         self.passationStatus += 1
 
@@ -127,7 +130,8 @@ class CogPassation(commands.Cog):
                     else:
                         await MyUtils(ctx.guild).newAstus(members,
                                                           MyUtils(ctx.guild).getASTUSRole(),
-                                                          MyUtils(ctx.guild).getRespTeamEntrepriseRole())
+                                                          MyUtils(ctx.guild).getRespTeamEntrepriseRole(),
+                                                          MyUtils(ctx.guild).getTeamEntrepriseRole())
                         await ctx.send("Qui est le resp site international ?")
                         self.passationStatus += 1
 
