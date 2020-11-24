@@ -26,6 +26,8 @@ class CogCalendar(commands.Cog):
     @commands.command(aliases=["Calendar", "cal", "calendrier", "semaine", "week"])
     async def calender(self, ctx, arg="4TC2", offset="+0"):
         if re.match(r"(([34])(TC|tc|Tc|tC)([123Aa])|([5])(TC|tc|Tc|tC)([123]))", arg):
+            await self.bot.change_presence(activity=discord.Activity(name=f"Calendrier des {arg}",
+                                                                     type=discord.ActivityType.watching))
             year = arg[0]
             if arg[-1].isnumeric():
                 group = arg[-1]
@@ -41,6 +43,8 @@ class CogCalendar(commands.Cog):
     @commands.command(aliases=["Today", "aujourd'hui", "auj"])
     async def today(self, ctx, arg="4TC2"):
         if re.match(r"(([34])(TC|tc|Tc|tC)([123Aa])|([5])(TC|tc|Tc|tC)([123]))", arg):
+            await self.bot.change_presence(activity=discord.Activity(name=f"Calendrier des {arg}",
+                                                                     type=discord.ActivityType.watching))
             year = arg[0]
             if arg[-1].isnumeric():
                 group = arg[-1]
@@ -60,6 +64,8 @@ class CogCalendar(commands.Cog):
     @commands.command(aliases=["Tomorrow", "demain", "dem", "tom"])
     async def tomorrow(self, ctx, arg="4TC2"):
         if re.match(r"(([34])(TC|tc|Tc|tC)([123Aa])|([5])(TC|tc|Tc|tC)([123]))", arg):
+            await self.bot.change_presence(activity=discord.Activity(name=f"Calendrier des {arg}",
+                                                                     type=discord.ActivityType.watching))
             year = arg[0]
             if arg[-1].isnumeric():
                 group = arg[-1]
