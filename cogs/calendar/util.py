@@ -36,13 +36,14 @@ def getCurrentCourse(CalendarPath):
                 return component
 
 
-def getCourseByDate(date=datetime.now().date(), calendarPath=CALENDAR_PATH):
+def getCourseByDate(promptDate=datetime.now().date(), calendarPath=CALENDAR_PATH):
+    print(f"Date from getCourseByDate : {promptDate}")
     result = []
     with open(calendarPath, 'rb') as calendarFile:
         mCal = Calendar.from_ical(calendarFile.read())
     for component in mCal.walk():
         if component.name == 'VEVENT':
-            if component['DTSTART'].dt.date() == date:
+            if component['DTSTART'].dt.date() == promptDate:
                 result.append(component)
                 if len(component) == 4:  # optimization
                     break
@@ -137,10 +138,10 @@ def getWeekCalendar(calendarPath=CALENDAR_PATH, offset=0):
     WeekCalendar = {}
     for DayIndex in range(0, CurrentWeekday):
         Day = datetime.today() - timedelta(days=DayIndex) + timedelta(days=offset * 7)
-        WeekCalendar[CurrentWeekday - DayIndex] = getCourseByDate(date=Day.date(), calendarPath=calendarPath)
+        WeekCalendar[CurrentWeekday - DayIndex] = getCourseByDate(promptDate=Day.date(), calendarPath=calendarPath)
     for DayIndex in range(CurrentWeekday, 6):
         Day = datetime.today() + timedelta(days=DayIndex + 1 - CurrentWeekday) + timedelta(days=offset * 7)
-        WeekCalendar[DayIndex + 1] = getCourseByDate(date=Day.date(), calendarPath=calendarPath)
+        WeekCalendar[DayIndex + 1] = getCourseByDate(promptDate=Day.date(), calendarPath=calendarPath)
 
     for DayIndex in range(1, 7):
         formattedCourses = []
