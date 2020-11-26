@@ -52,7 +52,7 @@ class CogCalendar(commands.Cog):
             else:
                 group = "A"
             response = ""
-            Courses = getCourseByDate(calendarPath=ROOT_CALENDAR + f"/{year}TC{group}.ical")
+            Courses = getCourseByDate(promptDate=datetime.now().date(), calendarPath=ROOT_CALENDAR + f"/{year}TC{group}.ical")
             if not Courses:
                 await ctx.send("t'as pas de cours 😄")
             else:
