@@ -40,7 +40,7 @@ class CogCalendar(commands.Cog):
         else:
             await ctx.send("please enter a valid input <year>TC<group>")
 
-    @commands.command(aliases=["Today", "aujourd'hui", "auj"])
+    @commands.command(aliases=["Today", "aujourd'hui", "auj", "tod"])
     async def today(self, ctx, arg="4TC2"):
         if re.match(r"(([34])(TC|tc|Tc|tC)([123Aa])|([5])(TC|tc|Tc|tC)([123]))", arg):
             await self.bot.change_presence(activity=discord.Activity(name=f"Calendrier des {arg}",
@@ -51,7 +51,7 @@ class CogCalendar(commands.Cog):
             else:
                 group = "A"
             response = ""
-            Courses = getCourseByDate(calendarPath=ROOT_CALENDAR + f"/{year}TC{group}.ical")
+            Courses = getCourseByDate(promptDate=datetime.now().date(), calendarPath=ROOT_CALENDAR + f"/{year}TC{group}.ical")
             if not Courses:
                 await ctx.send("t'as pas de cours 😄")
             else:
