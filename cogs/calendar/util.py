@@ -37,7 +37,6 @@ def getCurrentCourse(CalendarPath):
 
 
 def getCourseByDate(promptDate=datetime.now().date(), calendarPath=CALENDAR_PATH):
-    print(f"Date from getCourseByDate : {promptDate}")
     result = []
     with open(calendarPath, 'rb') as calendarFile:
         mCal = Calendar.from_ical(calendarFile.read())
