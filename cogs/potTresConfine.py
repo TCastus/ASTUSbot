@@ -77,20 +77,23 @@ class CogPotTresConfine(commands.Cog):
             raise discord.ext.commands.CheckFailure
 
     @commands.command()
-    async def Rassemblement(self, ctx, number=8):
+    async def Rassemblement(self, ctx):
         if MyUtils(ctx.guild).G4check(ctx):
             await self.bot.change_presence(activity=discord.Game(name="Rassemble les joueurs"))
             category = MyUtils(ctx.guild).getPotTresConfineCategory()
             generalChanID = discord.utils.get(category.voice_channels, name="General").id
-
             voiceChannel = category.voice_channels
             voiceChannel.pop(0)
 
             # Loop qui parcours les lobby et move les members vers voice général, puis détruit tous les autres voice channels que général
-            for i in range(voiceChannel):
-                for memberID in [i for i in self.bot.get_channel(voiceChannel[i]).voice_states.keys()]:
-                    member = await ctx.guild.fetch_member(memberID)
-                    await member.move_to(generalChanID)
-                voiceChannel[i].delete()
+            print(len(voiceChannel))
+            print(voiceChannel[0])
+            print(voiceChannel[1])
+            for chan in voiceChannel.id:
+                print(chan)
+                for mem in chan.members:
+                    print(mem)
+                    await mem.move_to(generalChanID)
+                chan.delete()
         else:
             raise discord.ext.commands.CheckFailure
