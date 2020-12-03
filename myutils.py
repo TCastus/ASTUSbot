@@ -80,6 +80,9 @@ class MyUtils:
     def getVendrediChillCategory(self):
         return discord.utils.get(self.guild.categories, name="🎉Vendredi Chill🎉")
 
+    def getPotTresConfineCategory(self):
+        return discord.utils.get(self.guild.categories, name="Pot Très Confiné")
+
     async def newAstus(self, members, *roles):
         for memberStr in members:
             memberID = memberStr[2:-1] if memberStr[2:-1][0] != "!" else memberStr[2:-1][1:]

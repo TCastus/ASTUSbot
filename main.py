@@ -275,7 +275,8 @@ if __name__ == '__main__':
     bot.load_extension("cogs.international")
     bot.load_extension("cogs.vendrediChill")
     bot.load_extension("cogs.calendar.cog")
-    bot.load_extension("cogs.tgg.cog")
+    bot.load_extension("cogs.potTresConfine")
+    #bot.load_extension("cogs.tgg.cog")
     bot.load_extension("cogs.bastos")
 
     bot.run(TOKEN)
