@@ -13,8 +13,8 @@ scope = ['https://spreadsheets.google.com/feeds',
          ]
 
 service_account_info = json.loads(os.getenv('GOOGLE_APPLICATION_CREDENTIALS_JSON', '{}'))
-#creds = ServiceAccountCredentials.from_json_keyfile_dict(service_account_info, scope)
-#client = gspread.authorize(creds)
+creds = ServiceAccountCredentials.from_json_keyfile_dict(service_account_info, scope)
+client = gspread.authorize(creds)
 
 
 def setup(bot):
@@ -25,13 +25,13 @@ def setup(bot):
 class CogTGG(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        #self.sheet = client.open("ASTUSbotTGG_Database").sheet1
+        self.sheet = client.open("ASTUSbotTGG_Database").sheet1
 
     @commands.command(aliases=["tgg", "thomas", "ginny"])
     async def thomasGeorgeGeorge(self, ctx):
         await self.bot.change_presence(activity=discord.Game(name="Cite TGG :muscle:"))
-        #randomQuote = random.choice(self.sheet.col_values(1))
-        #randomPhoto = random.choice(self.sheet.col_values(2))
+        randomQuote = random.choice(self.sheet.col_values(1))
+        randomPhoto = random.choice(self.sheet.col_values(2))
         Embed = discord.Embed(title="",
                               color=int(hex(random.randint(0, 16777215)), 16),
                               description="",

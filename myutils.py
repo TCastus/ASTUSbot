@@ -65,6 +65,9 @@ class MyUtils:
     def getFuturAstusRole(self):
         return discord.utils.get(self.guild.roles, name="Futur ASTUS ?")
 
+    def getOrgaSoireeRole(self):
+        return discord.utils.get(self.guild.roles, name="Orga soirée")
+
     def getG4TxtChannel(self):
         return discord.utils.get(self.guild.channels, id=726554977753104464)
 
@@ -92,3 +95,6 @@ class MyUtils:
 
     def G4check(self, ctx):
         return self.getG4Role() in ctx.message.author.roles
+
+    def OrgaSoireeCheck(self, ctx):
+        return self.getOrgaSoireeRole() in ctx.message.author.roles
