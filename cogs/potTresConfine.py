@@ -58,7 +58,7 @@ class CogPotTresConfine(commands.Cog):
             print(voiceChannel)
             random.shuffle(voiceChannel)
 
-            for memberID in [i for i in self.bot.get_channel(generalChanID).voice_states.keys()]:
+            for memberID in self.bot.get_channel(generalChanID).voice_states.keys():
                 member = await ctx.guild.fetch_member(memberID)
                 try:
                     while True:
@@ -84,18 +84,13 @@ class CogPotTresConfine(commands.Cog):
             voiceChannel = category.voice_channels
             voiceChannel.pop(0)
 
-            print(len(voiceChannel))
-            print(voiceChannel[0])
             for i in range(len(voiceChannel)+1):
-                print(voiceChannel[i])
-                try:
-                    for memberID in [i for i in self.bot.get_channel(discord.utils.get(category.voice_channels).id).voice_states.keys()]:
-                        print(memberID)
-                        member = await ctx.guild.fetch_member(memberID)
-                        print(member)
-                        await member.move_to(generalChanID)
-                    await voiceChannel[i].delete()
-                except ValueError:
-                    await ctx.send("Woups... Quelque chose c'est mal passé")
+                members = voiceChannel[i].voice_states
+                for memberID in members.keys():
+                    print(memberID)
+                    member = await ctx.guild.fetch_member(memberID)
+                    print(member)
+                    await member.move_to(self.bot.get_channel(generalChanID))
+                await voiceChannel[i].delete()
         else:
             raise discord.ext.commands.CheckFailure
