@@ -36,6 +36,7 @@ class CogPotTresConfine(commands.Cog):
         Decorator used to verify if the user has the "Orga Soirée" rôle set.
         If they don't, raise an error
         """
+
         async def decorator(ctx):
             return MyUtils(ctx.guild).OrgaSoireeCheck(ctx)
 
@@ -109,3 +110,41 @@ class CogPotTresConfine(commands.Cog):
                 member = await ctx.guild.fetch_member(member_id)
                 await member.move_to(self.bot.get_channel(general_channel_id))
             await voice_channel[i].delete()
+
+    @commands.command()
+    @has_orga_soiree_role()
+    async def mute_all(self, ctx: commands.context.Context):
+        """
+        Mute every participant in the voice channel where the author is, except the orga_soiree
+        :param ctx: context object
+        """
+        if ctx.author.voice and ctx.author.voice.channel:
+            channel = ctx.author.voice.channel
+        else:
+            await ctx.send("You are not connected to a voice channel")
+            return
+
+        members = channel.voice_states
+        for member_id in members.keys():
+            member = await ctx.guild.fetch_member(member_id)
+            if MyUtils(ctx.guild).getOrgaSoireeRole() not in member.roles:
+                await member.edit(mute=True)
+
+    @commands.command()
+    @has_orga_soiree_role()
+    async def demute_all(self, ctx: commands.context.Context):
+        """
+        Demute every participant in the voice channel where the author is, except the orga_soiree
+        :param ctx: context object
+        """
+        if ctx.author.voice and ctx.author.voice.channel:
+            channel = ctx.author.voice.channel
+        else:
+            await ctx.send("You are not connected to a voice channel")
+            return
+
+        members = channel.voice_states
+        for member_id in members.keys():
+            member = await ctx.guild.fetch_member(member_id)
+            if MyUtils(ctx.guild).getOrgaSoireeRole() not in member.roles:
+                await member.edit(mute=False)
