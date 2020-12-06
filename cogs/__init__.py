@@ -10,4 +10,4 @@ from .vendrediChill import CogVendrediChill
 from .calendar import CogCalendar
 from .tgg import CogTGG
 from .bastos import CogBastosTwitch
-from .potTresConfine import CogPotTresConfine
+from .pot_tres_confine import CogPotTresConfine
