@@ -29,7 +29,7 @@ class CogTGG(commands.Cog):
 
     @commands.command(aliases=["tgg", "thomas", "ginny"])
     async def thomasGeorgeGeorge(self, ctx):
-        await self.bot.change_presence(activity=discord.Game(name="Cite TGG :muscle:"))
+        await self.bot.change_presence(activity=discord.Game(name="Cite TGG"))
         randomQuote = random.choice(self.sheet.col_values(1))
         randomPhoto = random.choice(self.sheet.col_values(2))
         Embed = discord.Embed(title="",

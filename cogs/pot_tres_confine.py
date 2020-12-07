@@ -27,9 +27,6 @@ class CogPotTresConfine(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-        self.microwave = [
-            "https://tenor.com/view/microwave-gif-18041779",
-        ]
 
     def has_orga_soiree_role():
         """
@@ -104,7 +101,7 @@ class CogPotTresConfine(commands.Cog):
         voice_channel = category.voice_channels
         voice_channel.pop(0)
 
-        for i in range(len(voice_channel) + 1):
+        for i in range(len(voice_channel)):
             members = voice_channel[i].voice_states
             for member_id in members.keys():
                 member = await ctx.guild.fetch_member(member_id)
