@@ -1,0 +1,7 @@
+.env.example
+.gitignore
+Dockerfile
+embed-template.txt
+LICENSE
+Procfile
+README.md

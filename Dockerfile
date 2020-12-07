@@ -2,10 +2,13 @@ FROM python:3.8-slim
 
 WORKDIR /bot
 
-COPY ./requirements.txt .
-RUN pip install -r ./requirements.txt
-RUN mkdir -p ./cogs/calendar/Assets ./cogs/tgg
+COPY . .
 
-COPY . /bot
+RUN apt-get update \
+    && apt-get upgrade gcc -y \
+    && pip install --upgrade pip\
+    && pip install -r requirements.txt\
+    && rm requirements.txt\
+    && mkdir -p ./cogs/calendar/Assets
 
 CMD ["python", "main.py"]
