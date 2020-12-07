@@ -137,7 +137,7 @@ class CogPotTresConfine(commands.Cog):
         Demute every participant in the voice channel where the author is, except the orga_soiree
         :param ctx: context object
         """
-        if ctx.author.voice and ctx.author.voice.channel:
+        if not (ctx.author.voice and ctx.author.voice.channel):
             await ctx.send("You are not connected to a voice channel")
             return
         channel = ctx.author.voice.channel
