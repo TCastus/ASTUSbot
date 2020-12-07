@@ -117,7 +117,6 @@ class CogPotTresConfine(commands.Cog):
         """
         Mute every participant in the voice channel where the author is, except the orga_soiree
         :param ctx: context object
-        :param mute_type: str
         """
         if not (ctx.author.voice and ctx.author.voice.channel):
             await ctx.send("You are not connected to a voice channel")
