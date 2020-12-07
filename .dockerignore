@@ -1,7 +1,10 @@
-.env.example
 .gitignore
-Dockerfile
 embed-template.txt
-LICENSE
 Procfile
-README.md
+.idea
+__pycache__
+old
+test
+*.ical
+venv
+.env
