@@ -87,7 +87,8 @@ class CogPotTresConfine(commands.Cog):
         # Move the participant to the right channel
         for index, _ in enumerate(member_ids):
             member = await ctx.guild.fetch_member(member_ids[index])
-            await member.move_to(voice_channels[index // max_by_channel + 1])
+            if MyUtils(ctx.guild).getOrgaSoireeRole() not in member.roles:
+                await member.move_to(voice_channels[index // max_by_channel + 1])
 
     @commands.command()
     @has_orga_soiree_role()
