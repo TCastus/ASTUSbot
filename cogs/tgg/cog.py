@@ -7,16 +7,6 @@ import os
 import json
 
 
-scope = ['https://spreadsheets.google.com/feeds',
-         'https://www.googleapis.com/auth/spreadsheets',
-         'https://www.googleapis.com/auth/drive'
-         ]
-
-service_account_info = json.loads(os.getenv('GOOGLE_APPLICATION_CREDENTIALS_JSON', '{}'))
-creds = ServiceAccountCredentials.from_json_keyfile_dict(service_account_info, scope)
-client = gspread.authorize(creds)
-
-
 def setup(bot):
     print("TGG load")
     bot.add_cog(CogTGG(bot))
@@ -25,6 +15,16 @@ def setup(bot):
 class CogTGG(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+
+        scope = ['https://spreadsheets.google.com/feeds',
+                 'https://www.googleapis.com/auth/spreadsheets',
+                 'https://www.googleapis.com/auth/drive'
+                 ]
+
+        service_account_info = json.loads(os.getenv('GOOGLE_APPLICATION_CREDENTIALS_JSON', '{}'))
+        creds = ServiceAccountCredentials.from_json_keyfile_dict(service_account_info, scope)
+        client = gspread.authorize(creds)
+
         self.sheet = client.open("ASTUSbotTGG_Database").sheet1
 
     @commands.command(aliases=["tgg", "thomas", "ginny"])
