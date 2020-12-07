@@ -78,7 +78,7 @@ class CogPotTresConfine(commands.Cog):
         nb_users = len(member_ids)
 
         # Create the right number of lobbies
-        for i in range(int((nb_users / max_by_channel)) + 1):
+        for i in range(int((nb_users / max_by_channel))):
             await ctx.guild.create_voice_channel(f"lobby-{i + 1}", category=category)
 
         voice_channels = category.voice_channels
