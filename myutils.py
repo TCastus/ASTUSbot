@@ -65,6 +65,9 @@ class MyUtils:
     def getFuturAstusRole(self):
         return discord.utils.get(self.guild.roles, name="Futur ASTUS ?")
 
+    def getOrgaSoireeRole(self):
+        return discord.utils.get(self.guild.roles, name="Orga soirée")
+
     def getG4TxtChannel(self):
         return discord.utils.get(self.guild.channels, id=726554977753104464)
 
@@ -80,6 +83,9 @@ class MyUtils:
     def getVendrediChillCategory(self):
         return discord.utils.get(self.guild.categories, name="🎉Vendredi Chill🎉")
 
+    def getPotTresConfineCategory(self):
+        return discord.utils.get(self.guild.categories, name="Pot Très Confiné")
+
     async def newAstus(self, members, *roles):
         for memberStr in members:
             memberID = memberStr[2:-1] if memberStr[2:-1][0] != "!" else memberStr[2:-1][1:]
@@ -89,3 +95,6 @@ class MyUtils:
 
     def G4check(self, ctx):
         return self.getG4Role() in ctx.message.author.roles
+
+    def OrgaSoireeCheck(self, ctx):
+        return self.getOrgaSoireeRole() in ctx.message.author.roles

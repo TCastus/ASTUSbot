@@ -4,17 +4,12 @@
 
 Bot discord pour la gestion du serveur de l'ASTUS  
 
- - Quelques comandes simple pour la gestion des rôles  
- - Commande d'aide avec des réponses rapide sur certains sujet qui sont aussi aborder dans [TChelp](https://github.com/TCastus/TChelp) 
+ - Quelques commandes simples pour la gestion des rôles  
+ - Commandes d'aide avec des réponses rapides sur certains sujets qui sont aussi abordés dans [TChelp](https://github.com/TCastus/TChelp) 
 
-## Docker run
+## Lancement via Docker
 
- - Cloner le projet  
- ``git clone https://github.com/TCastus/ASTUSbot``
- - Racine du projet  
- ``cd ASTUSbot``
- - Docker build  
- ``docker build --tag astusbot .``
+ - Cloner le projet ``git clone https://github.com/TCastus/ASTUSbot && cd ASTUSbot``
+ - Construire l'image de l'image `docker build --tag astusbot .`
  - Changer les valeurs dans le fichier ``.env``
- - Docker run  
- ``docker run -itd --rm --env-file .env --name container_astusbot astusbot``
+ - Lancer l'image ``docker run -it --rm --env-file .env -v $PWD:/bot --name container_astusbot astusbot``
