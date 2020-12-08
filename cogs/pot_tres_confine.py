@@ -79,6 +79,7 @@ class CogPotTresConfine(commands.Cog):
 
         # Create the right number of lobbies
         for i in range(int((nb_users / max_by_channel)) + 1):
+            await ctx.guild.create_text_channel(f"lobby-{i + 1}", category=category)
             await ctx.guild.create_voice_channel(f"lobby-{i + 1}", category=category)
 
         voice_channels = category.voice_channels
@@ -100,7 +101,9 @@ class CogPotTresConfine(commands.Cog):
         category = MyUtils(ctx.guild).getPotTresConfineCategory()
         general_channel_id = discord.utils.get(category.voice_channels, name="General").id
         voice_channel = category.voice_channels
+        text_channel = category.text_channels
         voice_channel.pop(0)
+        text_channel.pop(0)
 
         for i in range(len(voice_channel)):
             members = voice_channel[i].voice_states
@@ -108,6 +111,7 @@ class CogPotTresConfine(commands.Cog):
                 member = await ctx.guild.fetch_member(member_id)
                 await member.move_to(self.bot.get_channel(general_channel_id))
             await voice_channel[i].delete()
+            await text_channel[i].delete()
 
     @commands.command()
     @has_orga_soiree_role()
