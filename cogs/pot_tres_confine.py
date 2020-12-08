@@ -101,8 +101,8 @@ class CogPotTresConfine(commands.Cog):
         category = MyUtils(ctx.guild).getPotTresConfineCategory()
         general_channel_id = discord.utils.get(category.voice_channels, name="General").id
         voice_channel = category.voice_channels
-        voice_channel.pop(0)
         text_channel = category.text_channels
+        voice_channel.pop(0)
         text_channel.pop(0)
 
         for i in range(len(voice_channel)):
