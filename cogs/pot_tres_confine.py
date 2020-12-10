@@ -9,6 +9,7 @@ from random import shuffle
 import discord
 from discord.ext import commands
 from myutils import MyUtils
+import math
 
 
 def setup(bot: commands.bot.Bot):
@@ -78,7 +79,7 @@ class CogPotTresConfine(commands.Cog):
         nb_users = len(member_ids)
 
         # Create the right number of lobbies
-        for i in range(int((nb_users / max_by_channel))):
+        for i in range(math.ceil(nb_users / max_by_channel)):
             await ctx.guild.create_text_channel(f"lobby-{i + 1}", category=category)
             await ctx.guild.create_voice_channel(f"lobby-{i + 1}", category=category)
 
