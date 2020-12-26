@@ -43,6 +43,28 @@ helpEmbed.add_field(name=PREFIX + "soa_lookup [Domain]",
                     value="Donne les champs SOA d'un domain",
                     inline=False)
 
+helpEmbed.add_field(name=PREFIX + "meme ``alias : memes``",
+                    value="Affiche un meme de la page TC Memes Officiel",
+                    inline=False)
+
+helpEmbed.add_field(name=PREFIX + "calendar [<annee>TC<grp>] [+/-offset]``alias : cal, calendrier``",
+                    value="Affiche le calendrier du groupe indiqué. L'offset permet d'affihcer le calendrier de la "
+                          "semaine suivante ou précedante.",
+                    inline=False)
+
+helpEmbed.add_field(name=PREFIX + "tomorrow [<annee>TC<grp>] [+/-offset] ``alias : dem, tom, demain``",
+                    value="Affiche l'emploi du temps du lendemain du groupe indiqué. "
+                          "L'offset permet d'affihcer le calendrier de la "
+                          "semaine suivante ou précedante.",
+                    inline=False)
+
+helpEmbed.add_field(name=PREFIX + "today [<annee>TC<grp>] [+/-offset]``alias : Today, aujourd'hui, auj, tod``",
+                    value="Affiche l'emploi du temps du jour du groupe indiqué. "
+                          "L'offset permet d'affihcer le calendrier de la "
+                          "semaine suivante ou précedante.",
+                    inline=False)
+
+
 ###############
 # G4 Help     #
 ###############
@@ -392,15 +414,16 @@ terminalEmbed.add_field(name="Tuto",
                               "https://tcastus.github.io/TChelp/Travailler_a_distance/1-Terminal.html)",
                         inline=False
                         )
-
-# Calendar embed
+##################
+# Calendar embed #
+##################
 helpCalendar = discord.Embed(title="Calendar 📅",
                              color=0xd68910,
                              description="",
                              )
 
-helpCalendar.add_field(name=f"command `{PREFIX}cal <year>TC<grp> +/-offset(optional)",
-                       value=f"affiche l'emploi du temps de la semaine. pour utiliser ecrivez {PREFIX}cal suivi du"
+helpCalendar.add_field(name=f"{PREFIX}cal <year>TC<grp> +/-offset(optional) `alias : cal, calendrier`",
+                       value=f"affiche l'emploi du temps de la semaine. Pour utiliser ecrivez {PREFIX}cal suivi du"
                              f"l'annee puis TC puis le groupe"
                              f"par exemple `{PREFIX}cal 4TC2`"
                              f"optionel vous pouver ajouter +<num> a la fin pour avoir le calendier de la néme semaine"
@@ -408,15 +431,19 @@ helpCalendar.add_field(name=f"command `{PREFIX}cal <year>TC<grp> +/-offset(optio
                        inline=False
                        )
 
-helpCalendar.add_field(name="command",
-                       value=f"pour avoir votre emploi du temps de demain, vous pouvez utilise la cmd demain ,"
-                             f"dem tomorrow , tom "
-                             f"puis suivi de du nom de votre groupe"
-                             f"example `{PREFIX}tomorrow 4TC2`",
+helpCalendar.add_field(name=f"command `{PREFIX}tom <year>TC<grp> +/-offset(optional) ``alias : dem, tom, demain``",
+                       value=f"affiche l'emploi du temps du lendemain. L'utilisation est identique a la commande cal",
                        inline=False
                        )
 
-# Calendar embed
+helpCalendar.add_field(name=f"command `{PREFIX}tod <year>TC<grp> +/-offset(optional) "
+                            f"``alias : Today, aujourd'hui, auj, today``",
+                       value=f"affiche l'emploi du temps du jour. L'utilisation est identique a la commande cal",
+                       inline=False
+                       )
+#############
+# TGG embed #
+#############
 helpTgg = discord.Embed(title="Ginny 💡",
                         color=0xd68910,
                         description="",
