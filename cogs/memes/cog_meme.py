@@ -16,6 +16,8 @@ class CogMeme(commands.Cog):
 
     @commands.command(aliases=["memes"])
     async def meme(self, ctx):
+        await self.bot.change_presence(activity=discord.Activity(name="🤣 Des memes rigolot",
+                                                                 type=discord.ActivityType.watching))
         randomPost = random.choice(self.db)
         try:
             msg = randomPost["message"]
