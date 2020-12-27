@@ -1,0 +1,1 @@
+from .cog_meme import CogMeme
