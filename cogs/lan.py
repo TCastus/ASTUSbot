@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from myutils import MyUtils
+import asyncio
 
 
 def setup(bot):
@@ -38,20 +39,26 @@ class Lan(commands.Cog):
                 await ctx.guild.create_voice_channel(f"lobby-{i + 1}", category=viewers)
 
             # Cetegorie pour les joueurs
-            # LoL
-            await Category(ctx, "League of Legends", teams=True)
+            group = await asyncio.gather(
+                    # LoL
+                    Category(ctx, "League of Legends", teams=True),
 
-            # Rocket League
-            await Category(ctx, "Rocket League", teams=True)
+                    # Rocket League
+                    Category(ctx, "Rocket League", teams=True),
 
-            # CSGO
-            await Category(ctx, "CS:GO", teams=True)
+                    # CSGO
+                    Category(ctx, "CS:GO", teams=True),
 
-            # Minecraft
-            await Category(ctx, "Minecraft")
+                    # Minecraft
+                    Category(ctx, "Minecraft"),
 
-            # AoE2
-            await Category(ctx, "AOE2")
+                    # AoE2
+                    Category(ctx, "AOE2")
+                )
+
+            loop = asyncio.get_event_loop()
+            loop.run_until_complete(group)
+            loop.close()
 
         else:
             raise discord.ext.commands.CheckFailure
@@ -59,21 +66,20 @@ class Lan(commands.Cog):
     @commands.command()
     async def stopLan(self, ctx):
         utils = MyUtils(ctx.guild)
+
+        async def deleteCategory(cat):
+            for channels in cat.channels:
+                await channels.delete()
+            await cat.delete()
+
         if MyUtils(ctx.guild).G4check(ctx):
             await self.bot.change_presence(activity=discord.Game(name="Désinstalle la LAN"))
-            categories = [
-                          utils.getLanOneCategory("Orga LAN"),
-                          utils.getLanOneCategory("Viewers"),
-                          utils.getLanOneCategory("League of Legends"),
-                          utils.getLanOneCategory("Rocket League"),
-                          utils.getLanOneCategory("CS:GO"),
-                          utils.getLanOneCategory("Minecraft"),
-                          utils.getLanOneCategory("AOE2"),
+            games = ["Orga LAN", "Viewers", "League of Legends", "Rocket League", "CS:GO", "Minecraft", "AOE2"]
+            categories = [utils.getLanOneCategory(name) for name in games]
+            group = asyncio.gather(*[deleteCategory(category)for category in categories])
+            loop = asyncio.get_event_loop()
+            loop.run_until_complete(group)
+            loop.close()
 
-                          ]
-            for category in categories:
-                for channels in category.channels:
-                    await channels.delete()
-                await category.delete()
         else:
             raise discord.ext.commands.CheckFailure

@@ -64,7 +64,6 @@ helpEmbed.add_field(name=PREFIX + "today [<annee>TC<grp>] [+/-offset]``alias : T
                           "semaine suivante ou précedante.",
                     inline=False)
 
-
 ###############
 # G4 Help     #
 ###############
@@ -122,26 +121,25 @@ helpVendrediChill.add_field(name=PREFIX + "shufle [number per channel]",
                             inline=False
                             )
 
-#######################
-# Help Vendredi chill #
-#######################
+#############
+# Help LAN  #
+#############
 
 helpLan = discord.Embed(title="LAN",
-                                  color=0xEE8700,
-                                  description="Ce groupe de commande te permet de afficher / cacher des catégories "
-                                              "pour un LAN",
-                                  )
+                        color=0xEE8700,
+                        description="Ce groupe de commande te permet de afficher / cacher des catégories "
+                                    "pour un LAN",
+                        )
 
 helpLan.add_field(name=PREFIX + "startLan",
-                            value="Cette commande te permet d'afficher les categorie pour la LAN.",
-                            inline=False
-                            )
+                  value="Cette commande te permet d'afficher les categorie pour la LAN.",
+                  inline=False
+                  )
 
 helpLan.add_field(name=PREFIX + "stopLan",
-                            value="Cette commande te permet de cacher les categories de la LAN.",
-                            inline=False
-                            )
-
+                  value="Cette commande te permet de cacher les categories de la LAN.",
+                  inline=False
+                  )
 
 ##########################
 # Help passation command #
