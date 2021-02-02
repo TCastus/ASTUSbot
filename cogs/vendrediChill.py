@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 from myutils import MyUtils
 import random
-import asyncio
 
 
 def setup(bot):
