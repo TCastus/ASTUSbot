@@ -8,7 +8,9 @@ from myutils import MyUtils
 TOKEN = os.getenv("BOT_TOKEN")
 PREFIX = "&"
 
-bot = commands.Bot(command_prefix=PREFIX, description="Bot de l'ASTUS")
+intents = discord.Intents.all()
+
+bot = commands.Bot(command_prefix=PREFIX, description="Bot de l'ASTUS", guild_subscriptions=True, intents=intents)
 
 
 @bot.event
