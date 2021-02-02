@@ -8,6 +8,15 @@ def setup(bot):
     bot.add_cog(Lan(bot))
 
 
+async def Category(ctx, name, teams=False):
+    gameCategory = await ctx.guild.create_category(name)
+    await ctx.guild.create_text_channel(f"General", category=gameCategory)
+    await ctx.guild.create_voice_channel(f"General", category=gameCategory)
+    if teams:
+        for i in range(6):
+            await ctx.guild.create_voice_channel(f"Equipe-{i + 1}", category=gameCategory)
+
+
 class Lan(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -30,35 +39,19 @@ class Lan(commands.Cog):
 
             # Cetegorie pour les joueurs
             # LoL
-            lol = await ctx.guild.create_category("League of Legends")
-            await ctx.guild.create_text_channel(f"General", category=lol)
-            await ctx.guild.create_voice_channel(f"General", category=lol)
-            for i in range(6):
-                await ctx.guild.create_voice_channel(f"Equipe-{i + 1}", category=lol)
+            await Category(ctx, "League of Legends", teams=True)
 
             # Rocket League
-            rl = await ctx.guild.create_category("Rocket League")
-            await ctx.guild.create_text_channel(f"General", category=rl)
-            await ctx.guild.create_voice_channel(f"General", category=rl)
-            for i in range(6):
-                await ctx.guild.create_voice_channel(f"Equipe-{i + 1}", category=rl)
+            await Category(ctx, "Rocket League", teams=True)
 
             # CSGO
-            csgo = await ctx.guild.create_category("CS:GO")
-            await ctx.guild.create_text_channel(f"General", category=csgo)
-            await ctx.guild.create_voice_channel(f"General", category=csgo)
-            for i in range(6):
-                await ctx.guild.create_voice_channel(f"Equipe-{i + 1}", category=csgo)
+            await Category(ctx, "CS:GO", teams=True)
 
             # Minecraft
-            minecraft = await ctx.guild.create_category("Minecraft")
-            await ctx.guild.create_text_channel(f"General", category=minecraft)
-            await ctx.guild.create_voice_channel(f"General", category=minecraft)
+            await Category(ctx, "Minecraft")
 
             # AoE2
-            aoe2 = await ctx.guild.create_category("AOE2")
-            await ctx.guild.create_text_channel(f"General", category=aoe2)
-            await ctx.guild.create_voice_channel(f"General", category=aoe2)
+            await Category(ctx, "AOE2")
 
         else:
             raise discord.ext.commands.CheckFailure
@@ -69,13 +62,14 @@ class Lan(commands.Cog):
         if MyUtils(ctx.guild).G4check(ctx):
             await self.bot.change_presence(activity=discord.Game(name="Désinstalle la LAN"))
             categories = [
-                          utils.getLanOrgaCategory(),
-                          utils.getViewersCategory(),
-                          utils.getLOLCategory(),
-                          utils.getRlCategory(),
-                          utils.getCsgoCategory(),
-                          utils.getMinecraftCategory(),
-                          utils.getAoE2Category()
+                          utils.getLanOneCategory("Orga LAN"),
+                          utils.getLanOneCategory("Viewers"),
+                          utils.getLanOneCategory("League of Legends"),
+                          utils.getLanOneCategory("Rocket League"),
+                          utils.getLanOneCategory("CS:GO"),
+                          utils.getLanOneCategory("Minecraft"),
+                          utils.getLanOneCategory("AOE2"),
+
                           ]
             for category in categories:
                 for channels in category.channels:

@@ -122,6 +122,27 @@ helpVendrediChill.add_field(name=PREFIX + "shufle [number per channel]",
                             inline=False
                             )
 
+#######################
+# Help Vendredi chill #
+#######################
+
+helpLan = discord.Embed(title="LAN",
+                                  color=0xEE8700,
+                                  description="Ce groupe de commande te permet de afficher / cacher des catégories "
+                                              "pour un LAN",
+                                  )
+
+helpLan.add_field(name=PREFIX + "startLan",
+                            value="Cette commande te permet d'afficher les categorie pour la LAN.",
+                            inline=False
+                            )
+
+helpLan.add_field(name=PREFIX + "stopLan",
+                            value="Cette commande te permet de cacher les categories de la LAN.",
+                            inline=False
+                            )
+
+
 ##########################
 # Help passation command #
 ##########################

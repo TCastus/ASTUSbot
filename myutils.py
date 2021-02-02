@@ -86,26 +86,8 @@ class MyUtils:
     def getPotTresConfineCategory(self):
         return discord.utils.get(self.guild.categories, name="Pot Très Confiné")
 
-    def getLanOrgaCategory(self):
-        return discord.utils.get(self.guild.categories, name="Orga LAN")
-
-    def getViewersCategory(self):
-        return discord.utils.get(self.guild.categories, name="Viewers")
-
-    def getLOLCategory(self):
-        return discord.utils.get(self.guild.categories, name="League of Legends")
-
-    def getRlCategory(self):
-        return discord.utils.get(self.guild.categories, name="Rocket League")
-
-    def getCsgoCategory(self):
-        return discord.utils.get(self.guild.categories, name="CS:GO")
-
-    def getMinecraftCategory(self):
-        return discord.utils.get(self.guild.categories, name="Minecraft")
-
-    def getAoE2Category(self):
-        return discord.utils.get(self.guild.categories, name="AOE2")
+    def getLanOneCategory(self, name):
+        return discord.utils.get(self.guild.categories, name=name)
 
     async def newAstus(self, members, *roles):
         for memberStr in members:
