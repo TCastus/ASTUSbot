@@ -75,16 +75,19 @@ class MyUtils:
         return discord.utils.get(self.guild.channels, id=726555448739758151)
 
     def getPassationTxtChannel(self):
-        return discord.utils.get(self.guild.channels, id=726555017389277235)
+        return discord.utils.get(self.guild.channels, id=771105591941922841)
 
     def getPassationVocalChannel(self):
-        return discord.utils.get(self.guild.channels, id=726555473872027729)
+        return discord.utils.get(self.guild.channels, id=771104822564487168)
 
     def getVendrediChillCategory(self):
         return discord.utils.get(self.guild.categories, name="🎉Vendredi Chill🎉")
 
     def getPotTresConfineCategory(self):
         return discord.utils.get(self.guild.categories, name="Pot Très Confiné")
+
+    def getLanOneCategory(self, name):
+        return discord.utils.get(self.guild.categories, name=name)
 
     async def newAstus(self, members, *roles):
         for memberStr in members:
