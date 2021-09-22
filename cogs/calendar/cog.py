@@ -53,8 +53,9 @@ class CogCalendar(commands.Cog):
             response = ""
             Courses = getCourseByDate(promptDate=datetime.now().date(), calendarPath=ROOT_CALENDAR + f"/{year}TC{group}.ical")
             if not Courses:
-                await ctx.send("t'as pas de cours 😄")
+                await ctx.send("t'as pas de cours ajd 😄")
             else:
+                response = "Voila tes cours d'ajd : \n\n"
                 for course in Courses:
                     response += formatResponse(course) + "\n"
                 await ctx.send(response)
@@ -75,8 +76,9 @@ class CogCalendar(commands.Cog):
             response = ""
             Courses = getCourseByDate(tomorrow.date(), calendarPath=ROOT_CALENDAR + f"/{year}TC{group}.ical")
             if not Courses:
-                await ctx.send("t'as pas de cours 😄")
+                await ctx.send("t'as pas de cours demain😄")
             else:
+                response = "Voila tes cours de demain : \n\n"
                 for course in Courses:
                     response += formatResponse(course) + "\n"
                 await ctx.send(response)
