@@ -210,6 +210,25 @@ helpSoa_lookup = discord.Embed(title=PREFIX + "soa_lookup [Domain]",
                                description="Donne les champs SOA d'un domain",
                                )
 
+##############
+# Help satge #
+##############
+
+helpStage = discord.Embed(title="Stage",
+                          color=0x759467,
+                          description="Un peu d'aide pour les stages",
+                          )
+
+helpStage.add_field(name=PREFIX + "stage `alias : livret `",
+                    value="Cette commande te donne le lien pour accéder au livret de stage",
+                    inline=False
+                    )
+
+helpStage.add_field(name=PREFIX + "offre `alias : travail, work `",
+                    value="Cette commande te donne le lien pour accéder aux offres de stage publiées par le depart",
+                    inline=False
+                    )
+
 ###############
 # Help SSH    #
 ###############
