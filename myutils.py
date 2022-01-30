@@ -48,10 +48,10 @@ class MyUtils:
         return discord.utils.get(self.guild.roles, name="Resp Team Entreprise")
 
     def getRespSiteRole(self):
-        return discord.utils.get(self.guild.roles, name="Resp Site International")
+        return discord.utils.get(self.guild.roles, name="Resp SI")
 
     def getAncienRespSiteRole(self):
-        return discord.utils.get(self.guild.roles, name="Ancien Resp Site International")
+        return discord.utils.get(self.guild.roles, name="Ancien Resp SI")
 
     def getRespCommRole(self):
         return discord.utils.get(self.guild.roles, name="Resp Comm")
@@ -101,3 +101,8 @@ class MyUtils:
 
     def OrgaSoireeCheck(self, ctx):
         return self.getOrgaSoireeRole() in ctx.message.author.roles
+
+    async def setAdminRole(self, memberStr):
+        memberID = memberStr[2:-1] if memberStr[2:-1][0] != "!" else memberStr[2:-1][1:]
+        member = self.guild.get_member(user_id=int(memberID))
+        await member.add_roles(self.getAdminRole())

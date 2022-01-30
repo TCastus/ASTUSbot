@@ -282,5 +282,7 @@ if __name__ == '__main__':
     bot.load_extension("cogs.bastos")
     bot.load_extension("cogs.memes.cog_meme")
     bot.load_extension("cogs.lan")
+    bot.load_extension("cogs.stage")
+    bot.load_extension("cogs.admin")
 
     bot.run(TOKEN)
