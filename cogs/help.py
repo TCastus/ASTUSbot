@@ -86,6 +86,8 @@ class CogHelp(commands.Cog):
                 await ctx.send(embed=embed.helpStarling)
             elif subject == "gns3":
                 await ctx.send(embed=embed.helpGNS3)
+            elif subject in ["stage", "offre", "travail", "work", "livret"]:
+                await ctx.send(embed=embed.helpStage)
 
             else:
                 await ctx.send("Désolé, je ne sais pas te donner de l'aide sur ce sujet... \n "
