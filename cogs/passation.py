@@ -132,14 +132,14 @@ class CogPassation(commands.Cog):
                                                           MyUtils(ctx.guild).getASTUSRole(),
                                                           MyUtils(ctx.guild).getRespTeamEntrepriseRole(),
                                                           MyUtils(ctx.guild).getTeamEntrepriseRole())
-                        await ctx.send("Qui est le resp site international ?")
+                        await ctx.send("Qui est le resp SI ?")
                         self.passationStatus += 1
 
                 if self.passationStatus == 6:
                     newRespSite = await self.bot.wait_for("message", check=checkMessage)
                     members = newRespSite.content.split(" ")
                     if len(members) != 1:
-                        await ctx.send("Il n'y a qu'un responsable du site")
+                        await ctx.send("Il n'y a qu'un responsable SI")
                     else:
                         await MyUtils(ctx.guild).newAstus(members,
                                                           MyUtils(ctx.guild).getASTUSRole(),
@@ -164,7 +164,7 @@ class CogPassation(commands.Cog):
                     if end.content == "end":
                         self.passationStatus = 0
                         await ctx.send("Passation finie !")
-                        await MyUtils(ctx.guild).getG4TxtChannel().send("@here vous devez : \n"
+                        await MyUtils(ctx.guild).getG4TxtChannel().send("@G4 vous devez : \n"
                                                                         "- Mettre  jour le portail VA \n"
                                                                         "- Prendre RDV à la banque \n"
                                                                         "- Changer les membres de l'asso sur le portail"
@@ -172,7 +172,8 @@ class CogPassation(commands.Cog):
                                                                         "- demander les MDP a l'ancien bureau")
                     else:
                         await ctx.send("Tu dois taper ``end`` pour finir la passation")
-            except Exception:
+            except Exception as e:
+                print(e)
                 await ctx.send("Une erreur est survenue...")
 
         await ctx.send("Content d'avoir été à tes côtés pendant ton mandat :wink:")
