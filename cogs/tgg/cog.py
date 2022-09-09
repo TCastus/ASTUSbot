@@ -7,9 +7,9 @@ import os
 import json
 
 
-def setup(bot):
+async def setup(bot):
     print("TGG load")
-    bot.add_cog(CogTGG(bot))
+    await bot.add_cog(CogTGG(bot))
 
 
 class CogTGG(commands.Cog):
@@ -37,7 +37,7 @@ class CogTGG(commands.Cog):
                               description="",
                               )
         Embed.set_image(url=randomPhoto)
-        Embed.set_author(name="Thommas Georges Georges",
+        Embed.set_author(name="Thomas Georges Georges",
                          url="https://www.facebook.com/thomas.georges292",
                          icon_url="https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/118765992_2628383697424846_1304447"
                                   "826277117113_n.jpg?_nc_cat=106&ccb=2&_nc_sid=09cbfe&_nc_ohc=paR3XPGAbkAAX8z428c&_nc"

@@ -4,9 +4,9 @@ from myutils import MyUtils
 import random
 
 
-def setup(bot):
+async def setup(bot):
     print("Vendredi Chill load")
-    bot.add_cog(CogVendrediChill(bot))
+    await bot.add_cog(CogVendrediChill(bot))
 
 
 class CogVendrediChill(commands.Cog):

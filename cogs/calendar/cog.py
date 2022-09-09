@@ -10,9 +10,9 @@ from datetime import datetime, timedelta
 ROOT_CALENDAR = 'cogs/calendar/Assets'
 
 
-def setup(bot):
+async def setup(bot):
     print("Help command load")
-    bot.add_cog(CogCalendar(bot))
+    await bot.add_cog(CogCalendar(bot))
 
 
 class CogCalendar(commands.Cog):

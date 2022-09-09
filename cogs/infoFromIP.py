@@ -5,9 +5,9 @@ import ipaddress
 import os
 
 
-def setup(bot):
+async def setup(bot):
     print("Ip info load")
-    bot.add_cog(CogIpInfo(bot))
+    await bot.add_cog(CogIpInfo(bot))
 
 
 def valid_ip(address):

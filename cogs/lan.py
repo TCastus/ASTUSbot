@@ -4,9 +4,9 @@ from myutils import MyUtils
 import asyncio
 
 
-def setup(bot):
+async def setup(bot):
     print("LAN TC load")
-    bot.add_cog(Lan(bot))
+    await bot.add_cog(Lan(bot))
 
 
 async def Category(ctx, name, teams=False):

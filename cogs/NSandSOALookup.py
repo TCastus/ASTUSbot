@@ -3,9 +3,9 @@ from discord.ext import commands
 import nslookup
 
 
-def setup(bot):
+async def setup(bot):
     print("Lookup load")
-    bot.add_cog(CogLookup(bot))
+    await bot.add_cog(CogLookup(bot))
 
 
 class CogLookup(commands.Cog):

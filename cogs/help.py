@@ -4,9 +4,9 @@ from myutils import MyUtils
 import embed
 
 
-def setup(bot):
+async def setup(bot):
     print("Help command load")
-    bot.add_cog(CogHelp(bot))
+    await bot.add_cog(CogHelp(bot))
 
 
 async def HelpCommand(ctx, embedMessage):
