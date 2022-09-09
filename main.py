@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import os
 import cogs
+import asyncio
 
 from myutils import MyUtils
 
@@ -229,7 +230,7 @@ async def on_member_update(before, after):
 async def load(ctx, name=None):
     if name and MyUtils(ctx.guild).getAdminRole() in ctx.message.author.roles:
         try:
-            bot.load_extension(name)
+            await bot.load_extension(name)
             await ctx.send(name + "load")
         except:
             await ctx.send(name + " has has already up")
@@ -241,7 +242,7 @@ async def load(ctx, name=None):
 async def unload(ctx, name=None):
     if name and MyUtils(ctx.guild).getAdminRole() in ctx.message.author.roles:
         try:
-            bot.unload_extension(name)
+            await bot.unload_extension(name)
             await ctx.send(name + " unload")
         except:
             await ctx.send(name + " has has already down")
@@ -253,36 +254,40 @@ async def unload(ctx, name=None):
 async def reload(ctx, name=None):
     if name and MyUtils(ctx.guild).getAdminRole() in ctx.message.author.roles:
         try:
-            bot.reload_extension(name)
+            await bot.reload_extension(name)
             await ctx.send(name + " reload")
         except:
-            bot.load_extension(name)
+            await bot.load_extension(name)
             await ctx.send(name + " load")
     else:
         raise discord.ext.commands.CheckFailure
 
-
-if __name__ == '__main__':
+async def botSetup(bot):
     # Remove default help command
     bot.remove_command("help")
 
     # cogs
-    bot.add_cog(cogs.CogPassation(bot, PREFIX))
-    bot.load_extension("cogs.newyear")
-    bot.load_extension("cogs.help")
-    bot.load_extension("cogs.videoDiplomes")
-    bot.load_extension("cogs.invitation")
-    bot.load_extension("cogs.infoFromIP")
-    bot.load_extension("cogs.NSandSOALookup")
-    bot.load_extension("cogs.international")
-    bot.load_extension("cogs.vendrediChill")
-    bot.load_extension("cogs.calendar.cog")
-    bot.load_extension("cogs.pot_tres_confine")
-    bot.load_extension("cogs.tgg.cog")
-    bot.load_extension("cogs.bastos")
-    bot.load_extension("cogs.memes.cog_meme")
-    bot.load_extension("cogs.lan")
-    bot.load_extension("cogs.stage")
-    bot.load_extension("cogs.admin")
+    await bot.add_cog(cogs.CogPassation(bot, PREFIX))
+    await bot.load_extension("cogs.newyear")
+    await bot.load_extension("cogs.help")
+    await bot.load_extension("cogs.videoDiplomes")
+    await bot.load_extension("cogs.invitation")
+    await bot.load_extension("cogs.infoFromIP")
+    await bot.load_extension("cogs.NSandSOALookup")
+    await bot.load_extension("cogs.international")
+    await bot.load_extension("cogs.vendrediChill")
+    await bot.load_extension("cogs.calendar.cog")
+    await bot.load_extension("cogs.pot_tres_confine")
+    await bot.load_extension("cogs.tgg.cog")
+    await bot.load_extension("cogs.bastos")
+    await bot.load_extension("cogs.memes.cog_meme")
+    await bot.load_extension("cogs.lan")
+    await bot.load_extension("cogs.stage")
+    await bot.load_extension("cogs.admin")
+
+
+if __name__ == '__main__':
+
+    asyncio.run(botSetup(bot))  
 
     bot.run(TOKEN)

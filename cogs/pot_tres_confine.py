@@ -12,13 +12,13 @@ from myutils import MyUtils
 import math
 
 
-def setup(bot: commands.bot.Bot):
+async def setup(bot: commands.bot.Bot):
     """
     Setup function for the Discord extension
     :param bot: Discord bot reference
     """
     print("Pot très confiné load")
-    bot.add_cog(CogPotTresConfine(bot))
+    await bot.add_cog(CogPotTresConfine(bot))
 
 
 class CogPotTresConfine(commands.Cog):

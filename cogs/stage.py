@@ -2,9 +2,9 @@ import discord
 from discord.ext import commands
 
 
-def setup(bot):
+async def setup(bot):
     print("Stage load")
-    bot.add_cog(CogStage(bot))
+    await bot.add_cog(CogStage(bot))
 
 
 class CogStage(commands.Cog):

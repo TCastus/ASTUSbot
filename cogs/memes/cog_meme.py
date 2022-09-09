@@ -4,9 +4,9 @@ import random
 import json
 
 
-def setup(bot):
+async def setup(bot):
     print("Memes load")
-    bot.add_cog(CogMeme(bot))
+    await bot.add_cog(CogMeme(bot))
 
 
 class CogMeme(commands.Cog):

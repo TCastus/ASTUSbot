@@ -2,9 +2,9 @@ import discord
 from discord.ext import commands
 
 
-def setup(bot):
+async def setup(bot):
     print("International load")
-    bot.add_cog(CogInternational(bot))
+    await bot.add_cog(CogInternational(bot))
 
 
 class CogInternational(commands.Cog):
